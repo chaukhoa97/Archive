@@ -1,4 +1,3 @@
-//! BẮT BUỘC tên function phải là PascalCase đễ không lẫn với built-in component của HTML
 //* Extension: Component nên dùng jsx, file thuần JavaSciprt thì nên dùng .js
 
 //* State Hooks - có tác dụng changning what we see on screen
