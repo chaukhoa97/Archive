@@ -1,4 +1,3 @@
-//* Props của ExpenseItem dc truyền từ App.js -> ExpenseItem.jsx -> ExpenseDate.jsx
 import './ExpenseDate.css';
 import Card from './Card';
 

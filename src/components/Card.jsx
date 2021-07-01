@@ -1,3 +1,4 @@
+//* Là wrapper, bao quanh các component để style
 import './Card.css';
 
 function Card(props) {
