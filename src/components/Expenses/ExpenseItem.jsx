@@ -1,7 +1,7 @@
 //? Container màu xám, chứa từng chi tiêu khác nhau. Mỗi item bao gồm date, description và tiền
 import ExpenseDate from './ExpenseDate';
 import './ExpenseItem.css';
-import Card from './Card';
+import Card from '../UI/Card';
 
 //! Hai <div> __description & __price KHÔNG nhận className "card" và "expense-item"
 //* Hai thằng lần lượt dc chúng ta pass vào className "ei__desciprtion" và "ei__price" để style

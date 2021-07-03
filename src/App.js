@@ -1,5 +1,5 @@
 //* Props của ExpenseItem dc truyền từ App.js -> Expenses.jsx -> ExpenseItem.jsx -> ExpenseDate.jsx
-import Expenses from './components/Expenses';
+import Expenses from './components/Expenses/Expenses';
 function App() {
   const expensesData = [
     {
