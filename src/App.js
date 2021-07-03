@@ -1,4 +1,4 @@
-//* Props của ExpenseItem dc truyền từ App.js -> ExpenseItem.jsx -> ExpenseDate.jsx
+//* Props của ExpenseItem dc truyền từ App.js -> Expenses.jsx -> ExpenseItem.jsx -> ExpenseDate.jsx
 import Expenses from './components/Expenses';
 function App() {
   const expensesData = [
@@ -27,7 +27,7 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  return <Expenses item={expensesData}></Expenses>;
+  return <Expenses items={expensesData}></Expenses>;
 }
 
 export default App;
