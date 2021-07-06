@@ -5,7 +5,7 @@ import Card from '../UI/Card';
 import { useState } from 'react';
 
 //! Hai <div> __description & __price KHÔNG nhận className "card" và "expense-item"
-//* Hai thằng lần lượt dc chúng ta pass vào className "e-i__desciprtion" và "e-i__price" để style
+// Hai thằng lần lượt dc chúng ta pass vào className "e-i__desciprtion" và "e-i__price" để style
 function ExpenseItem(props) {
   const [count, setCount] = useState(0); //* const [state, setState] = useState(intialState)
   function clickHandler() {
