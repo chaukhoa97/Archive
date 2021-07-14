@@ -1,5 +1,6 @@
 //* Props của ExpenseItem dc truyền từ App.js -> Expenses.jsx -> ExpenseItem.jsx -> ExpenseDate.jsx
 import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 function App() {
   const expensesData = [
     {
@@ -27,7 +28,20 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
-  return <Expenses items={expensesData}></Expenses>;
+
+  //! Tổng kết: Từ ExpenseForm.jsx truyền expenseData ở line 22 sang NewExpense.jsx.
+  //    Ở NewExpense.jsx thêm ID vào expenseData -> expenseDataWithID rồi truyền sang App.js
+  //    Ở App.js(here) console.log
+  const newExpenseHandler = (expenseDataWithID) => {
+    console.log(expenseDataWithID);
+  };
+
+  return (
+    <div>
+      <NewExpense onReceivingNewExpense={newExpenseHandler} />
+      <Expenses items={expensesData} />
+    </div>
+  );
 }
 
 export default App;
