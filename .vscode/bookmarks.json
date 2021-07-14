@@ -1,54 +1,59 @@
 {
-  "files": [
-    {
-      "path": "src/components/Card.jsx",
-      "bookmarks": [
-        {
-          "line": 8,
-          "column": 19,
-          "label": "Description về Composition"
-        },
-        {
-          "line": 9,
-          "column": 5,
-          "label": "Line 6 ExpenseItem.jsx"
-        }
-      ]
-    },
-    {
-      "path": "src/components/Expenses.jsx",
-      "bookmarks": [
-        {
-          "line": 5,
-          "column": 9,
-          "label": "Ví dụ minh họa về Description"
-        }
-      ]
-    },
-    {
-      "path": "src/components/ExpenseItem.jsx",
-      "bookmarks": [
-        {
-          "line": 6,
-          "column": 8,
-          "label": "Children Styling trong Composition"
-        },
-        {
-          "line": 20,
-          "column": 3,
-          "label": "Chaining props from component to component"
-        }
-      ]
-    },
-    {
-      "path": "src/App.js",
-      "bookmarks": [
-        {
-          "line": 31,
-          "column": 4,
-          "label": "Lifting State up"
-        }
-      ]
-    }
-  ]
+	"files": [
+		{
+			"path": "src/components/Card.jsx",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 19,
+					"label": "Description về Composition"
+				},
+				{
+					"line": 9,
+					"column": 5,
+					"label": "Line 6 ExpenseItem.jsx"
+				}
+			]
+		},
+		{
+			"path": "src/components/Expenses.jsx",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 9,
+					"label": "Ví dụ minh họa về Description"
+				}
+			]
+		},
+		{
+			"path": "src/components/ExpenseItem.jsx",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 8,
+					"label": "Children Styling trong Composition"
+				},
+				{
+					"line": 20,
+					"column": 3,
+					"label": "Chaining props from component to component"
+				}
+			]
+		},
+		{
+			"path": "src/App.js",
+			"bookmarks": [
+				{
+					"line": 0,
+					"column": 0,
+					"label": "Truyền data xuống bằng props"
+				},
+				{
+					"line": 31,
+					"column": 4,
+					"label": "Truyền data lên (Lifiting State up)"
+				}
+			]
+		}
+	]
 }
