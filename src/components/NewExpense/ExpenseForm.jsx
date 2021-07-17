@@ -27,7 +27,7 @@ const ExpenseForm = (props) => {
 
     //! props.onReceivingExpenseForm === Hàm expenseFormHandler ở line 4 NewExpense.jsx
     // -> expenseFormHandler(expenseData): Call hàm expenseFormHandler với argument là expenseData ở line 22
-    // Tương đương với onChange ở line 46, chỉ khác vì ở đây là Custom Component nên phải call manually
+    // Tương đương với onChange ở line 47, chỉ khác vì ở đây là Custom Component nên phải call manually
     props.onReceivingExpenseForm(expenseData);
 
     // Xóa input khi người dùng submit xong
