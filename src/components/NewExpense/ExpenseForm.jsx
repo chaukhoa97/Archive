@@ -6,7 +6,7 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
-  //! Khi listen to event sẽ có một object - console.log(event) để thấy object đó
+  //! Khi listen to event sẽ có một event object - console.log(event) để thấy object đó
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };

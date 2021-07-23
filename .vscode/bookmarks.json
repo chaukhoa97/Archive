@@ -49,9 +49,29 @@
 					"label": "Truyền data xuống bằng props"
 				},
 				{
-					"line": 31,
+					"line": 32,
 					"column": 4,
 					"label": "Truyền data lên (Lifiting State up)"
+				}
+			]
+		},
+		{
+			"path": "src/components/Expenses/ExpenseFilter.jsx",
+			"bookmarks": [
+				{
+					"line": 11,
+					"column": 9,
+					"label": "select không có attribute \"value\""
+				}
+			]
+		},
+		{
+			"path": "src/components/NewExpense/ExpenseForm.jsx",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 5,
+					"label": "event.target.value"
 				}
 			]
 		}

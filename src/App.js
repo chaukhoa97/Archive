@@ -1,4 +1,5 @@
-//! Truyền data xuống bằng props: App.js(từ expenseData ở dưới) -> Expenses.jsx -> ExpenseItem.jsx -> ExpenseDate.jsx
+//! Truyền data xuống bằng props:
+//! App.js(từ expenseData ở line 5) -> Expenses.jsx (line 43) -> ExpenseItem.jsx -> ExpenseDate.jsx
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 function App() {
@@ -32,7 +33,7 @@ function App() {
   //! Truyền data lên bằng onSomething:
   //    1. Từ ExpenseForm.jsx truyền expenseData (line 22) sang NewExpense.jsx
   //    2. Ở NewExpense.jsx thêm ID vào expenseData -> expenseDataWithID rồi truyền sang App.js
-  //    3. Ở App.js(here) console.log
+  //    3. Ở App.js(here) console.log:
   const newExpenseHandler = (expenseDataWithID) => {
     console.log(expenseDataWithID);
   };
