@@ -5,3 +5,8 @@
   width: 50rem;
   max-width: 95%;
 }
+
+.expenses-label {
+  color: #fff;
+  text-align: center;
+}

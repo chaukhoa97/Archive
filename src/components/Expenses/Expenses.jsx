@@ -11,39 +11,25 @@ function Expenses(props) {
     setFilteredYear(selectedYear);
   };
 
-  //! <Card> sẽ render đám <ExpenseItem>(props.children) trong một <div>
+  //! <Card> sẽ render đám jsx bên trong nó(props.children) trong một <div>
   //! Ở đây className "expenses" KHÔNG styling cho Card, mà cho cái <div> ở trên
   //*   <div> này ngoài card styling ra (bao gồm border-radius và box-shadow),
   //*   thì còn có thêm props.className - ở đây là "expenses", ở trong Expenses.css
   //! Đám <ExpenseItem> KHÔNG nhận className "card" và "expense-item" (chỉ có <div> chính nhận dc)
-
   return (
     <Card className="expenses">
+      <h2 className="expenses-label">Expenses.jsx</h2>
       <ExpenseFilter
         selected={filteredYear}
         onDropdownChange={yearFilterHandler}
       />
-
-      <ExpenseItem
-        title={props.items[0].title}
-        amount={props.items[0].amount}
-        date={props.items[0].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.items[1].title}
-        amount={props.items[1].amount}
-        date={props.items[1].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.items[2].title}
-        amount={props.items[2].amount}
-        date={props.items[2].date}
-      ></ExpenseItem>
-      <ExpenseItem
-        title={props.items[3].title}
-        amount={props.items[3].amount}
-        date={props.items[3].date}
-      ></ExpenseItem>
+      {props.items.map((expense) => (
+        <ExpenseItem
+          title={expense.title}
+          amount={expense.amount}
+          date={expense.date}
+        ></ExpenseItem>
+      ))}
     </Card>
   );
 }

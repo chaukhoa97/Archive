@@ -8,6 +8,7 @@ const NewExpense = (props) => {
 
   return (
     <div className="new-expense">
+      <h2>NewExpense.jsx</h2>
       <ExpenseForm onReceivingExpenseForm={expenseFormHandler}></ExpenseForm>
     </div>
   );
