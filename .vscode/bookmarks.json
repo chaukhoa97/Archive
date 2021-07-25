@@ -49,9 +49,14 @@
 					"label": "Truyền data xuống bằng props"
 				},
 				{
-					"line": 32,
+					"line": 18,
 					"column": 4,
 					"label": "Truyền data lên (Lifiting State up)"
+				},
+				{
+					"line": 22,
+					"column": 13,
+					"label": ""
 				}
 			]
 		},

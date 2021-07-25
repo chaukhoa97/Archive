@@ -19,10 +19,14 @@ function Expenses(props) {
   return (
     <Card className="expenses">
       <h2 className="expenses-label">Expenses.jsx</h2>
+
+      {/* Filter */}
       <ExpenseFilter
         selected={filteredYear}
         onDropdownChange={yearFilterHandler}
       />
+
+      {/* Expense Items */}
       {props.items.map((expense) => (
         <ExpenseItem
           title={expense.title}
