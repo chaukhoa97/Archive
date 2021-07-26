@@ -44,18 +44,18 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 0,
-					"column": 0,
-					"label": "Truyền data xuống bằng props"
-				},
-				{
-					"line": 18,
-					"column": 4,
-					"label": "Truyền data lên (Lifiting State up)"
-				},
-				{
-					"line": 22,
+					"line": 26,
 					"column": 13,
+					"label": ""
+				},
+				{
+					"line": 5,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 3,
+					"column": 1,
 					"label": ""
 				}
 			]
