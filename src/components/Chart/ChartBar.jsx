@@ -12,7 +12,7 @@ const ChartBar = (props) => {
       <div className="chart-bar__inner">
         <div
           className="chart-bar__fill"
-          // Dấu {} bên ngoài -> expression; dấu {} bên trong -> style object in React
+          // Dấu {} bên ngoài -> expression; dấu {} bên trong -> STYLE object in React
           // Expression:  Let the JSX parser know that it needs to interpret the contents in between them as JavaScript instead of a string
           style={{ height: barFillHeight }}
         ></div>
