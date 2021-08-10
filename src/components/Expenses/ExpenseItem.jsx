@@ -19,8 +19,4 @@ function ExpenseItem(props) {
   );
 }
 
-//? props Là attribute của các React component: <ExpenseItem date = '1' title = '2'></ExpenseItem> -> props.date = 1; props.title = 2;
-// Bên Expenses.jsx: <ExpenseItem date = "..."> -> ExpenseItem.date
-//* Ở line 10: <ExpenseDate date = {props.date} /> ~~ ExpenseDate.date = ExpenseItem.date
-
 export default ExpenseItem;

@@ -1,61 +1,11 @@
 {
 	"files": [
 		{
-			"path": "src/components/Card.jsx",
-			"bookmarks": [
-				{
-					"line": 8,
-					"column": 19,
-					"label": "Description về Composition"
-				},
-				{
-					"line": 9,
-					"column": 5,
-					"label": "Line 6 ExpenseItem.jsx"
-				}
-			]
-		},
-		{
-			"path": "src/components/Expenses.jsx",
-			"bookmarks": [
-				{
-					"line": 5,
-					"column": 9,
-					"label": "Ví dụ minh họa về Description"
-				}
-			]
-		},
-		{
-			"path": "src/components/ExpenseItem.jsx",
-			"bookmarks": [
-				{
-					"line": 6,
-					"column": 8,
-					"label": "Children Styling trong Composition"
-				},
-				{
-					"line": 20,
-					"column": 3,
-					"label": "Chaining props from component to component"
-				}
-			]
-		},
-		{
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 26,
+					"line": 21,
 					"column": 13,
-					"label": ""
-				},
-				{
-					"line": 5,
-					"column": 1,
-					"label": ""
-				},
-				{
-					"line": 3,
-					"column": 1,
 					"label": ""
 				}
 			]

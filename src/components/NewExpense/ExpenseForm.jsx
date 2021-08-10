@@ -6,7 +6,7 @@ const ExpenseForm = (props) => {
   const [enteredAmount, setEnteredAmount] = useState('');
   const [enteredDate, setEnteredDate] = useState('');
 
-  //! Khi listen to event sẽ có một event object - console.log(event) để thấy object đó
+  //! Khi listen to event(onSomething) sẽ có một event object - console.log(event) để thấy object đó
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
@@ -25,7 +25,7 @@ const ExpenseForm = (props) => {
       date: new Date(enteredDate),
     };
 
-    //! props.onReceivingExpenseForm === Hàm expenseFormHandler ở line 4 NewExpense.jsx
+    //* props.onReceivingExpenseForm === Hàm expenseFormHandler ở line 4 NewExpense.jsx
     // -> expenseFormHandler(expenseData): Call hàm expenseFormHandler với argument là expenseData ở line 22
     // Tương đương với onChange ở line 47, chỉ khác vì ở đây là Custom Component nên phải call manually
     props.onReceivingExpenseForm(expenseData);

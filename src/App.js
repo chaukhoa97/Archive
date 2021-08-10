@@ -1,12 +1,7 @@
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 import { useState } from 'react';
-//! Truyền data xuống bằng props:
-//    App.js(từ expenseData ở line 5) -> Expenses.jsx (line 43) -> ExpenseItem.jsx -> ExpenseDate.jsx
-//! Truyền data lên bằng onSomething:
-//    1. Từ ExpenseForm.jsx truyền expenseData (line 22) sang NewExpense.jsx
-//    2. Ở NewExpense.jsx thêm ID vào expenseData -> expenseDataWithID rồi truyền sang App.js
-//    3. Ở App.js - line 26:
+
 function App() {
   const INITITAL_EXPENSES = [
     {
@@ -23,11 +18,11 @@ function App() {
     },
   ];
   const [expenses, setExpenses] = useState(INITITAL_EXPENSES);
-  const newExpenseHandler = (expenseDataWithID) => {
+  const newExpenseHandler = (newExpense) => {
     //! Updating State that depends on Previous State
-    //    Cả 2 cách trong nhiều trường hợp đều đúng, nhưng nếu schedule nhiều state updates quá thì expenses State xui xui lúc mình dùng sẽ bị outdate. Nếu dùng cách dưới thì ok.
-    //    setExpenses([expenseDataWithID, ...expenses]);
-    setExpenses((prevExpenses) => [expenseDataWithID, ...prevExpenses]);
+    //  Cả 2 cách trong nhiều trường hợp đều đúng, nhưng nếu schedule nhiều state updates quá thì expenses State xui xui lúc mình dùng sẽ bị outdate. Nếu dùng cách dưới thì ok.
+    //  setExpenses([newExpense, ...expenses]);
+    setExpenses((prevExpenses) => [newExpense, ...prevExpenses]);
   };
 
   return (
