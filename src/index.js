@@ -4,8 +4,5 @@ import './index.css';
 // import NewExpense from './components/NewExpense/NewExpense';
 import App from './App';
 
-import Greeting from './Storage/Conditional';
-import Example from './Storage/Effect-hook';
-
 // Dùng "" cho string, dùng {} cho expression
 ReactDOM.render(<App />, document.getElementById('root'));

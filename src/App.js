@@ -20,7 +20,7 @@ function App() {
   const [expenses, setExpenses] = useState(INITITAL_EXPENSES);
   const newExpenseHandler = (newExpense) => {
     //! Updating State that depends on Previous State
-    //  Cả 2 cách trong nhiều trường hợp đều đúng, nhưng nếu schedule nhiều state updates quá thì expenses State xui xui lúc mình dùng sẽ bị outdate. Nếu dùng cách dưới thì ok.
+    //  Nên dùng cách dưới. Cả 2 cách trong nhiều trường hợp đều đúng, nhưng nếu schedule nhiều state updates quá thì expenses State xui xui lúc mình dùng sẽ bị outdate.
     //  setExpenses([newExpense, ...expenses]);
     setExpenses((prevExpenses) => [newExpense, ...prevExpenses]);
   };

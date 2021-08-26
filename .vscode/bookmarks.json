@@ -29,6 +29,26 @@
 					"label": "event.target.value"
 				}
 			]
+		},
+		{
+			"path": "src/components/Chart/ChartBar.jsx",
+			"bookmarks": [
+				{
+					"line": 12,
+					"column": 4,
+					"label": "styles.module.css"
+				},
+				{
+					"line": 15,
+					"column": 10,
+					"label": "Dynamic class"
+				},
+				{
+					"line": 20,
+					"column": 10,
+					"label": "Inline style"
+				}
+			]
 		}
 	]
 }
