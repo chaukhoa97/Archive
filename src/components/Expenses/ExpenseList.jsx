@@ -5,8 +5,14 @@ function ExpensesList(props) {
   if (props.items.length === 0) {
     return <h2 className="expenses-list__fallback">No expenses found</h2>;
   }
+  //* 1 item trong props.items:
+  // {
+  //   id: 'e1',
+  //   title: 'Dummy expense',
+  //   amount: 94.12,
+  //   date: new Date(2020, 7, 14),
+  // }
   return (
-    // Nếu có ul thì bên trong phải có dấu {} (vì là expression)
     <ul className="expenses-list">
       {props.items.map((expense) => (
         <ExpenseItem

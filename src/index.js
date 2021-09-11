@@ -1,8 +1,13 @@
 import ReactDOM from 'react-dom';
 
 import './index.css';
-// import NewExpense from './components/NewExpense/NewExpense';
 import App from './App';
-
-// Dùng "" cho string, dùng {} cho expression
-ReactDOM.render(<App />, document.getElementById('root'));
+import store from './Redux/redux-store';
+import { Provider } from 'react-redux';
+ReactDOM.render(
+  //* Tất cả ~ component của App sẽ dc truy cập vào store
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);

@@ -4,19 +4,24 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 21,
+					"line": 28,
 					"column": 13,
 					"label": ""
-				}
-			]
-		},
-		{
-			"path": "src/components/Expenses/ExpenseFilter.jsx",
-			"bookmarks": [
+				},
 				{
-					"line": 11,
-					"column": 9,
-					"label": "select không có attribute \"value\""
+					"line": 38,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 52,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 57,
+					"column": 4,
+					"label": "Context.Provider"
 				}
 			]
 		},
@@ -24,29 +29,169 @@
 			"path": "src/components/NewExpense/ExpenseForm.jsx",
 			"bookmarks": [
 				{
-					"line": 8,
+					"line": 6,
+					"column": 1,
+					"label": "useRef() vs useState(): 10 -> 29 -> 32 -> 59"
+				},
+				{
+					"line": 13,
 					"column": 5,
 					"label": "event.target.value"
+				},
+				{
+					"line": 57,
+					"column": 10,
+					"label": "useRef link tới DOM element"
 				}
 			]
 		},
 		{
-			"path": "src/components/Chart/ChartBar.jsx",
+			"path": "src/components/UI/Card.jsx",
 			"bookmarks": [
 				{
-					"line": 12,
+					"line": 4,
+					"column": 2,
+					"label": "props.children"
+				}
+			]
+		},
+		{
+			"path": "src/components/Expenses/ExpenseDate.jsx",
+			"bookmarks": [
+				{
+					"line": 10,
 					"column": 4,
-					"label": "styles.module.css"
+					"label": "Fragment"
 				},
 				{
-					"line": 15,
-					"column": 10,
-					"label": "Dynamic class"
+					"line": 12,
+					"column": 6,
+					"label": "Portal: Có thể dùng logic của file này, nhưng render chỗ khác"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/ChartBar.jsx",
+			"bookmarks": [
+				{
+					"line": 13,
+					"column": 3,
+					"label": "Import styles.module.css to component (from line 1)"
 				},
 				{
-					"line": 20,
+					"line": 16,
 					"column": 10,
-					"label": "Inline style"
+					"label": "Conditional className"
+				},
+				{
+					"line": 23,
+					"column": 12,
+					"label": "Inline CSS style (camelCase)"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useReducer.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 0,
+					"label": "State là gì -> reducer = (prevState, action-to-the-prevState) => newState"
+				},
+				{
+					"line": 33,
+					"column": 2,
+					"label": "Cách hoạt động useReducer"
+				}
+			]
+		},
+		{
+			"path": "src/components/Expenses/ExpenseList.jsx",
+			"bookmarks": [
+				{
+					"line": 16,
+					"column": 5,
+					"label": "Map a list of items -> components"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/Custom Hook/Forward.jsx",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 2,
+					"label": "custom Hook use"
+				}
+			]
+		},
+		{
+			"path": "src/index.js",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 2,
+					"label": "Redux Provider "
+				}
+			]
+		},
+		{
+			"path": "src/Redux/redux-store.js",
+			"bookmarks": [
+				{
+					"line": 25,
+					"column": 0,
+					"label": "3. configureStore({ reducer: { countReducer: counterSlice.reducer, ... }"
+				}
+			]
+		},
+		{
+			"path": "src/Redux/redux-component.jsx",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 56,
+					"label": "4. useSelector((store) => store.sliceRef.sliceStateKey)"
+				},
+				{
+					"line": 9,
+					"column": 2,
+					"label": "5. const dispatch = useDispatch()"
+				},
+				{
+					"line": 14,
+					"column": 4,
+					"label": "6. dispatch( slice.actions.reducerFn(payload) )"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useContext.jsx",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 2,
+					"label": "useContext usage"
+				}
+			]
+		},
+		{
+			"path": "src/Redux/counter-slice.js",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 0,
+					"label": "1. counterSlice"
+				},
+				{
+					"line": 7,
+					"column": 6,
+					"label": "action trong createSlice reducer"
+				},
+				{
+					"line": 18,
+					"column": 0,
+					"label": "2. counterSlice.actions"
 				}
 			]
 		}

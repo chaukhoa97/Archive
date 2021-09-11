@@ -3,7 +3,7 @@ import './NewExpense.css';
 const NewExpense = (props) => {
   const expenseFormHandler = (expenseData) => {
     const expenseDataWithID = { ...expenseData, id: Math.random().toString() };
-    props.onReceivingNewExpense(expenseDataWithID); //* === newExpenseHandler ở line 26 App.js
+    props.onReceivingNewExpense(expenseDataWithID); //* === newExpenseHandler() trong App.js
   };
 
   return (
