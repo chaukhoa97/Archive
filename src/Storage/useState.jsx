@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
+//* Lý do dùng useState vs let: Cả 2 đều thay đổi biến in memory, nhưng ngoài UI thì let không show đúng current value dc
 function StateExample() {
   const [apiTitle, setApiTitle] = useState();
-
   const load = () => {
     setApiTitle('Loading...');
     setTimeout(() => {
@@ -13,7 +13,8 @@ function StateExample() {
   };
   return (
     <>
-      <h1>{apiTitle}</h1>
+      <h1>useState</h1>
+      <h3>{apiTitle}</h3>
       <button onClick={load}>Load API</button>
     </>
   );

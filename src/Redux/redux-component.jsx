@@ -1,28 +1,28 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { counterActions } from './counter-slice';
-import { champActions } from './champ-slice';
+import { counterActions } from './state-action';
+import { changeChamp } from './action-creator';
+
 function ReduxComponent() {
-  //? useSelector:
-  const counter = useSelector((store) => store.countReducer.counter); //* useSelector((store) => store.sliceRef.sliceStateKey)
+  //? useSelector: Lấy property value từ state object - line 31
+  const counter = useSelector((store) => store.countReducer.counter); //* useSelector((store) => store.sliceRef.stateObjectProperty)
   const showCounter = useSelector((store) => store.countReducer.showCounter);
   const champName = useSelector((store) => store.champReducer.name);
   const champSkin = useSelector((store) => store.champReducer.skin);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); //* useDispatch returns the actual action object
 
-  //? slice.actions.reducerFn(payload) - Button handlers
+  //? slice.actions.reducer({action.payload}) - Button handlers
   const incrementHandler = () => {
-    // dispatch({ type: 'increment', amount: 10 });
-    dispatch(counterActions.increment({ amount: 10 })); //* counterActions.increment() returns the same object với dòng trên của Redux thuần
+    // dispatch({ type: 'increment', amount: 10 }); // Cách call dispatch của Redux thuần
+    dispatch(counterActions.increment({ amount: 10 })); //* counterActions.increment() returns the same object với dòng trên
   };
   const toggleCounter = () => {
     dispatch(counterActions.toggle());
   };
-  const nameHandler = () => {
-    dispatch(champActions.changeName({ name: 'ahri' }));
+  //* Action creator
+  const champHandler = () => {
+    dispatch(changeChamp({ name: 'Jhin', skin: 'hac tinh' }));
   };
-  const skinHandler = () => {
-    dispatch(champActions.changeSkin('kda')); // Ko bắt buộc payload phải là 1 object
-  };
+
   return (
     <>
       <h1>Redux: Count</h1>
@@ -31,8 +31,7 @@ function ReduxComponent() {
       {showCounter && <h3>{counter}</h3>}
 
       <h1>Redux: Champions</h1>
-      <button onClick={nameHandler}>Change name</button>
-      <button onClick={skinHandler}>Change skin</button>
+      <button onClick={champHandler}>Change champ</button>
       <h3>{champName + ' ' + champSkin}</h3>
     </>
   );

@@ -1,8 +1,7 @@
 import { useReducer } from 'react';
 
 //* const reducer = (prevState, action-to-the-prevState) => newState
-//! state is the value at a point of time of a component. Most of the times it is a object, but it can be any valid JS stuff (string, number, ...)
-//! Định nghĩa general "reducer" trong progamming: Nhận vào input, transform --> output
+//* Định nghĩa general "reducer" trong progamming: Nhận vào input, transform --> output
 const reducer = (state, action) => {
   switch (action) {
     case '+':
@@ -34,7 +33,7 @@ function ReducerExample() {
   //? dispatch(action): Describe the action that should be executed when dispatch(action) being triggered(ex: by clicking button,...),
   //?    but NOT EXECUTED THE ACTION DIRECTLY, mà forward qua cho reducer(state, action) - line 3
   //* Ex: action = {key1: 1, key2: 2} -> dispatch(action) -> Gọi reducer(state, action) -> switch(action.key1)...
-  const [state, dispatch] = useReducer(reducer, 0); // const reducer = (prevState, action-to-the-prevState) => newState
+  const [state, dispatch] = useReducer(reducer, 0); // reducer Là fn ở line 3
   const [state2, dispatch2] = useReducer(reducer2, initialState);
   const getUsers = () => {
     dispatch2({ ...initialState, type: 'loading' });
@@ -51,6 +50,7 @@ function ReducerExample() {
         <h1>useReducer with variable</h1>
         <h3>{state}</h3>
         {/* Click btn -> Gọi dispatch(action) -> Gọi reducer(state, action) - ở đây state là con số đang hiện trên màn hình (line 36: initState = 0) */}
+        {/* Khi gọi hàm trong onClick phải truyền vào callback nhứ ko gọi thẳng hàm, ko xét riêng dispatch*/}
         <button onClick={() => dispatch('+')}>+</button>
         <button onClick={() => dispatch('-')}>-</button>
         <button onClick={() => dispatch('del')}>DEL</button>

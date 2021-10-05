@@ -1,9 +1,16 @@
 // import { createStore } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import counterSlice from './counter-slice';
-import champSlice from './champ-slice';
+import counterSlice from './state-action';
+import champSlice from './action-creator';
 
-//? REDUX THUẦN:
+//? Redux Toolkit:
+const store = configureStore({
+  reducer: { countReducer: counterSlice.reducer, champReducer: champSlice.reducer },
+});
+
+export default store;
+
+//? REDUX THUẦN with React:
 //? Reducer: Function that is used to update store
 //* Khi store dc khởi tạo, nó sẽ chạy hàm counterReducer, nhưng lúc đó state chưa tồn tại -> phải khai báo default state
 // const counterReducer = (state = { counter: 100, showCounter: true }, action) => {
@@ -19,12 +26,5 @@ import champSlice from './champ-slice';
 //       return state;
 //   }
 // };
-// const store = createStore(counterReducer); //? Center of Redux
+// const store = createStore(counterReducer);
 // export default store;
-
-//? Redux Toolkit:
-const store = configureStore({
-  reducer: { countReducer: counterSlice.reducer, champReducer: champSlice.reducer },
-});
-
-export default store;

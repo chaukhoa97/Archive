@@ -1,6 +1,6 @@
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import ReducerExample from './Storage/useReducer';
 import StateExample from './Storage/useState';
 import numberContext from './Storage/Context/number-context';
@@ -11,7 +11,10 @@ import MemoExample from './Storage/useMemo';
 import Forward from './Storage/Custom Hook/Forward';
 import Backward from './Storage/Custom Hook/Backward';
 import ReduxComponent from './Redux/redux-component';
+import { useSelector } from 'react-redux';
+import EventTarget from './Storage/EventTarget';
 
+let firstRender = true;
 function App() {
   console.log('App.js RUNNING');
 
@@ -38,7 +41,7 @@ function App() {
 
   //? useCallback(storedFn, dependencyArray): Khi app re-evaluate, function trong useCallback sẽ ko re-create lại.
   //* Ở đây callbackButtonHandler, là prop của CallbackExample.jsx, ko bị re-create khi App re-evaluate
-  //*    -> CallbackExample sẽ ko bị re-evaluate vì prop của nó giờ sẽ không thay đổi
+  //*   -> CallbackExample sẽ ko bị re-evaluate vô ích vì prop của nó (callbackButtonHandler) giờ sẽ không thay đổi
   // let temp = true;
   // setTimeout(() => (temp = false), 2000);
   const [temp, setTemp] = useState(true);
@@ -51,15 +54,31 @@ function App() {
   }, [temp]); //! Nếu ko có dependency là [temp], if(temp) sẽ ko dc cập nhật thành 0 bởi setTimeout -> button luôn hoạt động
 
   //? useMemo(expensiveFn, dependencyArray): Với expensiveFn là function trả về Reference value
-  //? Dùng khi function này quá phức tạp (ex: Sort, fetch,...) mà value ko đổi (nhưng vẫn phải re-initialize vì đây là Reference)
+  //? ÍT DÙNG HƠN useCallback: Chỉ dùng khi function này quá phức tạp (ex: Sort, fetch,...) mà value ko đổi (nhưng vẫn phải re-initialize vì đây là Reference)
   const arr = useMemo(() => [1, 5, 3], []);
 
+  //? P1: Side effect/Async code with Redux
+  //* Redux store thay đổi -> App do có useSelector() sẽ dc re-render -> appCart sẽ luôn dc update tương ứng với state.cart
+  const appCart = useSelector((state) => state.cart);
+  useEffect(() => {
+    // Lần đầu render App sẽ chạy useEffect -> PUT cart trống lên database(bad practice) -> Thêm firstRender logic
+    if (firstRender) {
+      firstRender = false;
+      return;
+    }
+    fetch('https://react-http-6b4a6.firebaseio.com/cart.json', {
+      method: 'PUT',
+      body: JSON.stringify(appCart),
+    });
+  }, [appCart]); // Vì appCart ở trong dependency array nên mỗi lần App re-render, useEffect cũng sẽ PUT lên database
+
   return (
-    //* ~ component dc wrap bởi <numberContext.Provider> sẽ dùng dc value object của nó thông qua useContext
+    //* ~ component dc wrap bởi <numberContext.Provider> sẽ dùng dc value object của nó thông qua useContext()
     <numberContext.Provider value={{ num: n, fn }}>
       <NewExpense onReceivingNewExpense={newExpenseHandler} />
       <Expenses items={expenses} />
 
+      <EventTarget></EventTarget>
       <ReducerExample></ReducerExample>
       <StateExample></StateExample>
       <ContextExample></ContextExample>
@@ -74,7 +93,6 @@ function App() {
         <Forward></Forward>
         <Backward></Backward>
       </div>
-
       <ReduxComponent></ReduxComponent>
     </numberContext.Provider>
 

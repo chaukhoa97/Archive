@@ -4,24 +4,29 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 28,
+					"line": 31,
 					"column": 13,
 					"label": ""
 				},
 				{
-					"line": 38,
+					"line": 41,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 52,
+					"line": 55,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 57,
+					"line": 59,
+					"column": 2,
+					"label": "P1: Side effect/Async code with Redux"
+				},
+				{
+					"line": 76,
 					"column": 4,
-					"label": "Context.Provider"
+					"label": "React Context 2: <numberContext.Provider value = { {...} }>"
 				}
 			]
 		},
@@ -31,12 +36,7 @@
 				{
 					"line": 6,
 					"column": 1,
-					"label": "useRef() vs useState(): 10 -> 29 -> 32 -> 59"
-				},
-				{
-					"line": 13,
-					"column": 5,
-					"label": "event.target.value"
+					"label": "Sử dụng useRef() vs useState(): 10 -> 29 -> 32 -> 59"
 				},
 				{
 					"line": 57,
@@ -96,12 +96,17 @@
 				{
 					"line": 2,
 					"column": 0,
-					"label": "State là gì -> reducer = (prevState, action-to-the-prevState) => newState"
+					"label": "reducer = (prevState, action-to-the-prevState) => newState"
 				},
 				{
-					"line": 33,
+					"line": 32,
 					"column": 2,
 					"label": "Cách hoạt động useReducer"
+				},
+				{
+					"line": 52,
+					"column": 8,
+					"label": "Passing onClick function"
 				}
 			]
 		},
@@ -131,17 +136,7 @@
 				{
 					"line": 8,
 					"column": 2,
-					"label": "Redux Provider "
-				}
-			]
-		},
-		{
-			"path": "src/Redux/redux-store.js",
-			"bookmarks": [
-				{
-					"line": 25,
-					"column": 0,
-					"label": "3. configureStore({ reducer: { countReducer: counterSlice.reducer, ... }"
+					"label": "Redux 6: Kẹp Provider quanh thằng nào dùng tới store"
 				}
 			]
 		},
@@ -149,19 +144,14 @@
 			"path": "src/Redux/redux-component.jsx",
 			"bookmarks": [
 				{
-					"line": 5,
+					"line": 6,
 					"column": 56,
-					"label": "4. useSelector((store) => store.sliceRef.sliceStateKey)"
+					"label": "Redux 4: useSelector((store) => store.stateObjectProperty)"
 				},
 				{
-					"line": 9,
-					"column": 2,
-					"label": "5. const dispatch = useDispatch()"
-				},
-				{
-					"line": 14,
+					"line": 12,
 					"column": 4,
-					"label": "6. dispatch( slice.actions.reducerFn(payload) )"
+					"label": "Redux 5: dispatch( slice.actions.reducerFn(payload) )"
 				}
 			]
 		},
@@ -171,27 +161,77 @@
 				{
 					"line": 7,
 					"column": 2,
-					"label": "useContext usage"
+					"label": "React Context 3: const ctx = useContext"
 				}
 			]
 		},
 		{
-			"path": "src/Redux/counter-slice.js",
+			"path": "src/Storage/Context/number-context.js",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 0,
+					"label": "React Context 1: React.createContext(modelState) "
+				}
+			]
+		},
+		{
+			"path": "src/Redux/state-action.js",
 			"bookmarks": [
 				{
 					"line": 2,
 					"column": 0,
-					"label": "1. counterSlice"
+					"label": "Redux 1: createSlice"
 				},
 				{
-					"line": 7,
+					"line": 4,
+					"column": 2,
+					"label": "state là gì"
+				},
+				{
+					"line": 8,
 					"column": 6,
-					"label": "action trong createSlice reducer"
+					"label": "action là gì"
 				},
 				{
-					"line": 18,
+					"line": 20,
 					"column": 0,
-					"label": "2. counterSlice.actions"
+					"label": "Redux 2: export slice.actions"
+				}
+			]
+		},
+		{
+			"path": "src/Redux/action-creator.js",
+			"bookmarks": [
+				{
+					"line": 15,
+					"column": 4,
+					"label": "P2: Side effect/Async code with Redux"
+				}
+			]
+		},
+		{
+			"path": "src/Redux/basic-redux-middleware.js",
+			"bookmarks": [
+				{
+					"line": 13,
+					"column": 0,
+					"label": "Redux Route bt và khi có middleware"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/EventTarget.jsx",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 4,
+					"label": "event.target"
+				},
+				{
+					"line": 14,
+					"column": 4,
+					"label": "<input type = \"text\"   value = {someState}>"
 				}
 			]
 		}

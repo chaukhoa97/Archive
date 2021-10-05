@@ -11,10 +11,9 @@ const ExpenseForm = (props) => {
   const numberRef = useRef(0);
   setInterval(() => {
     numberRef.current = numberRef.current + 1;
-    console.log(numberRef.current);
-  }, 1000);
+    console.log('numberRef.current: ' + numberRef.current);
+  }, 10000);
 
-  //! Khi listen to event(onSomething) sẽ có một event object - console.log(event) để thấy object đó
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
   };
@@ -24,7 +23,7 @@ const ExpenseForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault(); //* Tránh reload lại trang
-    console.log(amountRef.current);
+    console.log(amountRef.current); //! ref.current có thể là bất cứ thứ gì, kể cả một Node
     console.log('amountRef.current.value: ' + amountRef.current.value); // Value mình nhập vào ở NewExpense
     const enteredAmount = amountRef.current.value;
     const expenseData = {
@@ -36,6 +35,7 @@ const ExpenseForm = (props) => {
     //* props.onReceivingExpenseForm() === expenseFormHandler() ở NewExpense.jsx -> expenseFormHandler(expenseData)
     // Tương đương với onChange ở line 47, chỉ khác vì ở đây là Custom Component nên phải call manually
     props.onReceivingExpenseForm(expenseData);
+
     // Xóa input khi người dùng submit xong
     setEnteredTitle('');
     setEnteredDate('');

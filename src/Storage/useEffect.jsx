@@ -5,9 +5,9 @@ let myTimer;
 const MyComponent = (props) => {
   const [timerIsActive, setTimerIsActive] = useState(false);
   const timerDuration = props.timerDuration;
-  //? useEffect tell React that your component needs to execute {todofunction} after [dependencies] changes
+  //? useEffect tell React that your component needs to execute the callback in useEffect() after [dependencies] changes
   //! Dependencies = omit luôn -> Lần render nào cũng sẽ chạy hàm {todoFunction}
-  //! Dependencies = [] -> {todoFunction} trong useEffect chỉ chạy 1 lần (array rỗng thì F5 lại vẫn rỗng).
+  //! Dependencies = [] -> {todoFunction} trong useEffect chỉ chạy 1 lần đầu (array rỗng thì F5 lại vẫn rỗng).
   //    Hiểu đúng: Array rỗng === Ko phụ thuộc vào bất cứ dependency nào -> Ko bao giờ phải render lại
 
   //! Luôn luôn add MUTABLE STUFF mà m refer tới ở {todofunction} (ở đây là timerIsActive và timerDuration) vào [dependencies] -> trừ:
