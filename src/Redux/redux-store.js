@@ -3,9 +3,12 @@ import { configureStore } from '@reduxjs/toolkit';
 import counterSlice from './state-action';
 import champSlice from './action-creator';
 
-//? Redux Toolkit:
+//? Redux 3: configureStore with Redux Toolkit
 const store = configureStore({
-  reducer: { countReducer: counterSlice.reducer, champReducer: champSlice.reducer },
+  reducer: {
+    countReducer: counterSlice.reducer,
+    champReducer: champSlice.reducer,
+  },
 });
 
 export default store;

@@ -6,9 +6,13 @@ const MyComponent = (props) => {
   const [timerIsActive, setTimerIsActive] = useState(false);
   const timerDuration = props.timerDuration;
   //? useEffect tell React that your component needs to execute the callback in useEffect() after [dependencies] changes
-  //! Dependencies = omit luôn -> Lần render nào cũng sẽ chạy hàm {todoFunction}
-  //! Dependencies = [] -> {todoFunction} trong useEffect chỉ chạy 1 lần đầu (array rỗng thì F5 lại vẫn rỗng).
-  //    Hiểu đúng: Array rỗng === Ko phụ thuộc vào bất cứ dependency nào -> Ko bao giờ phải render lại
+  //*   MOUNTING: render(JSX) -> `useEffectFunction`
+  //*   UPDATING: render(JSX) -> `cleanUp` (để clean effects from previous render) -> `useEffectFunction`
+  //*   UNMOUNTING: `cleanUp`
+
+  //? Ko cần cleanup (Chạy rồi thì k cần quan tâm nữa): Gọi API, Tương tác DOM
+  //? Cần cleanup: setTimeout/Interval, subscription (Stuff that happen within useEffect depends on parent state)
+  //?   - như ví dụ ở trên React docs là 2 fn `subscribe/unsubscribe` phải dùng tới `props.friend.id`
 
   //! Luôn luôn add MUTABLE STUFF mà m refer tới ở {todofunction} (ở đây là timerIsActive và timerDuration) vào [dependencies] -> trừ:
   // 1. State updating functions - setTimerIsActive: Vì nó luôn luôn ko thay đổi
@@ -24,8 +28,6 @@ const MyComponent = (props) => {
       }
       console.log(myTimer);
     };
-    //? Clean up function: Dc gọi trước mỗi lần useEffect dc gọi (không tính lần render đầu tiên); hoặc khi component unmounts
-    //? Có tác dụng clean effects from previous render
     return () => {
       clearTimeout(timerEffect);
     };

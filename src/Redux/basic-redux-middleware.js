@@ -11,8 +11,8 @@ const reducer = (state = 0, action) => {
   }
 };
 
-//* Redux route: a = slice.actions.reducerFn({action.payload}) -> dispatch(a) -> reducer tương ứng -> newState
-//? Route with Middleware:  a -> dispatch(a) -> middleware1 -> middleware2... -> reducer tương ứng -> newState
+//* Redux route: a = slice.actions.reducerFn({action.payload}) -> dispatch(a) -> execute reducerFn tương ứng -> newState
+//? Route with Middleware:  a -> dispatch(a) -> middleware1 -> middleware2... -> execute reducerFn tương ứng -> newState
 const middleware1 = (storeAPI) => (next) => (action) => {
   //? These will be excecuted EVERY TIME an action is dispatched:
   //*   Do anything here: pass the action onwards with next(action),

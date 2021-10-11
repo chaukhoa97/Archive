@@ -1,14 +1,16 @@
 import './ExpenseForm.css';
 import React, { useState, useRef } from 'react';
-
 const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState(''); // event.target.value mặc định luôn luôn là string
   const [enteredDate, setEnteredDate] = useState('');
   //? useRef(initValue): Những thay đổi của amountRef sẽ dc giữ lại khi Component re-render (giống useState)
   //?     nhưng khi amountRef thay đổi, nó cũng sẽ ko khiến Component bị re-render (khác useState)
-  //! Vì vậy, những value show ra trên UI thì nên dùng useState, còn ngc lại thì dùng useRef
+  //! Vì vậy, những value show ra trên UI thì nên dùng useState.
+  //! Còn những thứ khác như form người dùng nhập vào thì dùng useRef sẽ đỡ bị re-render hơn
   const amountRef = useRef();
-  const numberRef = useRef(0);
+
+  //* ref can be any valid JS, ví dụ như ở đây là num, ở line 60 là node trong DOM
+  const numberRef = useRef(0); //* numberRef.current = 0
   setInterval(() => {
     numberRef.current = numberRef.current + 1;
     console.log('numberRef.current: ' + numberRef.current);

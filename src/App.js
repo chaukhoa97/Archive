@@ -29,9 +29,6 @@ function App() {
   const [expenses, setExpenses] = useState(INITITAL_EXPENSES);
 
   const newExpenseHandler = (newExpense) => {
-    //! Updating State that depends on Previous State (KO DC NHẦM QUA CÁCH 1):
-    //  Cả 2 cách trong nhiều trường hợp đều đúng, nhưng nếu schedule nhiều state updates quá thì expenses State xui xui lúc mình dùng sẽ bị outdate.
-    //  setExpenses([newExpense, ...expenses]);
     setExpenses((prevExpenses) => [newExpense, ...prevExpenses]);
   };
 
@@ -40,7 +37,7 @@ function App() {
   const fn = () => 1;
 
   //? useCallback(storedFn, dependencyArray): Khi app re-evaluate, function trong useCallback sẽ ko re-create lại.
-  //* Ở đây callbackButtonHandler, là prop của CallbackExample.jsx, ko bị re-create khi App re-evaluate
+  //* Ở đây callbackButtonHandler, là prop của useCallback.jsx, ko bị re-create khi App re-evaluate
   //*   -> CallbackExample sẽ ko bị re-evaluate vô ích vì prop của nó (callbackButtonHandler) giờ sẽ không thay đổi
   // let temp = true;
   // setTimeout(() => (temp = false), 2000);
@@ -51,13 +48,13 @@ function App() {
     if (temp) {
       setNum((prevNum) => prevNum + 1);
     }
-  }, [temp]); //! Nếu ko có dependency là [temp], if(temp) sẽ ko dc cập nhật thành 0 bởi setTimeout -> button luôn hoạt động
+  }, [temp]); //! Nếu ko có dependency, temp ở trong if(temp) sẽ ko dc cập nhật thành false bởi setTimeout -> button ko bị disable
 
   //? useMemo(expensiveFn, dependencyArray): Với expensiveFn là function trả về Reference value
   //? ÍT DÙNG HƠN useCallback: Chỉ dùng khi function này quá phức tạp (ex: Sort, fetch,...) mà value ko đổi (nhưng vẫn phải re-initialize vì đây là Reference)
   const arr = useMemo(() => [1, 5, 3], []);
 
-  //? P1: Side effect/Async code with Redux
+  //? Side effect/Async code with Redux 1: Để code ở trong Component như bình thường. KO NÊN BỎ Ở TRONG reducer
   //* Redux store thay đổi -> App do có useSelector() sẽ dc re-render -> appCart sẽ luôn dc update tương ứng với state.cart
   const appCart = useSelector((state) => state.cart);
   useEffect(() => {
@@ -84,7 +81,9 @@ function App() {
       <ContextExample></ContextExample>
       <ReactDotMemo text={n}></ReactDotMemo>
       <div className="useCallback">
-        <CallbackExample onClick={callbackButtonHandler}>Yo wtf</CallbackExample>
+        <CallbackExample onClick={callbackButtonHandler}>
+          Yo wtf
+        </CallbackExample>
         <h3>{num}</h3>
       </div>
       <MemoExample arr={arr}></MemoExample>

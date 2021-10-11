@@ -5,26 +5,26 @@
 			"bookmarks": [
 				{
 					"line": 31,
-					"column": 13,
-					"label": ""
+					"column": 4,
+					"label": "setState dựa theo previous state"
 				},
 				{
-					"line": 41,
+					"line": 38,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 55,
+					"line": 52,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 59,
+					"line": 56,
 					"column": 2,
-					"label": "P1: Side effect/Async code with Redux"
+					"label": "Side effect/Async code with Redux 1: Code ở trong Component như bt (KO dc ở trong reducer)"
 				},
 				{
-					"line": 76,
+					"line": 73,
 					"column": 4,
 					"label": "React Context 2: <numberContext.Provider value = { {...} }>"
 				}
@@ -34,12 +34,12 @@
 			"path": "src/components/NewExpense/ExpenseForm.jsx",
 			"bookmarks": [
 				{
-					"line": 6,
+					"line": 5,
 					"column": 1,
-					"label": "Sử dụng useRef() vs useState(): 10 -> 29 -> 32 -> 59"
+					"label": "Sử dụng useRef() vs useState(): 10 -> 30 -> 33 -> 60"
 				},
 				{
-					"line": 57,
+					"line": 59,
 					"column": 10,
 					"label": "useRef link tới DOM element"
 				}
@@ -136,7 +136,7 @@
 				{
 					"line": 8,
 					"column": 2,
-					"label": "Redux 6: Kẹp Provider quanh thằng nào dùng tới store"
+					"label": "Redux 4: Kẹp Provider quanh thằng nào dùng tới store"
 				}
 			]
 		},
@@ -144,14 +144,14 @@
 			"path": "src/Redux/redux-component.jsx",
 			"bookmarks": [
 				{
-					"line": 6,
+					"line": 7,
 					"column": 56,
-					"label": "Redux 4: useSelector((store) => store.stateObjectProperty)"
+					"label": "Redux 5: useSelector((store) => store.stateObjectProperty)"
 				},
 				{
-					"line": 12,
+					"line": 13,
 					"column": 4,
-					"label": "Redux 5: dispatch( slice.actions.reducerFn(payload) )"
+					"label": "Redux 6: dispatch(slice.actions.reducerName({action.payload})"
 				}
 			]
 		},
@@ -179,22 +179,27 @@
 			"path": "src/Redux/state-action.js",
 			"bookmarks": [
 				{
-					"line": 2,
+					"line": 3,
 					"column": 0,
 					"label": "Redux 1: createSlice"
 				},
 				{
-					"line": 4,
-					"column": 2,
-					"label": "state là gì"
+					"line": 5,
+					"column": 1,
+					"label": ""
 				},
 				{
-					"line": 8,
-					"column": 6,
-					"label": "action là gì"
+					"line": 9,
+					"column": 1,
+					"label": ""
 				},
 				{
-					"line": 20,
+					"line": 15,
+					"column": 19,
+					"label": ""
+				},
+				{
+					"line": 22,
 					"column": 0,
 					"label": "Redux 2: export slice.actions"
 				}
@@ -206,7 +211,7 @@
 				{
 					"line": 15,
 					"column": 4,
-					"label": "P2: Side effect/Async code with Redux"
+					"label": "Side effect/Async code with Redux 2: Action Creator"
 				}
 			]
 		},
@@ -232,6 +237,16 @@
 					"line": 14,
 					"column": 4,
 					"label": "<input type = \"text\"   value = {someState}>"
+				}
+			]
+		},
+		{
+			"path": "src/Redux/redux-store.js",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 0,
+					"label": "Redux 3: configureStore"
 				}
 			]
 		}
