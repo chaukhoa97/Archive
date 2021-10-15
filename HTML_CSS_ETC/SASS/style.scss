@@ -1,0 +1,53 @@
+//! Terminal: sass source/a.scss css/b.css
+@use './Partial/' as *;
+//? @mixin - pair with "@include"
+@mixin center($direction) {
+  position: absolute;
+  @if $direction == 'row' {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @if $direction == 'column' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+// Giá trị mặc định maxWidth = 768px
+@mixin mediaMaxWidth($maxWidth: 768px) {
+  @media screen and (max-width: $maxWidth) {
+    font-size: $smallFont;
+  }
+}
+
+// Main
+.main {
+  font-size: $bigFont;
+  @include center('column');
+  @include mediaMaxWidth(1024px);
+  //* main__title{...}
+  &__title {
+    color: $titleColor;
+    &:hover {
+      color: crimson;
+    }
+  }
+  //* main__text{...}
+  &__text {
+    color: $textColor;
+  }
+}
+
+//? @extend - pair with " % " - không dùng param như mixin dc, nhưng css compile ra sẽ gọn hơn.
+%message-shared {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.message {
+  @extend %message-shared;
+}
+.success {
+  @extend %message-shared;
+  border-color: green;
+}

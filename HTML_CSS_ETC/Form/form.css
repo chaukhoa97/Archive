@@ -1,0 +1,19 @@
+@keyframes dance {
+  25% {
+    /* Horizontal, Vertical */
+    transform: translate(90px, 90px);
+  }
+  50% {
+    transform: rotateX(70deg);
+  }
+  75% {
+    transform: scale(0.7);
+  }
+  100% {
+    transform: skewY(-20deg);
+  }
+}
+
+.dummy-class {
+  animation: dance 3s ease-in 1s 2;
+}
