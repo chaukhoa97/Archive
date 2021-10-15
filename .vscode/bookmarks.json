@@ -39,9 +39,9 @@
 					"label": "Sử dụng useRef() vs useState(): 10 -> 30 -> 33 -> 60"
 				},
 				{
-					"line": 59,
+					"line": 60,
 					"column": 10,
-					"label": "useRef link tới DOM element"
+					"label": "Uncontrolled Component: useRef link tới DOM element vs Controlled component"
 				}
 			]
 		},
@@ -104,7 +104,7 @@
 					"label": "Cách hoạt động useReducer"
 				},
 				{
-					"line": 52,
+					"line": 51,
 					"column": 8,
 					"label": "Passing onClick function"
 				}
@@ -134,9 +134,9 @@
 			"path": "src/index.js",
 			"bookmarks": [
 				{
-					"line": 8,
+					"line": 7,
 					"column": 2,
-					"label": "Redux 4: Kẹp Provider quanh thằng nào dùng tới store"
+					"label": "Redux 2: Kẹp Provider quanh thằng nào dùng tới store"
 				}
 			]
 		},
@@ -144,14 +144,19 @@
 			"path": "src/Redux/redux-component.jsx",
 			"bookmarks": [
 				{
-					"line": 7,
+					"line": 6,
 					"column": 56,
-					"label": "Redux 5: useSelector((store) => store.stateObjectProperty)"
+					"label": "Redux 4: useSelector((store) => store.stateObjectProperty)"
 				},
 				{
-					"line": 13,
+					"line": 11,
+					"column": 1,
+					"label": "Redux 5: dispatch(actions.reducerName( {action.payload} )"
+				},
+				{
+					"line": 17,
 					"column": 4,
-					"label": "Redux 6: dispatch(slice.actions.reducerName({action.payload})"
+					"label": "dispatch ngoài kích reducer ra, thì còn return action object của hàm dispatch đó "
 				}
 			]
 		},
@@ -184,7 +189,7 @@
 					"label": "Redux 1: createSlice"
 				},
 				{
-					"line": 5,
+					"line": 8,
 					"column": 1,
 					"label": ""
 				},
@@ -231,7 +236,7 @@
 				{
 					"line": 6,
 					"column": 4,
-					"label": "event.target"
+					"label": "destructing in big <form>"
 				},
 				{
 					"line": 14,
@@ -246,7 +251,22 @@
 				{
 					"line": 6,
 					"column": 0,
-					"label": "Redux 3: configureStore"
+					"label": "Redux 3: configureStore "
+				}
+			]
+		},
+		{
+			"path": "src/Redux/slice1.js",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 0,
+					"label": "Redux 1: createSlice -> export actions & slice"
+				},
+				{
+					"line": 8,
+					"column": 6,
+					"label": "state & action trong Redux là gì"
 				}
 			]
 		}

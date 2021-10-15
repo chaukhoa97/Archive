@@ -49,8 +49,7 @@ function ReducerExample() {
       <div className="useReducer-with-variable">
         <h1>useReducer with variable</h1>
         <h3>{state}</h3>
-        {/* Click btn -> Gọi dispatch(action) -> Gọi reducer(state, action) - ở đây state là con số đang hiện trên màn hình (line 36: initState = 0) */}
-        {/* Khi gọi hàm trong onClick phải truyền vào callback nhứ ko gọi thẳng hàm, ko xét riêng dispatch*/}
+        {/* PHẢI PASS callback vào onClick với dispatch nói riêng hay React nói chung */}
         <button onClick={() => dispatch('+')}>+</button>
         <button onClick={() => dispatch('-')}>-</button>
         <button onClick={() => dispatch('del')}>DEL</button>

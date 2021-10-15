@@ -50,7 +50,7 @@ function App() {
     }
   }, [temp]); //! Nếu ko có dependency, temp ở trong if(temp) sẽ ko dc cập nhật thành false bởi setTimeout -> button ko bị disable
 
-  //? useMemo(expensiveFn, dependencyArray): Với expensiveFn là function trả về Reference value
+  //? useMemo(expensiveFn, dependencyArray): Với expensiveFn trả về Reference value
   //? ÍT DÙNG HƠN useCallback: Chỉ dùng khi function này quá phức tạp (ex: Sort, fetch,...) mà value ko đổi (nhưng vẫn phải re-initialize vì đây là Reference)
   const arr = useMemo(() => [1, 5, 3], []);
 
