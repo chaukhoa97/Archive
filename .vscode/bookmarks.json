@@ -14,17 +14,17 @@
 					"label": ""
 				},
 				{
-					"line": 52,
+					"line": 51,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 56,
+					"line": 55,
 					"column": 2,
 					"label": "Side effect/Async code with Redux 1: Code ở trong Component như bt (KO dc ở trong reducer)"
 				},
 				{
-					"line": 73,
+					"line": 72,
 					"column": 4,
 					"label": "React Context 2: <numberContext.Provider value = { {...} }>"
 				}
@@ -99,12 +99,7 @@
 					"label": "reducer = (prevState, action-to-the-prevState) => newState"
 				},
 				{
-					"line": 32,
-					"column": 2,
-					"label": "Cách hoạt động useReducer"
-				},
-				{
-					"line": 51,
+					"line": 50,
 					"column": 8,
 					"label": "Passing onClick function"
 				}
@@ -226,7 +221,7 @@
 				{
 					"line": 13,
 					"column": 0,
-					"label": "Redux Route bt và khi có middleware"
+					"label": "Redux flow with/without Middleware"
 				}
 			]
 		},

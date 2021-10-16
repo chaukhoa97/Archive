@@ -37,8 +37,7 @@ function App() {
   const fn = () => 1;
 
   //? useCallback(storedFn, dependencyArray): Khi app re-evaluate, function trong useCallback sẽ ko re-create lại.
-  //* Ở đây callbackButtonHandler, là prop của useCallback.jsx, ko bị re-create khi App re-evaluate
-  //*   -> CallbackExample sẽ ko bị re-evaluate vô ích vì prop của nó (callbackButtonHandler) giờ sẽ không thay đổi
+  //* Ở đây callbackButtonHandler, là prop của useCallback.jsx, ko bị re-create khi App re-evaluate -> CallbackExample sẽ ko bị re-evaluate vô ích vì prop của nó (callbackButtonHandler) giờ sẽ không thay đổi
   // let temp = true;
   // setTimeout(() => (temp = false), 2000);
   const [temp, setTemp] = useState(true);

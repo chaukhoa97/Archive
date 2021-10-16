@@ -11,17 +11,14 @@ const reducer = (state = 0, action) => {
   }
 };
 
-//* Redux route: a = slice.actions.reducerFn({action.payload}) -> dispatch(a) -> execute reducerFn tương ứng -> newState
-//? Route with Middleware:  a -> dispatch(a) -> middleware1 -> middleware2... -> execute reducerFn tương ứng -> newState
+//* Redux flow: dispatch(actions.reducerFn({action.payload})) -> execute reducerFn -> newState
+//? Flow with Middleware: dispatch(...) -> middleware1 -> middleware2... -> execute reducerFn -> newState
 const middleware1 = (storeAPI) => (next) => (action) => {
-  //? These will be excecuted EVERY TIME an action is dispatched:
-  //*   Do anything here: pass the action onwards with next(action),
-  //*     or restart the pipeline with storeAPI.dispatch(action)
-  //*   Can also use storeAPI.getState() here
+  //* Anything inside a middleware will be excecuted EVERY TIME an action is dispatched. Ex: pass the action onwards with next(action), restart the pipeline with storeAPI.dispatch(action), see current state with storeAPI.getState()
   console.log(action); // returns {type: 'INCREMENT', payload: 1}
-  action.payload = 3; //! Middleware có thể thay đổi action trước khi pass the action to the next section
-  let result = next(action); //! pass the action onwards, which may be another middleware or the real store.dispatch
-  //! Eventually the reducers run and the state is updated
+  action.payload = 3; // Middleware can change action value before passing the action to the next section
+  let result = next(action); // Pass the action onwards, which may be another middleware or store.dispatch, if it is the last middleware
+  //! ...Eventually the reducers run and the state is updated
   console.log('next state', storeAPI.getState()); // We can now call storeAPI.getState() and see what the new state is
   return result; //! Luôn return next(action) ở last line trong middleware
   //* Giá trị dc return bởi middleware đầu tiên(dc chạy), cũng là giá trị dispatchResult = store.dispatch({type: 'some/action'})
@@ -33,10 +30,9 @@ const middleware2 = (storeAPI) => (next) => (action) => {
       console.log('Added a new todo: ', action.payload);
     }, 1000);
   }
-
   return next(action);
 };
-const middlewares = applyMiddleware(middleware1, middleware2); // applyMiddleware(middleware1, middleware2)
+const middlewares = applyMiddleware(middleware1, middleware2);
 
 const store = createStore(reducer, middlewares); //* createStore(reducer, [initialState], [enhancer(middleware)])
 
