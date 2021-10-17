@@ -14,7 +14,8 @@ const reducer = (state = 0, action) => {
 //* Redux flow: dispatch(actions.reducerFn({action.payload})) -> execute reducerFn -> newState
 //? Flow with Middleware: dispatch(...) -> middleware1 -> middleware2... -> execute reducerFn -> newState
 const middleware1 = (storeAPI) => (next) => (action) => {
-  //* Anything inside a middleware will be excecuted EVERY TIME an action is dispatched. Ex: pass the action onwards with next(action), restart the pipeline with storeAPI.dispatch(action), see current state with storeAPI.getState()
+  //* Anything inside a middleware will be excecuted EVERY TIME an action is dispatched.
+  // Ex: Pass the action onwards with `next(action)`, restart the pipeline with `storeAPI.dispatch(action)`, see current state with `storeAPI.getState()`
   console.log(action); // returns {type: 'INCREMENT', payload: 1}
   action.payload = 3; // Middleware can change action value before passing the action to the next section
   let result = next(action); // Pass the action onwards, which may be another middleware or store.dispatch, if it is the last middleware
