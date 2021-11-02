@@ -1,0 +1,55 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+footer {
+  background-color: $cod-gray;
+
+  .footer__section {
+    padding-top: 3rem;
+    @include list-item-hover;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  h5 {
+    color: $wild-sand;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+  }
+
+  p,
+  a {
+    color: $tundora;
+  }
+
+  h5,
+  p,
+  a {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  span {
+    font-style: italic;
+    color: $wasabi;
+  }
+
+  .footer__copyright {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    p {
+      font-size: 1.2rem;
+      margin-block-end: 0;
+      margin-right: 3rem;
+    }
+
+    img {
+      height: 33px;
+      padding-top: 1rem;
+    }
+  }
+}

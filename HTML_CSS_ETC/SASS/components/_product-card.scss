@@ -1,0 +1,46 @@
+@use '../abstract/variables' as *;
+
+.product-card {
+  // > .shopping-buttons {
+  //   visibility: hidden;
+  //   opacity: 0;
+  //   transition: all 0.4s;
+  // }
+
+  // &:hover > .shopping-buttons {
+  //   visibility: visible;
+  //   opacity: 1;
+  // }
+
+  .product-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p.price {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    p {
+      text-align: center;
+    }
+
+    p.price {
+      font-size: 1.8rem;
+      color: $wasabi;
+    }
+
+    span.ms-2.silver {
+      text-decoration: line-through;
+      white-space: nowrap;
+    }
+
+    .line {
+      border-top: 1px solid $black;
+      width: 20%;
+      margin: 0 auto 1rem;
+    }
+  }
+}

@@ -5,7 +5,7 @@ let myTimer;
 const MyComponent = (props) => {
   const [timerIsActive, setTimerIsActive] = useState(false);
   const timerDuration = props.timerDuration;
-  //? useEffect tell React that your component needs to execute the callback in useEffect() after [dependencies] changes
+  //? Execute the callback after [dependencies] changes
   //*   MOUNTING: render(JSX) -> `useEffectFunction`
   //*   UPDATING: render(JSX) -> `cleanUp` -> `useEffectFunction`
   //*   UNMOUNTING: `cleanUp`

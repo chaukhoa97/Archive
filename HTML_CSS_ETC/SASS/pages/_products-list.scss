@@ -1,0 +1,23 @@
+@use '../abstract/variables' as *;
+.products-list {
+  .bold.product-card__name {
+    font-size: 1.8rem;
+  }
+
+  p.price {
+    font-size: 1.8rem;
+    color: $wasabi;
+  }
+
+  span.ms-2.silver {
+    text-decoration: line-through;
+  }
+
+  &__item {
+    margin: 5rem 0;
+  }
+
+  .d-flex.justify-content-center {
+    justify-content: flex-start !important;
+  }
+}

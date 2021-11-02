@@ -3,19 +3,15 @@ import React, { useState, useRef } from 'react';
 const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState(''); // event.target.value mặc định luôn luôn là string
   const [enteredDate, setEnteredDate] = useState('');
-  //? useRef(initValue): amountRef value sẽ dc preserve khi Component re-render (giống useState)
-  //?   Nhưng khi amountRef thay đổi, nó ko khiến Component bị re-render (khác useState)
-  //! Vì vậy, value show ra trên UI thì dùng useState.
-  //! Còn những thứ khác như form người dùng nhập vào thì dùng useRef sẽ đỡ bị re-render hơn
-  //! Những thứ constant thì xem xét dùng JS variable như bình thường
+  //? useRef(initValue): amountRef value sẽ dc preserve khi Component re-render (giống useState). Nhưng khi amountRef thay đổi, nó ko khiến Component bị re-render (khác useState)
+  //! Vì vậy, value show ra trên UI thì dùng useState. Còn những thứ khác như form người dùng nhập vào thì dùng useRef sẽ đỡ bị re-render hơn. Những thứ constant thì xem xét dùng JS variable như bình thường
   const amountRef = useRef();
-
   //* ref can be any valid JS, ví dụ như ở đây là num, ở line 60 là node trong DOM
   const numberRef = useRef(0); //! numberRef.current = 0
   setInterval(() => {
     numberRef.current = numberRef.current + 1;
     console.log('numberRef.current: ' + numberRef.current);
-  }, 10000);
+  }, 50000);
 
   const titleChangeHandler = (event) => {
     setEnteredTitle(event.target.value);
@@ -23,7 +19,6 @@ const ExpenseForm = (props) => {
   const dateChangeHandler = (event) => {
     setEnteredDate(event.target.value);
   };
-
   const submitHandler = (event) => {
     event.preventDefault(); //* Tránh reload lại trang
     console.log(amountRef.current); //! ref.current có thể là bất cứ thứ gì, kể cả một Node
@@ -59,9 +54,8 @@ const ExpenseForm = (props) => {
         <div className="new-expense__control">
           <label>Amount</label>
           {/* amountRef.current bây giờ chính là <input> trong HTML -> Có thể gọi hàm (ex: amountRef.current.focus()) */}
-          {/* Đây là 1 uncontrolled component vì state của input này là internal state, mình chỉ lấy về bằng ref */}
-          {/* Còn controlled component là do React quản lý thông qua state: */}
-          {/* <input value = {inputState}> -> Gõ phím -> update inputState -> value của input update theo*/}
+          {/* Đây là 1 Uncontrolled Component vì state của input này là internal state, mình chỉ lấy value đó về bằng ref */}
+          {/* Còn Controlled Component là do React quản lý thông qua state: <input value = {inputState}> -> Gõ phím -> update `inputState` -> `value` của `input` update theo */}
           <input type="number" min="0.01" step="0.01" ref={amountRef} />
         </div>
         <div className="new-expense__control">

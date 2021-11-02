@@ -6,9 +6,9 @@ function useCounter(forward = true) {
 
   useEffect(() => {
     if (forward) {
-      setInterval(() => setNum((prevNum) => prevNum + 1), 1000);
+      setInterval(() => setNum((prevNum) => prevNum + 1), 3000);
     } else {
-      setInterval(() => setNum((prevNum) => prevNum - 1), 1000);
+      setInterval(() => setNum((prevNum) => prevNum - 1), 3000);
     }
   }, [forward]);
   return num;

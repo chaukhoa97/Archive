@@ -1,0 +1,110 @@
+@use '../abstract/variables' as *;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@400;600;700&family=Roboto&display=swap');
+html {
+  font-size: 62.5%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+a,
+li,
+span,
+button,
+td,
+th,
+.form-control,
+label,
+option,
+select,
+.form-select,
+form,
+div {
+  font-family: $open-sans;
+  color: $black;
+}
+
+p,
+a,
+li,
+span,
+th,
+td,
+.form-control,
+.form-select,
+h5,
+.h5,
+label,
+option,
+select,
+form,
+div {
+  font-size: 1.4rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+  margin-bottom: 0.75em;
+}
+
+h3,
+.h3 {
+  font-size: 2.3rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8em;
+}
+
+a {
+  text-decoration: none;
+}
+
+.bold,
+label.form-label,
+label.form-check-label {
+  font-weight: bold;
+}
+
+label.form-label,
+label.form-check-label {
+  font-size: 1.2rem;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.silver,
+.more {
+  color: $silver-chalice;
+}
+
+.more::after {
+  content: '>';
+}
+
+.roboto {
+  font-family: $roboto;
+}
+
+.price {
+  font-family: $lobster;
+}
+
+.price::after {
+  content: '.000đ';
+}
+
+.p--actived {
+  font-style: italic;
+  color: $wasabi;
+}

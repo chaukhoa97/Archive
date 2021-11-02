@@ -8,6 +8,35 @@
   function showArgs(time, ...args) {} //* args = [...]
 }
 
+//? Hoisting
+{
+  add(3, 3); //* returns 6
+  // Function declaretion -> hoisting lên đầu
+  function add(num1, num2) {
+    return num1 + num2;
+  }
+
+  // Function expression -> ko hoisting
+  subtract(7, 4); //! Uncaught TypeError: subtract is not a function
+  var subtract = function (num1, num2) {
+    return num1 - num2;
+  };
+}
+
+//? Parameter(tham số) & Argument(đối số)
+function test(a) {
+  return a; // a là param
+}
+test(100); // 100 là arg
+
+//? Factory Functions
+function createPerson(name) {
+  return {
+    name,
+    age: 23,
+  };
+}
+
 //? Const -> No re-assign or re-declare vs Let
 {
   //* OK
@@ -26,20 +55,6 @@
 
   ob = { key1: 'foo' }; // error - re-assigning
   const ob = { key1: 'foo' }; // error - re-declaring
-}
-
-//? Parameter(tham số) & Argument(đối số)
-function test(a) {
-  return a; // a là param
-}
-test(100); // 100 là arg
-
-//? Factory Functions
-function createPerson(name) {
-  return {
-    name,
-    age: 23,
-  };
 }
 
 //? x++ và ++x

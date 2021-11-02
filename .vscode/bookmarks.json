@@ -4,29 +4,39 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 31,
-					"column": 4,
-					"label": "setState dựa theo previous state"
-				},
-				{
-					"line": 38,
+					"line": 21,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 51,
+					"line": 42,
 					"column": 2,
 					"label": ""
 				},
 				{
 					"line": 55,
 					"column": 2,
-					"label": "Side effect/Async code with Redux 1: Code ở trong Component như bt (KO dc ở trong reducer)"
+					"label": ""
 				},
 				{
-					"line": 72,
-					"column": 4,
-					"label": "React Context 2: <numberContext.Provider value = { {...} }>"
+					"line": 59,
+					"column": 2,
+					"label": "Side effect/Async code with Redux 1: Code ở trong Component ( = useEffect )"
+				},
+				{
+					"line": 75,
+					"column": 1,
+					"label": "React Context 2: Wrap context quanh những component dùng tới"
+				},
+				{
+					"line": 78,
+					"column": 6,
+					"label": "Router 2: Route & Link, Switch (Chỉ hiện 1 Route mà nó wrap), Redirect"
+				},
+				{
+					"line": 126,
+					"column": 0,
+					"label": "https://overreacted.io/before-you-memo/"
 				}
 			]
 		},
@@ -35,11 +45,11 @@
 			"bookmarks": [
 				{
 					"line": 5,
-					"column": 1,
-					"label": "Sử dụng useRef() vs useState(): 10 -> 30 -> 33 -> 60"
+					"column": 2,
+					"label": "useRef vs useState"
 				},
 				{
-					"line": 60,
+					"line": 55,
 					"column": 10,
 					"label": "Uncontrolled Component: useRef link tới DOM element vs Controlled component"
 				}
@@ -86,7 +96,7 @@
 				{
 					"line": 23,
 					"column": 12,
-					"label": "Inline CSS style (camelCase)"
+					"label": "Conditional styling (inline)"
 				}
 			]
 		},
@@ -99,19 +109,9 @@
 					"label": "reducer = (prevState, action-to-the-prevState) => newState"
 				},
 				{
-					"line": 50,
+					"line": 51,
 					"column": 8,
 					"label": "Passing onClick function"
-				}
-			]
-		},
-		{
-			"path": "src/components/Expenses/ExpenseList.jsx",
-			"bookmarks": [
-				{
-					"line": 16,
-					"column": 5,
-					"label": "Map a list of items -> components"
 				}
 			]
 		},
@@ -129,9 +129,19 @@
 			"path": "src/index.js",
 			"bookmarks": [
 				{
-					"line": 7,
+					"line": 5,
+					"column": 0,
+					"label": "FontAwesome Icon + Mapping Array to JSX"
+				},
+				{
+					"line": 20,
 					"column": 2,
-					"label": "Redux 2: Kẹp Provider quanh thằng nào dùng tới store"
+					"label": "Redux 3: Kẹp Provider quanh thằng nào dùng tới store"
+				},
+				{
+					"line": 21,
+					"column": 4,
+					"label": "Router 1: Kẹp <BrowserRouter> vào<App />"
 				}
 			]
 		},
@@ -147,11 +157,6 @@
 					"line": 11,
 					"column": 1,
 					"label": "Redux 5: dispatch(actions.reducerName( {action.payload} )"
-				},
-				{
-					"line": 17,
-					"column": 4,
-					"label": "dispatch ngoài kích reducer ra, thì còn return action object của hàm dispatch đó "
 				}
 			]
 		},
@@ -206,37 +211,12 @@
 			]
 		},
 		{
-			"path": "src/Redux/action-creator.js",
-			"bookmarks": [
-				{
-					"line": 15,
-					"column": 4,
-					"label": "Side effect/Async code with Redux 2: Action Creator"
-				}
-			]
-		},
-		{
-			"path": "src/Redux/basic-redux-middleware.js",
-			"bookmarks": [
-				{
-					"line": 13,
-					"column": 0,
-					"label": "Redux flow with/without Middleware"
-				}
-			]
-		},
-		{
 			"path": "src/Storage/EventTarget.jsx",
 			"bookmarks": [
 				{
 					"line": 6,
 					"column": 4,
-					"label": "destructing in big <form>"
-				},
-				{
-					"line": 14,
-					"column": 4,
-					"label": "<input type = \"text\"   value = {someState}>"
+					"label": "Handle big <form>"
 				}
 			]
 		},
@@ -244,9 +224,9 @@
 			"path": "src/Redux/redux-store.js",
 			"bookmarks": [
 				{
-					"line": 6,
-					"column": 0,
-					"label": "Redux 3: configureStore "
+					"line": 5,
+					"column": 4,
+					"label": "Redux 2: configureStore "
 				}
 			]
 		},
@@ -256,12 +236,72 @@
 				{
 					"line": 3,
 					"column": 0,
-					"label": "Redux 1: createSlice -> export actions & slice"
+					"label": "Redux 1: createSlice -> export actions & reducer"
 				},
 				{
 					"line": 8,
 					"column": 6,
 					"label": "state & action trong Redux là gì"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/React-dot-memo.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 2,
+					"label": "React.memo( MyComponent )"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useEffect.jsx",
+			"bookmarks": [
+				{
+					"line": 12,
+					"column": 2,
+					"label": "useEffect cleanup"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/Browser_API.js",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Redux/basic-redux-middleware.js",
+			"bookmarks": [
+				{
+					"line": 13,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useState.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 0,
+					"label": "useState vs props vs let/const"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useCallback.jsx",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 0,
+					"label": "Router 3: Params(itemDetail), History(<Link>), Location(?sort=asc), RouteMatch(Max 23)"
 				}
 			]
 		}

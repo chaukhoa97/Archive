@@ -13,13 +13,8 @@ const champSlice = createSlice({
   },
 });
 
-//? Action creator: Returns the action obj (ví dụ ở cuối file)/ THUNK (the function that returns the action obj)
-//?   -> Về bản chất vẫn là dispatch như thông thường, nhưng dc mix thêm code vào, như ở đây là fetch ok thì mới dispatch `changeSkin`
-//* Redux Thunk dc tự động thêm vào khi dùng configureStore (Redux 3). Khi Redux Thunk dc enable,
-//*   bất cứ khi nào bạn dispatch 1 fn thay vì 1 obj (line 24 redux-component.jsx),
-//*   middleware sẽ gọi fn đó với `dispatch` là 1st argument, và `getState` là 2nd argument
+//* Redux Thunk dc tự động thêm vào khi dùng configureStore. Khi Redux Thunk dc enable, bất cứ khi nào bạn dispatch 1 fn thay vì 1 obj (line 25 redux-component.jsx), middleware sẽ gọi fn đó với `dispatch` là 1st argument, và `getState` là 2nd argument
 export const changeChamp = (champ) => {
-  // Line 25 redux-component.jsx
   //! Redux automatically cho argument `dp` ở đây chính là dispatch(= useDispatch())
   return async (dp, getState) => {
     console.log(getState()); // {"name": "Caitlyn", "skin": "bac cuc"}
@@ -37,7 +32,7 @@ export const changeChamp = (champ) => {
 };
 
 export const champActions = champSlice.actions;
-export default champSlice;
+export default champSlice.reducer;
 
 //* Example action creator that returns object:
 export function showNotification(text) {

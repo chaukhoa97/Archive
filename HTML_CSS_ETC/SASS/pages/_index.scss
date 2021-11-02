@@ -1,0 +1,14 @@
+@use '../abstract/mixins' as *;
+@use '../abstract/variables' as *;
+
+body.home {
+  nav.navbar {
+    background: rgba(0, 0, 0, 0.1);
+    border-bottom: 0.1px solid $silver-chalice;
+
+    a.nav-link {
+      position: relative;
+      z-index: 10;
+    }
+  }
+}

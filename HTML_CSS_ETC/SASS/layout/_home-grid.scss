@@ -1,0 +1,29 @@
+@use '../abstract/variables' as *;
+.grid {
+  &__header-item {
+    width: 60%;
+    min-width: 25rem;
+  }
+
+  .col-md-4:last-child {
+    hr {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .grid {
+    &__header-item {
+      width: 50%;
+      min-width: 15rem;
+    }
+
+    &__header {
+      .col-md-4:nth-child(2) {
+        border-left: 1px solid $silver-chalice;
+        border-right: 1px solid $silver-chalice;
+      }
+    }
+  }
+}

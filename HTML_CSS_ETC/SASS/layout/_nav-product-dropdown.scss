@@ -1,0 +1,46 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+@media screen and (min-width: 992px) {
+  .nav-product {
+    height: 60.8px;
+    & > a {
+      height: 60.8px;
+      display: flex;
+      align-items: center;
+    }
+    &:hover > .product-dropdown {
+      @include dropdown-hover;
+      padding: 3rem 4rem;
+    }
+  }
+}
+
+.product-dropdown {
+  @include dropdown;
+  width: 67.1rem;
+  top: 7.5rem;
+  right: 10rem;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    @include list-item-hover;
+  }
+
+  &__category {
+    display: flex;
+    flex-direction: column;
+
+    h5 {
+      font-size: 1.4rem;
+    }
+
+    &::after {
+      @include gray-line;
+    }
+  }
+}
+
+@include product-dropdown-fix($xl, $xxl, 21rem);
+@include product-dropdown-fix($xxl, 9999px, 45rem);

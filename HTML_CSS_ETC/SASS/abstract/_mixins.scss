@@ -1,0 +1,91 @@
+@use './variables' as *;
+
+// Fix lại vị trí của 2 icon cart và finding trên nav-bar
+@mixin nav-fix($first-breakpoint, $second-breakpoint, $cart-move, $find-move) {
+  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
+    .nav-cart {
+      left: $cart-move;
+    }
+    .nav-find {
+      left: $find-move;
+    }
+  }
+}
+
+@mixin product-dropdown-fix($first-breakpoint, $second-breakpoint, $distance) {
+  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
+    .product-dropdown {
+      right: $distance;
+    }
+  }
+}
+
+@mixin dropdown {
+  overflow: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all 0.3s ease-in;
+  position: absolute;
+}
+
+@mixin dropdown-hover {
+  opacity: 1;
+  height: auto;
+  border: 2px solid $wasabi;
+  background-color: $white;
+  z-index: 999;
+}
+
+@mixin list-item-hover {
+  ul {
+    li:hover {
+      transform: translateX(1em);
+
+      &::before {
+        content: '\25A0';
+        color: $wasabi;
+        margin: -0.1em 0 0 -1.5em;
+        float: left;
+      }
+    }
+
+    a {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@mixin gray-line {
+  border-top: 2px solid $wild-sand;
+  width: 100%;
+  content: '';
+  margin: 0.5rem 0 1rem 0;
+}
+
+@mixin fb-carousel-fix($first-breakpoint, $second-breakpoint, $bottom, $right) {
+  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
+    .feedback {
+      .carousel-indicators {
+        bottom: $bottom;
+        right: $right;
+      }
+    }
+  }
+}
+
+@mixin scroll-enable {
+  display: flex;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin close-button-fix($first-breakpoint, $second-breakpoint, $value) {
+  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
+    .popup__close-button {
+      top: $value;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@use '../abstract/mixins' as *;
+@use '../abstract/variables' as *;
+.toggle-page {
+  display: flex;
+  flex-direction: column;
+
+  &::after {
+    @include gray-line;
+  }
+
+  i {
+    position: relative;
+    top: 3px;
+  }
+}

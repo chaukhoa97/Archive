@@ -3,38 +3,38 @@ import { counterActions } from './slice1';
 import { changeChamp } from './slice2-action-creator';
 
 function ReduxComponent() {
-  //? Redux 4: useSelector((store) => store.sliceRef.stateObjectProperty) -> Lấy value từ state object, ở đây để render ra (line 31)
-  const counter = useSelector((store) => store.countReducer.counter);
-  const showCounter = useSelector((store) => store.countReducer.showCounter);
-  const champName = useSelector((store) => store.champReducer.name);
-  const champSkin = useSelector((store) => store.champReducer.skin);
+  //? Redux 4: useSelector((store) => store.slice.stateProperty) -> Lấy value từ state object, ở đây để render ra (line 31)
+  const counter = useSelector((store) => store.counter.counter);
+  const showCounter = useSelector((store) => store.counter.showCounter);
+  const champName = useSelector((store) => store.champ.name);
+  const champSkin = useSelector((store) => store.champ.skin);
 
   //? Redux 5: dispatch(slice.actions.reducerName({action.payload})
   const dispatch = useDispatch();
   const incrementHandler = () => {
-    // dispatch({ type: 'increment', amount: 10 }); // Cách call dispatch của Redux thuần
-    dispatch(counterActions.increment({ amount: 10 })); //* counterActions.increment() cùng chức năng với dòng trên
-    //* Log ra action object - line 10 slice.js -> { "type": "counter/increment", "payload": {"amount": 10}}
-    console.log(dispatch(counterActions.increment({ amount: 10 })));
+    // dispatch({ type: 'increment', amount: 10 }); // dispatch (<action obj>) của Redux thuần
+    dispatch(counterActions.increment({ amount: 10 })); //* counterActions.increment() cùng chức năng với dòng trên. Ngoài ra hàm dispatch cũng return action obj -> { "type": "counter/increment", "payload": {"amount": 10} }
   };
   const toggleCounter = () => {
     dispatch(counterActions.toggle());
   };
-  //* Action creator
+
+  //* dispatch(Action Creator Thunk)
   const champHandler = () => {
     dispatch(changeChamp({ name: 'Jhin', skin: 'hac tinh' }));
   };
 
   return (
     <>
-      <h1>Redux: Count</h1>
+      <h1>Redux:</h1>
+      <h4>Redux: Count</h4>
       <button onClick={incrementHandler}>+10</button>
       <button onClick={toggleCounter}>Toggle</button>
-      {showCounter && <h3>{counter}</h3>}
+      {showCounter && <h5>{counter}</h5>}
 
-      <h1>Redux: Champions</h1>
+      <h4>Redux: Champions</h4>
       <button onClick={champHandler}>Change champ</button>
-      <h3>{champName + ' ' + champSkin}</h3>
+      <h5>{champName + ' ' + champSkin}</h5>
     </>
   );
 }

@@ -11,21 +11,24 @@ const reducer = (state = 0, action) => {
   }
 };
 
-//* Redux flow: dispatch(actions.reducerFn({action.payload})) -> execute reducerFn -> newState
-//? Flow with Middleware: dispatch(...) -> middleware1 -> middleware2... -> execute reducerFn -> newState
+//? Redux flow: 1. Component(View, UI) -> 2. onClick...
+//?   3. Component đóng vai trò là Action Creator, tạo ra action obj bằng cách truyền thống (slice2 line 40, redux-component line 17, 21) hoặc bằng THUNK: 1 async fn that returns the action obj (slice2 line 18)
+//?   4. Component tiếp tục dispatch(action obj vừa tạo từ cách truyền thống / async fn -> middleware 1, 2... -> action obj dc return từ async fn)
+//?   5. Redux store gọi reducerFn tương ứng với type của action obj
+//?   6. Update Store data dựa theo storeState & action obj (Ex: Line 8 slice1.js)
 const middleware1 = (storeAPI) => (next) => (action) => {
-  //* Anything inside a middleware will be excecuted EVERY TIME an action is dispatched.
-  // Ex: Pass the action onwards with `next(action)`, restart the pipeline with `storeAPI.dispatch(action)`, see current state with `storeAPI.getState()`
-  console.log(action); // returns {type: 'INCREMENT', payload: 1}
-  action.payload = 3; // Middleware can change action value before passing the action to the next section
-  let result = next(action); // Pass the action onwards, which may be another middleware or store.dispatch, if it is the last middleware
-  //! ...Eventually the reducers run and the state is updated
-  console.log('next state', storeAPI.getState()); // We can now call storeAPI.getState() and see what the new state is
+  //* Khi `store.dispatch`, nếu có middleware thì tất cả các mw sẽ dc chạy TRƯỚC dispatch: `storeAPI.dispatch(action)` trở thành `mw 1 -> mw 2... -> storeAPI.dispatch(action)`
+  //! In reality: Kẹp nhiều middleware và xét theo action type, đụng type nào thì thực hiện middleware tương ứng: middleware2 ở dưới chỉ khi đúng type mới làm
+  //* Do anything here: Pass the action onwards with `next(action)`, restart the pipeline (calling the 1st middleware) with `storeAPI.dispatch(action)`, see current state with `storeAPI.getState()`
+  setTimeout(() => {
+    action.payload = 5; // Middleware can change action value, or do async stuff before passing the action to the next section
+  }, 2000);
+  let result = next(action); //! Pass the action onwards to the next middleware. Nếu đã execute hết middleware, thì lúc này `next(action)` sẽ là the original `store.dispatch(action)` (line 20)
+  // ...Eventually the reducers run and the state is updated
+  console.log('next state', storeAPI.getState()); // We can now see what the new state is
   return result; //! Luôn return next(action) ở last line trong middleware
-  //* Giá trị dc return bởi middleware đầu tiên(dc chạy), cũng là giá trị dispatchResult = store.dispatch({type: 'some/action'})
 };
 const middleware2 = (storeAPI) => (next) => (action) => {
-  //! In reality: Kẹp nhiều middleware và xét theo action type, đụng type nào thì thực hiện middleware đó
   if (action.type === 'todos/todoAdded') {
     setTimeout(() => {
       console.log('Added a new todo: ', action.payload);
@@ -33,12 +36,12 @@ const middleware2 = (storeAPI) => (next) => (action) => {
   }
   return next(action);
 };
-const middlewares = applyMiddleware(middleware1, middleware2);
 
+const middlewares = applyMiddleware(middleware1, middleware2);
 const store = createStore(reducer, middlewares); //* createStore(reducer, [initialState], [enhancer(middleware)])
 
-//* store.subscribe( `fn dc chạy mỗi khi store thay đổi` )
 store.subscribe(() => {
+  //* store.subscribe( `fn dc chạy mỗi khi store thay đổi` )
   console.log('current state', store.getState());
 });
 

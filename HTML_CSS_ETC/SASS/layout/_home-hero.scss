@@ -1,0 +1,25 @@
+@use '../abstract/mixins' as *;
+@use '../abstract/variables' as *;
+
+.hero {
+  background-color: $seashell;
+  min-height: auto;
+
+  &__image {
+    position: relative;
+    bottom: 50px;
+    z-index: 1;
+  }
+
+  &__link {
+    font-size: 1.8rem;
+    text-decoration: underline;
+  }
+
+  &__content {
+    a.hero__link {
+      position: relative;
+      right: 6px;
+    }
+  }
+}

@@ -13,7 +13,13 @@
     transform: skewY(-20deg);
   }
 }
-
-.dummy-class {
+.dance-component {
   animation: dance 3s ease-in 1s 2;
+}
+
+.center-image {
+  display: block;
+  margin: auto;
+  /*! Dùng khi border-radius ko hoạt động */
+  overflow: hidden;
 }

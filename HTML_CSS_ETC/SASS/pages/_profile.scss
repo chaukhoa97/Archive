@@ -1,0 +1,29 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.table--status {
+  color: $monza;
+}
+
+.profile-detail {
+  display: flex;
+  align-items: center;
+
+  > img {
+    height: 17px;
+    margin-right: 0.5rem;
+  }
+
+  > p {
+    margin-bottom: 0;
+  }
+}
+
+.profile-detail-heading {
+  display: flex;
+  flex-direction: column;
+
+  &::after {
+    @include gray-line;
+  }
+}

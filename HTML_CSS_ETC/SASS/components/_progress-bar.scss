@@ -1,0 +1,75 @@
+@use '../abstract/variables' as *;
+
+.shopping-progress {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+
+  .circle {
+    background-color: $white;
+    z-index: 2;
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100px;
+    border: 2.5px solid $silver-chalice;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.4s ease;
+    margin-bottom: 1rem;
+
+    &--actived {
+      background-color: $wasabi;
+      border: 2.5px solid $wasabi;
+      color: $white;
+    }
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--middle {
+      margin-left: 8rem;
+      margin-right: 6rem;
+    }
+  }
+
+  .line {
+    background-color: $silver-chalice;
+    z-index: 1;
+    width: 280px;
+    height: 3px;
+    position: absolute;
+    bottom: 60px;
+  }
+}
+
+.shipment,
+.confirm {
+  .shopping-progress {
+    margin-top: 6rem;
+  }
+}
+
+.done {
+  background-image: url('../../../assets/done-bg.svg');
+  background-size: cover;
+  p,
+  a,
+  h3 {
+    color: $white;
+  }
+  a {
+    padding: 1rem 2rem;
+    border: 1px solid $white;
+    width: 160px;
+    transition: background 0.2s;
+  }
+  a:hover {
+    background-color: $white;
+  }
+}

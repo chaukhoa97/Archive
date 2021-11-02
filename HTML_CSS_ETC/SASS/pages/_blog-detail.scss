@@ -1,0 +1,14 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.blog-detail {
+  .aside__section-title,
+  &__article-tag {
+    display: flex;
+    flex-direction: column;
+
+    &::after {
+      @include gray-line;
+    }
+  }
+}

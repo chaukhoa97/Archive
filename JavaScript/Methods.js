@@ -12,9 +12,7 @@ numbers.splice(2, 1, 'a', 'b'); // Xóa ở 2nd index 1 phần thử, rồi thê
 //! Sort
 {
   //? a - b <= 0 -> a, b giữ nguyên vị trí (vẫn a xếp trước b), còn > 0 thì đổi chỗ
-  console.log(
-    anotherCombined.sort((a, b) => a - b) // [1,2,3,4,5,6,10]
-  );
+  anotherCombined.sort((a, b) => a - b); // [1,2,3,4,5,6,10]
   //? Sort theo text alphabet
   users.sort((a, b) => a.firstname.localeCompare(b.firstname));
 }
@@ -30,7 +28,7 @@ numbers.splice(2, 1, 'a', 'b'); // Xóa ở 2nd index 1 phần thử, rồi thê
   const first = [1, 2, 3];
   const second = [4, 5, 6];
   const combined = first.concat(second); // [1, 2, 3, 4, 5, 6]
-  const sliced = combined.slice(2, 5); // returns [3, 4, 5]; cũng có thể dùng .slice(`omit`) để copy
+  const sliced = combined.slice(2, 5); // Ko tính end; cũng có thể dùng .slice(`omit`) để copy
 }
 
 //* Filters, every, some - Đều dùng callback: .filter((element,index,array), "thisArg" is the value to used as "this" when exectuing callback)
@@ -46,7 +44,6 @@ numbers.splice(2, 1, 'a', 'b'); // Xóa ở 2nd index 1 phần thử, rồi thê
   numbers.indexOf(4, 0); // (value, fromIndex). Nếu ko có `value` trong arr -> Return -1
   numbers.lastIndexOf('a', 2); // (value, fromIndex). Nếu ko có `value` trong arr -> Return -1
   numbers.includes(1, 2); // (value, fromIndex). Returns boolean
-  'fuck you'.includes('fuck'); // True
   numbers.findIndex((value) => value > 2); // Returns the index of the FIRST element ok with the callback
   numbers.find((value) => value > 2); // Returns the value of the FIRST element ok with the callback-> returns 3
 }
@@ -74,3 +71,7 @@ numbers.splice(2, 1, 'a', 'b'); // Xóa ở 2nd index 1 phần thử, rồi thê
     thisValue // The value used as the function's "this" value
   ); // returns undefined
 }
+
+//? Object
+//* Số lượng property của object:
+Object.keys(obj).length;

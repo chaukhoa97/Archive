@@ -1,0 +1,105 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+// Feedback
+.feedback {
+  background-image: url('../assets/feedback-bg-sm.png');
+  background-position: center;
+
+  &__info {
+    img {
+      width: 90px;
+      border-radius: 50%;
+      border: 3px solid $wasabi;
+    }
+  }
+
+  .carousel-indicators {
+    bottom: 145px;
+
+    [data-bs-target] {
+      width: 7px;
+      height: 7px;
+    }
+  }
+}
+
+@media screen and (min-width: $md) {
+  .feedback {
+    &__info {
+      img {
+        width: initial;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $lg) {
+  .feedback {
+    background-image: url('../assets/feedback-bg.png');
+    background-size: 500px;
+    background-position: bottom right;
+  }
+}
+
+@include fb-carousel-fix($md, $lg, 18px, 352px);
+@include fb-carousel-fix($lg, $xl, 23px, 593px);
+@include fb-carousel-fix($xl, $xxl, 32px, 760px);
+@include fb-carousel-fix($xl, $xxl, 32px, 760px);
+@include fb-carousel-fix($xxl, 9999px, 32px, 885px);
+
+// Popular
+.popular {
+  background-image: url('../assets/popular-bg.png');
+
+  &__link {
+    font-size: 1.8rem;
+    font-style: italic;
+    font-family: $lobster;
+    color: $silver-chalice;
+    &--active {
+      font-size: 3.4rem;
+      color: $wasabi;
+    }
+  }
+
+  ul {
+    max-width: 900px;
+    li {
+      a {
+        color: $silver-chalice;
+      }
+
+      &:before {
+        color: $silver-chalice;
+        content: '•';
+        font-size: 150%;
+        padding-right: 5px;
+        position: relative;
+        top: 3px;
+      }
+
+      &:before:hover {
+        color: $wasabi;
+        content: '•';
+        font-size: 150%;
+        padding-right: 5px;
+        position: relative;
+        top: 3px;
+      }
+    }
+  }
+
+  &__cards {
+    @include scroll-enable;
+
+    .product-card {
+      opacity: 0.7;
+      transition: opacity 0.3s;
+      min-width: 233px;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

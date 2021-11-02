@@ -1,0 +1,21 @@
+@use '../abstract/mixins' as *;
+@use '../abstract/variables' as *;
+
+.home-footer {
+  &__partners {
+    @include scroll-enable;
+  }
+
+  &__content {
+    h4 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .blog-section {
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

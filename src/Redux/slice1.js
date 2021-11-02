@@ -6,11 +6,10 @@ const counterSlice = createSlice({
   initialState: { counter: 666, showCounter: true },
   reducers: {
     increment(state, action) {
-      //! state đối với Redux là data của cả store. Most of the times it is a object, but it can be any valid JS stuff (string, number, ...)
+      //! state đối với Redux là data của cả store. Most of the times it is a object.
       //? action là một object có 2 property: { type: string, payload: obj }, describing what happened
       //*   type: 'counter/increment', với "counter" lấy từ "name" ở line 4; còn "increment" là tên hàm mình đang gọi
-      //*   payload: The object that we pass as the ONLY argument in slice.actions.reducerFn(payload):
-      //*      Tương ứng ở đây là line 18 redux-component.jsx:  counterActions.increment( {amount: 10} )
+      //*   payload: The object that we pass as the value in reducerFn - Line 18 redux-component: {amount: 10} trong counterActions.increment({amount: 10})
       state.counter += action.payload.amount;
     },
     toggle(state) {
@@ -20,4 +19,4 @@ const counterSlice = createSlice({
 });
 
 export const counterActions = counterSlice.actions;
-export default counterSlice;
+export default counterSlice.reducer;

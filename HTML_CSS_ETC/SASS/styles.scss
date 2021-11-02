@@ -1,0 +1,57 @@
+@use './abstract/mixins' as *;
+@use './abstract/variables' as *;
+
+@use './base/bootstrap' as *;
+@use './base/functions' as *;
+@use './base/global' as *;
+@use './base/sanitize' as *;
+@use './base/typography' as *;
+
+@use './layout/nav' as *;
+@use './layout/footer' as *;
+@use './layout/home-grid' as *;
+@use './layout/home-hero' as *;
+@use './layout/home-carousel' as *;
+@use './layout/pop-up' as *;
+@use './layout/nav-cart-dropdown' as *;
+@use './layout/nav-product-dropdown' as *;
+@use './layout/form' as *;
+@use './layout/base-products' as *;
+@use './layout/home-footer' as *;
+
+@use './components/button' as *;
+@use './components/dash-slash' as *;
+@use './components/tags' as *;
+@use './components/contact-form' as *;
+@use './components/blog-article' as *;
+@use './components/toggle-pageSelection' as *;
+@use './components/shopping-buttons' as *;
+@use './components/product-card' as *;
+@use './components/progress-bar' as *;
+
+@use './pages/index' as *;
+@use './pages/404' as *;
+@use './pages/about-us' as *;
+@use './pages/blog-detail' as *;
+@use './pages/blog' as *;
+@use './pages/cart' as *;
+@use './pages/contact' as *;
+@use './pages/product-detail' as *;
+@use './pages/products' as *;
+@use './pages/profile' as *;
+@use './pages/sign-in' as *;
+@use './pages/sign-up' as *;
+@use './pages/products-grid' as *;
+@use './pages/products-list' as *;
+
+//* The @forward rule loads a Sass stylesheet and makes its component available when your stylesheet is loaded with the @use
+@forward './colorVariables';
+@forward './fontSize';
+.dummy {
+  font-size: large;
+}
+
+//! When you load the URL of the folder, if there is _index.scss in the folder, that _index.scss will be loaded automatically
+// Ở file này không dùng _colorVariables và _fontSize nhưng vẫn @forward vào
+// Vì style.scss: khi dùng "@use Partial" -> automatically kẹp thêm _index.scss
+// -> kẹp thêm luôn _colorVariables và _fontSize được forward ở trên

@@ -1,0 +1,100 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.detail {
+  p.price {
+    font-size: 1.8rem;
+    color: $wasabi;
+  }
+
+  span.ms-2.silver {
+    text-decoration: line-through;
+  }
+
+  &__images {
+    max-width: 10rem;
+    width: 25vw;
+  }
+
+  &__summary {
+    .shopping-buttons {
+      justify-content: flex-start !important;
+      margin-bottom: 2rem;
+    }
+
+    &-footer {
+      span {
+        color: $monza;
+      }
+
+      img {
+        position: relative;
+        right: 8px;
+        max-width: 295px;
+      }
+    }
+  }
+
+  &__label {
+    font-family: $roboto;
+    font-weight: bold;
+    margin-bottom: 1rem;
+
+    & + select,
+    & + input {
+      margin-bottom: 2rem;
+      max-width: 390px;
+    }
+  }
+
+  &__link {
+    @include scroll-enable;
+    a {
+      font-size: 1.6rem;
+      color: $silver-chalice;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .active {
+      color: $wasabi;
+    }
+  }
+
+  &__content {
+    margin-bottom: 5rem;
+
+    .gray-line-section::after {
+      width: 20%;
+    }
+
+    img {
+      max-width: 200px;
+    }
+
+    &--right {
+      .gray-line-section::after {
+        margin-left: auto;
+      }
+    }
+  }
+
+  &__main {
+    padding-right: 1.4rem;
+  }
+
+  &__aside-items {
+    margin-bottom: 5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .detail__content {
+    .col-md-7 {
+      width: 80%;
+      p {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

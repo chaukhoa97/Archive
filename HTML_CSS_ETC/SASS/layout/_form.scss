@@ -1,0 +1,8 @@
+@use '../abstract/variables' as *;
+label.form-label::after {
+  content: '*';
+}
+
+.form--concrete {
+  background-color: $concrete;
+}

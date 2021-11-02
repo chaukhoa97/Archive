@@ -1,0 +1,61 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+a {
+  color: $cod-gray;
+}
+
+a:hover {
+  color: $wasabi !important;
+  span {
+    color: $wasabi;
+  }
+}
+
+ol,
+ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+nav + div {
+  min-height: calc(100vh - 77px - 264px);
+  padding-bottom: 4rem;
+}
+
+table > * {
+  text-align: center;
+}
+
+.gray-line-section {
+  flex-direction: column;
+  display: flex;
+
+  &::after {
+    @include gray-line;
+  }
+}
+
+.mb-6 {
+  margin-bottom: 5rem !important;
+}
+
+.mb-7 {
+  margin-bottom: 7rem !important;
+}
+
+.mt-6 {
+  margin-top: 5rem !important;
+}
+
+.mt-7 {
+  margin-top: 7rem !important;
+}
+
+.pb-6 {
+  padding-bottom: 5rem !important;
+}
+
+.pt-6 {
+  padding-top: 5rem !important;
+}

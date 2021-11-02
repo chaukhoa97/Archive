@@ -8,7 +8,7 @@ const reducer = (state, action) => {
       return state + 1;
     case '-':
       return state - 1;
-    case 'del':
+    case 'reset':
       return 0;
     default:
       return state;
@@ -46,17 +46,18 @@ function ReducerExample() {
   return (
     <>
       <div className="useReducer-with-variable">
-        <h1>useReducer with variable</h1>
-        <h3>{state}</h3>
+        <h1>useReducer:</h1>
+        <h4>With variable</h4>
+        <h5>{state}</h5>
         {/* PHẢI PASS callback vào onClick với dispatch nói riêng hay React nói chung */}
         <button onClick={() => dispatch('+')}>+</button>
         <button onClick={() => dispatch('-')}>-</button>
-        <button onClick={() => dispatch('del')}>DEL</button>
+        <button onClick={() => dispatch('reset')}>RESET</button>
       </div>
 
       <div className="useReducer-with-object">
-        <h1>useReducer with object</h1>
-        {state2.loading ? <h3>Loading...</h3> : <h3>{state2.data.title}</h3>}
+        <h4>With object</h4>
+        {state2.loading ? <h5>Loading...</h5> : <h5>{state2.data.title}</h5>}
         <button onClick={getUsers}>Get data</button>
       </div>
     </>

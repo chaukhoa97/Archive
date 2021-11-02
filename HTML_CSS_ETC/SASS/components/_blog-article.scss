@@ -1,0 +1,12 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+.blog-section {
+  display: flex;
+  flex-direction: column;
+
+  &:nth-child(1)::after,
+  &:nth-child(2)::after {
+    @include gray-line;
+  }
+}

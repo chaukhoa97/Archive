@@ -4,7 +4,7 @@ function EventTarget(props) {
   const [user, setUser] = useState({ id: '', phone: '' });
   const userHandler = (e) => {
     console.log(e);
-    const { name, value } = e.target; //* name: "id" ; value: "aspojd"
+    const { name, value } = e.target; //* { name: ['id' / 'phone'] ; value: <what we type in> }
     setUser({ ...user, [name]: value });
   };
 
@@ -15,7 +15,12 @@ function EventTarget(props) {
     //! id không có value nên sẽ ko dc cập nhật, còn phone thì có
     <form className="event-target">
       <h1>event.target</h1>
-      <input type="text" onChange={userHandler} placeholder="id: Không được cập nhật" name="id" />
+      <input
+        type="text"
+        onChange={userHandler}
+        placeholder="id: Không được cập nhật"
+        name="id"
+      />
       <input
         type="number"
         onChange={userHandler}
@@ -23,7 +28,11 @@ function EventTarget(props) {
         value={user.phone}
         placeholder="phone: Được cập nhật"
       />
-      <input type="button" value="setUser({ id: 100, phone: 100 })" onClick={handleValueChange} />
+      <input
+        type="button"
+        value="setUser({ id: 100, phone: 100 })"
+        onClick={handleValueChange}
+      />
     </form>
   );
 }

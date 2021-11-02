@@ -1,0 +1,21 @@
+@media screen and (max-width: 370px) {
+  .table-responsive + div {
+    flex-direction: column;
+    align-items: center;
+
+    button.btn {
+      margin-bottom: 1rem;
+      width: 54%;
+    }
+  }
+}
+
+.cart-row {
+  .price::after {
+    position: relative;
+    top: -1px;
+  }
+  .td-image {
+    max-width: 200px;
+  }
+}
