@@ -1,0 +1,19 @@
+.active-nav {
+  background-color: #4caf50;
+}
+
+//? Cách 1
+.slick-slide > div {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}
+
+//? Cách 2
+// .slick-slide {
+//   margin: 0 10px;
+// }
+// .slick-list {
+//   margin: 0 -10px;
+// }

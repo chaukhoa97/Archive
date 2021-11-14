@@ -44,18 +44,17 @@ const ExpenseForm = (props) => {
       <div className="new-expense__controls">
         <div className="new-expense__control">
           <label>Title</label>
+          {/* Còn Controlled Component thì state của nó do React quản lý: <input value = {componentState}> -> Gõ phím -> update `componoentState` -> `value` của `input` update theo */}
           <input
-            //* Built-in component: <input onChange = {titleChangeHandler} /> gọi hàm tCH mỗi khi có Change Event
+            value={enteredTitle}
             type="text"
             onChange={titleChangeHandler}
-            value={enteredTitle}
           />
         </div>
         <div className="new-expense__control">
           <label>Amount</label>
           {/* amountRef.current bây giờ chính là <input> trong HTML -> Có thể gọi hàm (ex: amountRef.current.focus()) */}
           {/* Đây là 1 Uncontrolled Component vì state của input này là internal state, mình chỉ lấy value đó về bằng ref */}
-          {/* Còn Controlled Component là do React quản lý thông qua state: <input value = {inputState}> -> Gõ phím -> update `inputState` -> `value` của `input` update theo */}
           <input type="number" min="0.01" step="0.01" ref={amountRef} />
         </div>
         <div className="new-expense__control">

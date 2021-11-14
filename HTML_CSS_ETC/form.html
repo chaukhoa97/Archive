@@ -1,18 +1,32 @@
+<!-- HTML5 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="rtl">
   <head>
+    <!-- Set character encoding for the document -->
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Viewport for responsive web design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Allows control over where resources are loaded from. Place as early in the <head> as possible, as the tag only applies to resources that are declared after it. -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Name of web application (only should be used if the website is used as an app) -->
+    <meta name="application-name" content="Application Name" />
+    <meta
+      name="description"
+      content="Description of the page less than 150 characters"
+    />
+
     <title>Form Basics</title>
+    <link rel="icon" type="image/png" href="https://example.com/favicon.png" />
+
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="../../Bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="form.css" />
-    <!--? Optional JavaScript; choose one of the two! -->
+    <!--? Optional Bootstrap JavaScript; choose one of the two! -->
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/bootstrap/js/bootstrap.bundle.min.js" defer></script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2" defer></script>
+    <script src="/bootstrap/js/bootstrap.min.js" defer></script>
   </head>
 
   <body>

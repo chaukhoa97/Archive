@@ -2,20 +2,12 @@
 
 // Fix lại vị trí của 2 icon cart và finding trên nav-bar
 @mixin nav-fix($first-breakpoint, $second-breakpoint, $cart-move, $find-move) {
-  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
+  @media screen and (min-width: $first-breakpoint) and (max-width: ($second-breakpoint - 1px)) {
     .nav-cart {
       left: $cart-move;
     }
     .nav-find {
       left: $find-move;
-    }
-  }
-}
-
-@mixin product-dropdown-fix($first-breakpoint, $second-breakpoint, $distance) {
-  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
-    .product-dropdown {
-      right: $distance;
     }
   }
 }
@@ -62,30 +54,11 @@
   margin: 0.5rem 0 1rem 0;
 }
 
-@mixin fb-carousel-fix($first-breakpoint, $second-breakpoint, $bottom, $right) {
-  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
-    .feedback {
-      .carousel-indicators {
-        bottom: $bottom;
-        right: $right;
-      }
-    }
-  }
-}
-
 @mixin scroll-enable {
   display: flex;
   overflow: scroll;
 
   &::-webkit-scrollbar {
     display: none;
-  }
-}
-
-@mixin close-button-fix($first-breakpoint, $second-breakpoint, $value) {
-  @media screen and (min-width: $first-breakpoint) and (max-width: $second-breakpoint - 1px) {
-    .popup__close-button {
-      top: $value;
-    }
   }
 }

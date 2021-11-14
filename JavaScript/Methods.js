@@ -72,6 +72,9 @@ numbers.splice(2, 1, 'a', 'b'); // Xóa ở 2nd index 1 phần thử, rồi thê
   ); // returns undefined
 }
 
+//? Set
+uniqueArray = [...new Set(array)];
+
 //? Object
 //* Số lượng property của object:
 Object.keys(obj).length;

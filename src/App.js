@@ -14,11 +14,17 @@ import ContextExample from './Storage/useContext';
 import MemoExample from './Storage/useMemo';
 import ReducerExample from './Storage/useReducer';
 import StateExample from './Storage/useState';
-import { Route, Switch, Redirect, NavLink, Link } from 'react-router-dom';
-import './MainHeader.css';
+import {
+  Link,
+  Outlet,
+  NavLink,
+  useSearchParams,
+  useNavigate,
+  useLocation,
+} from 'react-router-dom';
+import './slick-fix.scss';
 
 function App() {
-  console.log('App.js RUNNING');
   //? Lazy init: `expenseviveFn` chỉ chạy ở lần render đầu tiên để tạo ra giá trị init của state
   const expensiveFn = () => {
     console.log(100);
@@ -71,37 +77,43 @@ function App() {
     sendRequest();
   }, [dispatch]);
 
+  //? Router
+  const navigate = useNavigate(); // <button> 102
+  //* Hoạt động tương tự useState nhưng ko log searchParams dc
+  const [searchParams, setSearchParams] = useSearchParams(); // <input> 91 -> 101
+  //* Returns { pathname:/products/2 , search: ?category=Clothes&sort=Asc }  }
+  const location = useLocation();
+
   return (
     //* ~ component dc wrap bởi <numberContext.Provider> sẽ dùng dc value object của nó thông qua useContext()
     <numberContext.Provider value={{ num: n, fn }}>
-      <Header></Header>
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/redux" />
-        </Route>
-        <Route path="/hooks" exact>
-          <NavLink activeClassName="active" to="/hooks/useReducer">
-            useReducer
-          </NavLink>
-          <br></br>
-          <Link to="/hooks/useCallbackkkk">useCallback</Link>
-        </Route>
-        <Route path="/hooks/useReducer">
-          <ReducerExample></ReducerExample>
-        </Route>
-        <Route path="/hooks/:hookName">
-          <div className="useCallback">
-            <CallbackExample onClick={callbackButtonHandler}>
-              Disabled sau 5s
-            </CallbackExample>
-            <h3>{num}</h3>
-          </div>
-        </Route>
-        <Route path="/redux" exact>
-          <ReduxComponent></ReduxComponent>
-          <EventTarget></EventTarget>
-        </Route>
-      </Switch>
+      <Links />
+      <input
+        value={searchParams.get('category')} // Để input value tương ứng với URL
+        onChange={(event) => {
+          let filter = event.target.value;
+          console.log({ filter }); //! { filter: `enteredValue }
+          setSearchParams(
+            //! Cho multi-query: Dùng query-string
+            filter.length > 0 ? { filter } : '?category=Shirt&sort=asc'
+          );
+        }}
+      />
+      {/* replace: true -{'>'} ko back dc */}
+      <button onClick={() => navigate('/admin', { replace: true })}>
+        Navigate qua Admin
+      </button>
+      <ReducerExample></ReducerExample>
+      <div className="useCallback">
+        <CallbackExample onClick={callbackButtonHandler}>
+          Disabled sau 5s
+        </CallbackExample>
+        <h3>{num}</h3>
+      </div>
+      <ReduxComponent></ReduxComponent>
+      <EventTarget></EventTarget>
+      <Outlet />
+      <br />
       /* #region */
       {/* <NewExpense onReceivingNewExpense={newExpenseHandler} /> */}
       {/* <Expenses items={expenses} /> */}
@@ -123,6 +135,7 @@ function App() {
   );
 }
 
+/* #region */
 //? Trước khi áp optimizations như memo/useMemo, hãy thử chia component ra thành 2 phần, phần thay đổi(care about state) và phần ko thay đổi (doesn't care about state)
 function Care(props) {
   const [careValue, setCareValue] = useState('Care');
@@ -141,26 +154,33 @@ function NoCare() {
   console.log('NoCare running');
   return <h5>NoCare</h5>;
 }
+/* #endregion */
 
 export default App;
 
-const Header = () => {
+const Links = () => {
+  //! isActive dc cho sẵn
   return (
-    <header className="header">
+    <>
       <nav>
-        <ul>
-          <li>
-            <NavLink activeClassName="active" to="/redux">
-              Redux & Form
-            </NavLink>
-          </li>
-          <li>
-            <NavLink activeClassName="active" to="/hooks">
-              Hooks
-            </NavLink>
-          </li>
-        </ul>
+        <NavLink
+          to="/products"
+          className={({ isActive }) => isActive && 'active-nav'}
+        >
+          Products
+        </NavLink>
+        <NavLink
+          to="/admin"
+          style={({ isActive }) => {
+            return {
+              marginLeft: '10px',
+              color: isActive ? 'turquoise' : '',
+            };
+          }}
+        >
+          Admin
+        </NavLink>
       </nav>
-    </header>
+    </>
   );
 };

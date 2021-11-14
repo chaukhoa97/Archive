@@ -4,39 +4,49 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 21,
+					"line": 27,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 42,
+					"line": 48,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 55,
+					"line": 61,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 59,
+					"line": 65,
 					"column": 2,
 					"label": "Side effect/Async code with Redux 1: Code ở trong Component ( = useEffect )"
 				},
 				{
-					"line": 75,
+					"line": 80,
+					"column": 2,
+					"label": "Router Hooks: useNavigate(); useSearchParams(); useLocation()"
+				},
+				{
+					"line": 88,
 					"column": 1,
 					"label": "React Context 2: Wrap context quanh những component dùng tới"
 				},
 				{
-					"line": 78,
-					"column": 6,
-					"label": "Router 2: Route & Link, Switch (Chỉ hiện 1 Route mà nó wrap), Redirect"
+					"line": 114,
+					"column": 0,
+					"label": "Router <Outlet>: Render element của <Route> con"
 				},
 				{
-					"line": 126,
+					"line": 139,
 					"column": 0,
 					"label": "https://overreacted.io/before-you-memo/"
+				},
+				{
+					"line": 161,
+					"column": 2,
+					"label": "Router <NavLink>"
 				}
 			]
 		},
@@ -129,19 +139,29 @@
 			"path": "src/index.js",
 			"bookmarks": [
 				{
-					"line": 5,
+					"line": 10,
 					"column": 0,
 					"label": "FontAwesome Icon + Mapping Array to JSX"
 				},
 				{
-					"line": 20,
+					"line": 23,
+					"column": 41,
+					"label": ""
+				},
+				{
+					"line": 26,
 					"column": 2,
 					"label": "Redux 3: Kẹp Provider quanh thằng nào dùng tới store"
 				},
 				{
-					"line": 21,
-					"column": 4,
-					"label": "Router 1: Kẹp <BrowserRouter> vào<App />"
+					"line": 34,
+					"column": 63,
+					"label": "Router Params 1:  path = \":id\""
+				},
+				{
+					"line": 36,
+					"column": 0,
+					"label": "Router Not Found 404:  Link tới khi ko match `Route con`  nào + Test Font"
 				}
 			]
 		},
@@ -242,6 +262,11 @@
 					"line": 8,
 					"column": 6,
 					"label": "state & action trong Redux là gì"
+				},
+				{
+					"line": 15,
+					"column": 6,
+					"label": "See current state"
 				}
 			]
 		},
@@ -270,7 +295,7 @@
 			"bookmarks": [
 				{
 					"line": 5,
-					"column": 0,
+					"column": 29,
 					"label": ""
 				}
 			]
@@ -296,12 +321,92 @@
 			]
 		},
 		{
-			"path": "src/Storage/useCallback.jsx",
+			"path": "src/Form/SignUp.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 41,
+					"column": 4,
+					"label": ""
+				},
+				{
+					"line": 44,
+					"column": 8,
+					"label": ""
+				},
+				{
+					"line": 51,
+					"column": 8,
+					"label": ""
+				},
+				{
+					"line": 56,
+					"column": 33,
+					"label": ""
+				},
+				{
+					"line": 97,
+					"column": 10,
+					"label": "Form validate cho đúng format, trùng password...."
+				},
+				{
+					"line": 120,
+					"column": 8,
+					"label": "Form Ant Select: defaultValue PHẢI ở <Controller>; placeholder ko dùng dc"
+				},
+				{
+					"line": 141,
+					"column": 12,
+					"label": "Form Ant InputNumber:  Nên để `min` ở dưới <InputNumber> thay vì ở trên `rules` của <Controller>"
+				},
+				{
+					"line": 153,
+					"column": 10,
+					"label": ""
+				},
+				{
+					"line": 161,
+					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 167,
+					"column": 8,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Redux/slice2-action-creator.js",
+			"bookmarks": [
+				{
+					"line": 15,
+					"column": 4,
+					"label": "Side effect/Async code with Redux 2: Action Creator Thunk"
+				}
+			]
+		},
+		{
+			"path": "src/Router/Products.jsx",
 			"bookmarks": [
 				{
 					"line": 7,
-					"column": 0,
-					"label": "Router 3: Params(itemDetail), History(<Link>), Location(?sort=asc), RouteMatch(Max 23)"
+					"column": 6,
+					"label": "Router Relative Link: No dash '/'"
+				}
+			]
+		},
+		{
+			"path": "src/Router/ProductDetail.jsx",
+			"bookmarks": [
+				{
+					"line": 4,
+					"column": 2,
+					"label": "Router Params 2: const { id } = useParams();"
 				}
 			]
 		}

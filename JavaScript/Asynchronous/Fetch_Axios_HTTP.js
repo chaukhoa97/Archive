@@ -32,8 +32,8 @@ axios
 fetch('https://jsonplaceholder.typicode.com/posts', {
   method: 'POST',
   body: JSON.stringify({
-    title: 'Title of post',
-    body: 'Post Body',
+    email: '@gmail.com',
+    password: 'yolo',
   }),
 })
   .then((response) => {
@@ -45,8 +45,8 @@ fetch('https://jsonplaceholder.typicode.com/posts', {
 
 axios
   .post('https://jsonplaceholder.typicode.com/posts', {
-    title: 'Title of post',
-    body: 'Body of post',
+    email: '@gmail.com',
+    password: 'yolo',
   })
   .then((response) => console.log(response.data))
   .catch((error) => console.log(error));

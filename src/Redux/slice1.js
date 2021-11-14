@@ -13,7 +13,9 @@ const counterSlice = createSlice({
       state.counter += action.payload.amount;
     },
     toggle(state) {
-      state.showCounter = !state.showCounter;
+      // console.log(current(state.orders[0]));
+      return { ...state, showCounter: !state.showCounter }; //! Hoặc return CẢ STATE OBJ
+      state.showCounter = !state.showCounter; //* Tác dụng i dòng trên
     },
   },
 });
