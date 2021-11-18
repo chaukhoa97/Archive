@@ -4,7 +4,7 @@ import counterReducer from './slice1';
 import champReducer from './slice2-action-creator';
 
 //? Redux 2: configureStore with multi slices, by Redux Toolkit
-//* Nhiệm vụ của store: Giữ application state, Truy cập vào state thông qua getState(), Cho phép state update thông qua dispatch(action), Register listenders thông qua fn subscriber(listener), Unregister listeners thông qua fn unsubscribe(listener)
+//* Nhiệm vụ của store: Giữ application state; Truy cập vào state thông qua getState(); Cho phép state update thông qua dispatch(action); Register listenders thông qua fn subscriber(listener); Unregister listeners thông qua fn unsubscribe(listener)
 const store = configureStore({
   reducer: {
     counter: counterReducer,

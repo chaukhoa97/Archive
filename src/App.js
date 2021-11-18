@@ -1,7 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import Expenses from './components/Expenses/Expenses';
-import NewExpense from './components/NewExpense/NewExpense';
 import ReduxComponent from './Redux/redux-component';
 import { champActions } from './Redux/slice2-action-creator';
 import numberContext from './Storage/Context/number-context';
@@ -22,7 +20,7 @@ import {
   useNavigate,
   useLocation,
 } from 'react-router-dom';
-import './slick-fix.scss';
+import styles from './nav.module.scss';
 
 function App() {
   //? Lazy init: `expenseviveFn` chỉ chạy ở lần render đầu tiên để tạo ra giá trị init của state
@@ -115,7 +113,7 @@ function App() {
       <Outlet />
       <br />
       /* #region */
-      {/* <NewExpense onReceivingNewExpense={newExpenseHandler} /> */}
+      {/* <NewExpense /> */}
       {/* <Expenses items={expenses} /> */}
       {/* <StateExample></StateExample> */}
       {/* <ContextExample></ContextExample> */}

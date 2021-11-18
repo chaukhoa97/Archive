@@ -4,47 +4,47 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 27,
+					"line": 25,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 48,
+					"line": 46,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 61,
+					"line": 59,
 					"column": 2,
 					"label": ""
 				},
 				{
-					"line": 65,
+					"line": 63,
 					"column": 2,
 					"label": "Side effect/Async code with Redux 1: Code ở trong Component ( = useEffect )"
 				},
 				{
-					"line": 80,
+					"line": 78,
 					"column": 2,
 					"label": "Router Hooks: useNavigate(); useSearchParams(); useLocation()"
 				},
 				{
-					"line": 88,
+					"line": 86,
 					"column": 1,
 					"label": "React Context 2: Wrap context quanh những component dùng tới"
 				},
 				{
-					"line": 114,
+					"line": 112,
 					"column": 0,
 					"label": "Router <Outlet>: Render element của <Route> con"
 				},
 				{
-					"line": 139,
+					"line": 137,
 					"column": 0,
 					"label": "https://overreacted.io/before-you-memo/"
 				},
 				{
-					"line": 161,
+					"line": 159,
 					"column": 2,
 					"label": "Router <NavLink>"
 				}
@@ -317,6 +317,11 @@
 					"line": 2,
 					"column": 0,
 					"label": "useState vs props vs let/const"
+				},
+				{
+					"line": 6,
+					"column": 0,
+					"label": ""
 				}
 			]
 		},
@@ -407,6 +412,41 @@
 					"line": 4,
 					"column": 2,
 					"label": "Router Params 2: const { id } = useParams();"
+				}
+			]
+		},
+		{
+			"path": "src/Pages/Products.jsx",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 22,
+					"label": "module.scss"
+				}
+			]
+		},
+		{
+			"path": "JavaScript/ETC.js",
+			"bookmarks": [
+				{
+					"line": 11,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Redux/store.js",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 16,
+					"column": 0,
+					"label": ""
 				}
 			]
 		}

@@ -1,4 +1,5 @@
-let numbers = [1, 2];
-const anotherNumbers = numbers;
-numbers = []; // anotherNumbers = [1, 2];
-numbers.length = 0; // anotherNumbers = []
+let arr1 = [1, 2];
+const arr2 = arr1;
+arr1 = []; // arr2 = [1, 2];
+arr1.length = 0; // arr2 = []
+arr1.splice(0, arr1.length); // arr2 = []

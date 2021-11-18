@@ -14,7 +14,7 @@ const reducer = (state = 0, action) => {
 //? Redux flow: 1. Component(View, UI) -> 2. onClick...
 //?   3. Component đóng vai trò là Action Creator, tạo ra action obj bằng cách truyền thống (slice2 line 40, redux-component line 17, 21) hoặc bằng THUNK: 1 async fn that returns the action obj (slice2 line 18)
 //?   4. Component tiếp tục dispatch(action obj vừa tạo từ cách truyền thống / async fn -> middleware 1, 2... -> action obj dc return từ async fn)
-//?   5. Redux store gọi reducerFn tương ứng với type của action obj
+//?   5. Redux store gọi reducerFn tương ứng với type của action obj (line 49)
 //?   6. Update Store data dựa theo storeState & action obj (Ex: Line 8 slice1.js)
 const middleware1 = (storeAPI) => (next) => (action) => {
   //* Khi `store.dispatch`, nếu có middleware thì tất cả các mw sẽ dc chạy TRƯỚC dispatch: `storeAPI.dispatch(action)` trở thành `mw 1 -> mw 2... -> storeAPI.dispatch(action)`
@@ -45,10 +45,6 @@ store.subscribe(() => {
   console.log('current state', store.getState());
 });
 
-store.dispatch({
-  type: 'INCREMENT',
-  payload: 1,
-});
 store.dispatch({
   type: 'INCREMENT',
   payload: 5,

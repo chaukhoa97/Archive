@@ -1,4 +1,4 @@
-//! Grid gutter gây overflow
+//? Grid gutter gây overflow
 .ant-row {
   margin-right: 0 !important;
   margin-left: 0 !important;
@@ -10,4 +10,37 @@
 
 .ant-col:last-child {
   padding-right: 0 !important;
+}
+
+//? Slick Carousel Duplicate Fix
+// Cách 1
+.slick-slide > div {
+  margin: 0 10px;
+}
+.slick-list {
+  margin: 0 -10px;
+}
+
+// Cách 2
+// .slick-slide {
+//   margin: 0 10px;
+// }
+// .slick-list {
+//   margin: 0 -10px;
+// }
+
+//? Hidden element
+div {
+  display: none;
+  transition: opacity 1s ease-out;
+  opacity: 0;
+}
+div.active {
+  opacity: 1;
+  display: block;
+}
+
+//? Border-radius ko hoạt động
+.div {
+  overflow: hidden;
 }

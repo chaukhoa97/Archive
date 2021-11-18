@@ -3,10 +3,10 @@ import React from 'react';
 import App from './App';
 import './index.css';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Router/Home';
-import Admin from './Router/Admin';
-import Products from './Router/Products';
-import ProductDetail from './Router/ProductDetail';
+import Home from './Pages/Home';
+import Admin from './Pages/Admin';
+import Products from './Pages/Products';
+import ProductDetail from './Pages/ProductDetail';
 
 //? Ở Parent: Declare to use icon
 import { library } from '@fortawesome/fontawesome-svg-core';

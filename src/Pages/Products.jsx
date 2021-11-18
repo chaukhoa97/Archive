@@ -1,10 +1,11 @@
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
+import styles from '../nav.module.scss';
 
 const Products = () => {
   return (
     <>
-      <h1>Products Page</h1>
+      <h1 className={`${styles['active-nav']} ${styles.red}`}>Products Page</h1>
       <Link to="/1">
         <h3 style={{ color: 'red' }}>Wrong: to = '/1' -{'>'} Link tới /1</h3>
       </Link>
