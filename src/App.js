@@ -44,10 +44,8 @@ function App() {
   const n = 0;
   const fn = () => 1;
 
-  //? useCallback(storedFn, dependencyArray): Khi app re-evaluate, function trong useCallback sẽ ko re-create lại.
-  //* Ở đây callbackButtonHandler, là prop của useCallback.jsx, ko bị re-create khi App re-evaluate -> CallbackExample sẽ ko bị re-evaluate vô ích vì prop của nó (callbackButtonHandler) giờ sẽ không thay đổi
-  // let temp = true;
-  // setTimeout(() => (temp = false), 2000);
+  //? useCallback(storedFn, dependencyArray): Trả về chính storedFn (ở đây là hàm setTemp). Khi App re-evaluate, storedFn sẽ ko bị re-create lại.
+  // Ở đây callbackButtonHandler, là prop của useCallback.jsx, ko bị re-create khi App re-evaluate -> CallbackExample sẽ ko bị re-evaluate vô ích vì prop của nó (callbackButtonHandler) giờ sẽ không thay đổi
   const [temp, setTemp] = useState(true);
   setTimeout(() => setTemp(false), 5000);
   const [num, setNum] = useState(0);
@@ -57,9 +55,11 @@ function App() {
     }
   }, [temp]); //! Nếu ko có dependency, temp ở trong if(temp) sẽ ko dc cập nhật thành false bởi setTimeout -> button ko bị disable
 
-  //? useMemo(expensiveFn, dependencyArray): Với expensiveFn trả về Reference value
-  //! ÍT DÙNG HƠN useCallback: Chỉ dùng khi function này quá phức tạp (ex: Sort, fetch,...) mà value ko đổi (nhưng vẫn phải re-initialize vì đây là Reference)
-  const expensiveFnResult = useMemo(() => 'an expensive fn created me', []);
+  //? useMemo(expensiveFn, dependencyArray): Trả về result (reference value - ở đây là object) của 1 function (ở đây là expensiveFn)
+  //! ÍT DÙNG HƠN useCallback: Chỉ dùng khi function này quá phức tạp (ex: Sort,...) mà value ko đổi (nhưng vẫn phải re-initialize vì đây là Reference)
+  const expensiveFnResult = useMemo(() => {
+    value: 'I am an object that was created by a expensive fn';
+  }, []);
 
   //? Side effect/Async code with Redux 1: Code ở trong Component (với useEffect). KO DC BỎ Ở TRONG reducer (vì reducerFn phải là pure)
   //* Redux store thay đổi -> App do có useSelector() sẽ dc re-render -> UI sẽ luôn dc update tương ứng với state

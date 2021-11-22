@@ -99,6 +99,12 @@ function createPerson(name) {
   eventTime.toLocaleTimeString(); // 11:37:35 PM
 }
 
+//? Arrow Fn:
+const add = (num1, num2) => num1 + num2;
+const add2 = (num1, num2) => {
+  return num1 + num2;
+};
+
 //? x++ và ++x
 let x = 10;
 let y = ++x; // Cộng x thành 11 rồi mới set cho y => y = x = 10 + 1 = 11

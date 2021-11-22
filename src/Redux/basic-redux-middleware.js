@@ -11,11 +11,14 @@ const reducer = (state = 0, action) => {
   }
 };
 
-//? Redux flow: 1. Component(View, UI) -> 2. onClick...
-//?   3. Component đóng vai trò là Action Creator, tạo ra action obj bằng cách truyền thống (slice2 line 40, redux-component line 17, 21) hoặc bằng THUNK: 1 async fn that returns the action obj (slice2 line 18)
-//?   4. Component tiếp tục dispatch(action obj vừa tạo từ cách truyền thống / async fn -> middleware 1, 2... -> action obj dc return từ async fn)
-//?   5. Redux store gọi reducerFn tương ứng với type của action obj (line 49)
-//?   6. Update Store data dựa theo storeState & action obj (Ex: Line 8 slice1.js)
+//? Redux flow:
+// 1. Component lấy dữ liệu từ Store để thể hiện trên UI (View)
+// 2. Người dùng tương tác lên UI (Ex: onClick button ….)
+// 3. Component đóng vai trò là Action Creator, tạo ra action obj bằng cách tự declare 1 action object (slice2 line 40) hoặc bằng THUNK: 1 async fn that returns the action object (slice2 line 18)
+// 4. Component gọi hàm dispatch với tham số là action obj vừa tạo từ 1 trong 2 cách trên, bao gồm 2 property là type (để store biết nên gọi reducer nào) và payload (tham số cho hàm reducer).
+// 5. Redux store dựa theo type của action object để gọi reducerFn tương ứng
+// 6. Update Store data dựa theo storeState & payload
+
 const middleware1 = (storeAPI) => (next) => (action) => {
   //* Khi `store.dispatch`, nếu có middleware thì tất cả các mw sẽ dc chạy TRƯỚC dispatch: `storeAPI.dispatch(action)` trở thành `mw 1 -> mw 2... -> storeAPI.dispatch(action)`
   //! In reality: Kẹp nhiều middleware và xét theo action type, đụng type nào thì thực hiện middleware tương ứng: middleware2 ở dưới chỉ khi đúng type mới làm

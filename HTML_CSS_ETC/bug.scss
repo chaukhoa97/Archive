@@ -44,3 +44,16 @@ div.active {
 .div {
   overflow: hidden;
 }
+
+//? Hover cho after/before: pseudo class đứng trước pseudo element
+.alo:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index: -1;
+}
