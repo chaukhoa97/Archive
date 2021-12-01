@@ -32,7 +32,7 @@ numbers.splice(2, 1, 'a', 'b'); // (fromIndex, deleteCount, item1, item2, ...)
   const sliced = combined.slice(2, 5); // Ko tính end; cũng có thể dùng .slice(`omit`) để shallow copy
 }
 
-//* Filters, every, some - Same arguments: .filter((element,index,array)=>{...})
+//* Filters, every, some - Same arguments: .filter((value,index,array)=>{...})
 {
   let numbers = [1, 2, 3, 4];
   const allPositive = numbers.every((value) => value >= 0); // true
@@ -73,7 +73,7 @@ numbers.splice(2, 1, 'a', 'b'); // (fromIndex, deleteCount, item1, item2, ...)
 {
   const arr = [1, 2, 3, 4, 5];
   //* Map: Creating a NEW array containing output of some processing done on each element of the array.
-  const mappedArray = arr.map((element, index, array) => element.children);
+  const mappedArray = arr.map((value, index, array) => element.children);
 
   //! forEach: Executes a provided function once per array element.
   //! For example, saving all elements in the database.

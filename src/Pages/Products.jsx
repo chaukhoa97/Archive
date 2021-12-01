@@ -7,12 +7,11 @@ const Products = () => {
     <>
       <h1 className={`${styles['active-nav']} ${styles.red}`}>Products Page</h1>
       <Link to="/1">
-        <h3 style={{ color: 'red' }}>Wrong: to = '/1' -{'>'} Link tới /1</h3>
+        <h3 style={{ color: 'red' }}>Wrong: to = '/1' -- Link tới /1</h3>
       </Link>
       <Link to="2">
         <h3 style={{ color: 'green' }}>
-          Right: Relative Link(not begin with an /) --- to = '2' -{'>'} Link tới
-          Products/2
+          Right: to = '2' -- Link tới products/2
         </h3>
       </Link>
       <Link to="../3">

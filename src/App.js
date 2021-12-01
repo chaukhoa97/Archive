@@ -76,28 +76,38 @@ function App() {
   }, [dispatch]);
 
   //? Router
-  const navigate = useNavigate(); // <button> 102
-  //* Hoạt động tương tự useState nhưng ko log searchParams dc
-  const [searchParams, setSearchParams] = useSearchParams(); // <input> 91 -> 101
-  //* Returns { pathname:/products/2 , search: ?category=Clothes&sort=Asc }  }
+  const navigate = useNavigate(); // <button> line 102
+
+  // Hoạt động tương tự useState nhưng ko log searchParams dc, đọc các method của searchParams ở https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+  const [searchParams, setSearchParams] = useSearchParams(); // input line 100
+  const handleChange = (event) => {
+    const { name, id } = event.target;
+    setSearchParams({ [name]: id }); // { 'sort': 'asc' }
+    //! Multi searchParams: ?sort=asc&category=shirt&category=pants
+    setSearchParams({ sort: 'asc', category: ['shirt', 'pants'] });
+    console.log(searchParams.get('category')); // 'shirt'
+    console.log(searchParams.getAll('category')); // ['shirt', 'pants']
+  };
+
+  //* location = { pathname:/products/2 , search: ?category=Clothes&sort=Asc } }
   const location = useLocation();
 
   return (
     //* ~ component dc wrap bởi <numberContext.Provider> sẽ dùng dc value object của nó thông qua useContext()
     <numberContext.Provider value={{ num: n, fn }}>
-      <Links />
-      <input
-        value={searchParams.get('category')} // Để input value tương ứng với URL
-        onChange={(event) => {
-          let filter = event.target.value;
-          console.log({ filter }); //! { filter: `enteredValue }
-          setSearchParams(
-            //! Cho multi-query: Dùng query-string
-            filter.length > 0 ? { filter } : '?category=Shirt&sort=asc'
-          );
-        }}
-      />
-      {/* replace: true -{'>'} ko back dc */}
+      {['asc', 'desc'].map((value) => (
+        <label key={value}>
+          <input
+            type="radio"
+            name="sort"
+            id={value}
+            onChange={handleChange}
+            checked={searchParams.get('sort') === value} // Mới vào trang thì checkbox sẽ dc check tương ứng với url
+          />
+          {value}
+        </label>
+      ))}
+      //* navigate = useNavigate() - line 79; `replace: true` thì ko back dc
       <button onClick={() => navigate('/admin', { replace: true })}>
         Navigate qua Admin
       </button>
@@ -110,7 +120,7 @@ function App() {
       </div>
       <ReduxComponent></ReduxComponent>
       <EventTarget></EventTarget>
-      <Outlet />
+      <Outlet /> //* Giống với props.children
       <br />
       /* #region */
       {/* <NewExpense /> */}

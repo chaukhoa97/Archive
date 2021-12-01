@@ -5,7 +5,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   return (
     <h2>
-      Product Detail - Number <span style={{ color: 'red' }}>{id}</span>
+      Product Number <span style={{ color: 'red' }}>{id}</span>
     </h2>
   );
 };

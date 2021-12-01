@@ -21,14 +21,14 @@ const arr = [...Array(n).keys()]; // [0, 1, 2, 3, 4]
 //? Redux 3: Tất cả ~ component của App sẽ dc truy cập vào store
 import store from './Redux/store';
 import { Provider } from 'react-redux';
-//? Router 1: Một <Routes> cha đứng đầu, chỉ render ONE BEST MATCHED <ROUTE>
+//? Router 1: <Routes> cha chỉ render THE MOST SPECIFIC MATCH <Route>
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
-            {/* Index route: Khi dính parent nhưng ko children nào match */}
+            {/* Index route: Khi dính Route cha nhưng trên URL chưa có Route con, giống như kiểu khi người dùng chưa chọn sản phẩm nào thì sẽ render ra dòng chữ "Hãy chọn sản phẩm" chẳng hạn  */}
             <Route index element={<Home />} />
             <Route path="admin" element={<Admin />} />
             <Route path="products" element={<Products />}>
