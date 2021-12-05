@@ -1,0 +1,38 @@
+// Scalar Type: String, Int, Float, Boolean, ID -> can't have sub-fields like Array or Object. Chúng ta có thể tự khai báo Scalar Type ví dụ ntn: `Scalar Date`
+scalar Episode 
+
+// Character là một "GraphQL Object Type"
+type Character {
+  name: String!
+  appearsIn: [Episode!]!
+  // `episode` là 1 arg của `hero`, với type là `Episode` ở trên và có "1" là default value
+  hero(episode: Episode = 1): Float 
+}
+
+// query, mutation, subscription là các `operation type`, HeroNameAndFriends là `operation name`
+// $variableName: Type = defaultValue
+**query HeroNameAndFriends($episode: Episode = 2) {
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}
+
+// Giống với object bình thường, chỉ khác là dc dùng trong các operation, như mutation chẳng hạn:
+input ReviewInput {
+  stars: Int!
+  commentary: String
+}
+
+type Mutation{
+  createReview(episode: Episode!, review: ReviewInput!): String
+}
+
+**mutation createReview($ep: Episode!, $review: ReviewInput!) {
+  createReview(episode: $ep, review: $review) {
+    stars
+    commentary
+  }
+}
