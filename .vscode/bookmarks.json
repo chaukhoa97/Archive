@@ -174,19 +174,24 @@
 					"label": "Redux 3: Kẹp Provider quanh thằng nào dùng tới store"
 				},
 				{
-					"line": 30,
+					"line": 31,
 					"column": 12,
 					"label": "Router Index: Chưa chọn sp -> Hiện trước một cái gì đó"
 				},
 				{
-					"line": 34,
+					"line": 35,
 					"column": 63,
 					"label": "Router Params 1:  path = \":id\""
 				},
 				{
-					"line": 36,
+					"line": 37,
 					"column": 0,
 					"label": "Router Not Found 404:  Link tới khi ko match `Route con`  nào + Test Font"
+				},
+				{
+					"line": 63,
+					"column": 0,
+					"label": "Fix lỗi chuyển page ko đưa lên đầu trang"
 				}
 			]
 		},
@@ -462,6 +467,16 @@
 					"line": 4,
 					"column": 2,
 					"label": "Router Params 2: const { id } = useParams();"
+				}
+			]
+		},
+		{
+			"path": "src/AntDesign/Menu.jsx",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 46,
+					"label": "Active menu item with Router"
 				}
 			]
 		}
