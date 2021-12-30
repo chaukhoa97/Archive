@@ -40,8 +40,8 @@
 				},
 				{
 					"line": 96,
-					"column": 1,
-					"label": "React Context 2: Wrap context quanh những component dùng tới"
+					"column": 4,
+					"label": "React Context 2: Wrap = numberContext.Provider"
 				},
 				{
 					"line": 110,
@@ -66,7 +66,7 @@
 			]
 		},
 		{
-			"path": "src/components/NewExpense/ExpenseForm.jsx",
+			"path": "src/Storage/ExpenseForm.jsx",
 			"bookmarks": [
 				{
 					"line": 5,
@@ -74,14 +74,24 @@
 					"label": "useRef vs useState"
 				},
 				{
-					"line": 55,
+					"line": 42,
+					"column": 8,
+					"label": "React Fragment"
+				},
+				{
+					"line": 57,
 					"column": 10,
 					"label": "Uncontrolled Component: useRef link tới DOM element vs Controlled component"
 				},
 				{
-					"line": 62,
+					"line": 64,
 					"column": 14,
 					"label": "callbackRef: ref = {(input) => someRef = input.id}"
+				},
+				{
+					"line": 84,
+					"column": 7,
+					"label": "ReactDOM.createPortal"
 				}
 			]
 		},
@@ -182,11 +192,6 @@
 					"line": 35,
 					"column": 63,
 					"label": "Router Params 1:  path = \":id\""
-				},
-				{
-					"line": 37,
-					"column": 0,
-					"label": "Router Not Found 404:  Link tới khi ko match `Route con`  nào + Test Font"
 				},
 				{
 					"line": 63,
@@ -356,7 +361,7 @@
 			]
 		},
 		{
-			"path": "src/Form/SignUp.jsx",
+			"path": "src/Form/SignUpConsult.jsx",
 			"bookmarks": [
 				{
 					"line": 2,
@@ -365,51 +370,56 @@
 				},
 				{
 					"line": 41,
+					"column": 2,
+					"label": "Form resetField"
+				},
+				{
+					"line": 43,
 					"column": 4,
 					"label": ""
 				},
 				{
-					"line": 44,
+					"line": 46,
 					"column": 8,
 					"label": ""
 				},
 				{
-					"line": 51,
+					"line": 53,
 					"column": 8,
 					"label": ""
 				},
 				{
-					"line": 56,
+					"line": 58,
 					"column": 33,
 					"label": ""
 				},
 				{
-					"line": 97,
+					"line": 99,
 					"column": 10,
 					"label": "Form validate cho đúng format, trùng password...."
 				},
 				{
-					"line": 120,
+					"line": 122,
 					"column": 8,
 					"label": "Form Ant Select: defaultValue PHẢI ở <Controller>; placeholder ko dùng dc"
 				},
 				{
-					"line": 141,
+					"line": 143,
 					"column": 12,
 					"label": "Form Ant InputNumber:  Nên để `min` ở dưới <InputNumber> thay vì ở trên `rules` của <Controller>"
 				},
 				{
-					"line": 153,
+					"line": 155,
 					"column": 10,
 					"label": ""
 				},
 				{
-					"line": 161,
+					"line": 163,
 					"column": 6,
 					"label": ""
 				},
 				{
-					"line": 167,
+					"line": 169,
 					"column": 8,
 					"label": ""
 				}
@@ -477,6 +487,26 @@
 					"line": 8,
 					"column": 46,
 					"label": "Active menu item with Router"
+				}
+			]
+		},
+		{
+			"path": "src/Form/SignIn.jsx",
+			"bookmarks": [
+				{
+					"line": 50,
+					"column": 80,
+					"label": "font"
+				}
+			]
+		},
+		{
+			"path": "TypeScript/basic.ts",
+			"bookmarks": [
+				{
+					"line": 45,
+					"column": 4,
+					"label": "interface vs type"
 				}
 			]
 		}

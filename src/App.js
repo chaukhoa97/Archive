@@ -93,7 +93,7 @@ function App() {
   const location = useLocation();
 
   return (
-    //* ~ component dc wrap bởi <numberContext.Provider> sẽ dùng dc value object của nó thông qua useContext()
+    //* ~ component dc wrap bởi <numberContext.Provider> sẽ dùng dc value = useContext() (Line 43)
     <numberContext.Provider value={{ num: n, fn }}>
       {['asc', 'desc'].map((value) => (
         <label key={value}>

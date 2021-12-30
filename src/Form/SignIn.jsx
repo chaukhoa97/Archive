@@ -48,7 +48,7 @@ function SignInForm() {
               {...field}
               size="large"
               prefix={
-                <FontAwesomeIcon className="me-3" icon="fa-solid fa-user" />
+                <FontAwesomeIcon className="me-3 p-3" icon="fa-solid fa-user" />
               }
               placeholder="Email"
             />
@@ -74,7 +74,7 @@ function SignInForm() {
           )}
         />
         {errors.password && (
-          <span className="account__error">Hãy nhập password của bạnmmmmm</span>
+          <span className="account__error">Hãy nhập password của bạn</span>
         )}
         <Button
           size="large"

@@ -8,18 +8,17 @@ function f() {
 //? Object
 const { a, b = 'default b' } = { a: 3, c: 5, d: 6 }; //! Nếu không có const, JS sẽ hiểu vế trái là 1 block chứ k phải 1 object literal.
 console.log(a, b); // 3, 'default b'
+const { a, ...rest } = { a: 1, b: 2, c: 3, d: 4 }; // rest = { b: 2, c: 3, d: 4 };
 
 //? Destructing Parameters
-const user = {
+function createUser({ id, fullName: { firstName, lastName } }) {
+  console.log(id, firstName, lastName);
+}
+
+createUser({
   id: 42,
   fullName: {
     firstName: 'John',
     lastName: 'Doe',
   },
-};
-function printInfo({ foo = 0, fullName: { firstName: name } }) {
-  return [foo, name];
-}
-//* Dò xem trong object `user` có các property ở trong Param Object không:
-// foo: undefined -> 0 do có set default; fullName.firstName(đổi thành "name"): John
-printInfo(user); // [0 , John ]
+});

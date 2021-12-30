@@ -7,6 +7,7 @@ function SignUpForm() {
     watch,
     control,
     register,
+    resetField,
   } = useForm();
 
   const onSubmit = (data) => {
@@ -38,6 +39,7 @@ function SignUpForm() {
       })
       .catch((err) => {});
   };
+  if (selectedNationality !== 'Việt Nam') resetField('identity');
   return (
     //! Form main 2: `handleSubmit` sẽ validate your inputs before invoking `onSubmit` (line 12)
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,7 +68,7 @@ function SignUpForm() {
         )}
       />
       {errors.email && (
-        <span className="account__error">Email không đúng định dạngggggg!</span>
+        <span className="account__error">Email không đúng định dạng!</span>
       )}
       <Controller
         name="password"
@@ -152,7 +154,7 @@ function SignUpForm() {
           className="me-2"
           id="acceptTerms"
           //! Form main 3: Đăng ký input này với UNIQUE `name`(ở đây là 'acceptTerms') vào `useForm()` hook, với ~ validate từ https://react-hook-form.com/api/useform/register
-          {...register('acceptTerms', { required: true })} // minLength, min, pattern,
+          {...register('acceptTerms', { required: true })}
         />
         <label htmlFor="acceptTerms">
           Bấm đăng ký đồng nghĩa với việc tôi đồng ý với các
