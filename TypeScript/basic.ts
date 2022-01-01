@@ -10,7 +10,7 @@ let tupleArray: [string, number][] = [
 
 //? Type(alias): A name for any `Type`
 type StringOrNumber = string | number; // Đặt tên cho "string | number" type là "StringOrNumber"
-type User = { name: string; readonly age?: number };
+type User = { name: string; readonly age?: number }; // readonly: không thể thay đổi giá trị của biến
 let user: User = { name: 'John', age: 25 };
 
 //? Interface: Another way to name an OBJECT type (chỉ dùng dc cho object)
@@ -85,14 +85,13 @@ let s = 'active'; // s: string
 getState(s as 'active'); // Ép kiểu của s về 'active' trong function này
 
 //? Generics: Lấy param làm Typedef
-const numberList: Array<number> = [1, 2, 3, 4, 5];
 const stringList: Array<string> = ['a', 'b', 'c', 'd', 'e'];
 const personList: Array<Person> = [
   { id: 1, name: 'John' },
   { id: 2, name: 'Uyen' },
 ];
-//* Generics with Function
 {
+  //* Generics with Function
   function loggingIdentity<Type>(arg: readonly Type[]): readonly Type[] {
     console.log(arg.length);
     return arg;
@@ -105,8 +104,8 @@ const personList: Array<Person> = [
     return arg;
   }
 }
-//* Generics with Interface
 {
+  //* Generics with Interface
   interface GenericIdentityFn<T> {
     (arg: T): T; // TYPEDEF 1 Fn có param loại `T`, trả về cũng là loại `T`
   }
@@ -117,8 +116,8 @@ const personList: Array<Person> = [
   }
   let myIdentity: GenericIdentityFn<number> = identity; // Áp chức năng hàm với TYPEDEF của interface
 }
-//* Generic Constraint
 {
+  //* Generic Constraint
   interface Lengthwise {
     length: number;
   }
