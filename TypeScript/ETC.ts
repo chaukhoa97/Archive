@@ -24,3 +24,9 @@
   }
   const ss: ResponseTypes.Success = ResponseTypes.Success; // 'SUCCESS'
 }
+
+//? Non-null assertion Operator: !
+function liveDangerously(x?: number | null) {
+  //* No error
+  console.log(x!.toFixed());
+}

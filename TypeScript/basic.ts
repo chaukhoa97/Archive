@@ -1,6 +1,6 @@
 //? Basics
 let a: number = 1; // infer: let a = 1
-const sekai = 1; // const sekai: 1 (kiểu type là "1" luôn chứ kp là number, vì const kbh thay đổi)
+const sekai = 1; //* Literal Types: const sekai: 1 (kiểu type là "1" luôn chứ kp là number, vì const kbh thay đổi)
 let idArray: number[] = [1, 2, 3, 4, 5]; //! hoặc Array<number>
 let tuple: [string, number] = ['John', 25];
 let tupleArray: [string, number][] = [
@@ -10,53 +10,40 @@ let tupleArray: [string, number][] = [
 
 //? Type(alias): A name for any `Type`
 type StringOrNumber = string | number; // Đặt tên cho "string | number" type là "StringOrNumber"
-type User = { name: string; readonly age?: number }; // readonly: không thể thay đổi giá trị của biến
-let user: User = { name: 'John', age: 25 };
+type User = { name: string; readonly age?: number }; //* readonly: không thể thay đổi giá trị của biến
+let user: User = { name: 'John', age: 25 }; //! user.age = 30 -> Error: Cannot assign to 'age' because it is a read-only property.
 
 //? Interface: Another way to name an OBJECT type (chỉ dùng dc cho object)
 interface Person {
   name: string;
   readonly age?: number;
-} //! Ko có = như Type
-let person: Person = { id: 1, name: 'John' }; // Có `id` do đã dd thêm `id` vào Interface `Person` ở line 75
-//! Use Interface until you need to use Type. Always use Interface for public API. Prefer Interface over Intersections.
+  //TODO Có 2 cách để định nghĩa một method trong một interface
+  log1?: (message: string) => void; // Khai báo như là một thuộc tính(property) với type là function
+  log2?(message: string): void; // Khai báo như một function bình thường
+}
 {
+  //* `type` ko declare thêm vào dc, còn `interface` thì có -> dùng `interface` cho public API để người dùng tự thêm vào, còn `type` cho Props hay State vì nó nhất quán hơn.
+  interface Person {
+    //! Có thể override Interface's fn, nhưng ko thể override Interface's property --> log1?: (message: string) => void ~> Error
+    log2?(message: number): void; // ok
+  }
+  type Userr = { id: number }; //! Error: type duplicate line 13
+}
+{
+  //* Intersection(& || extends) Combine 2 interface Identity & Contact -> Customer/Customer2 = { name, email, gender }
   interface Identity {
     name: string;
-    age: number;
   }
   interface Contact {
     email: string;
-    phone: string;
   }
-  //* Intersection: Lấy các thuộc tính của 2 interface Identity & Contact ở trên
-  type Customer = Identity & Contact & { gender: string }; // Customer = { name, age, email, phone }
+  type Customer = Identity & Contact & { gender: string };
   interface Customer2 extends Identity, Contact {
     gender: string;
   }
-  let customer: Customer2 = {
-    // Hoặc `let customer: Customer = ...`
-    name: 'John',
-    age: 25,
-    email: '',
-    phone: '',
-    gender: 'male',
-  };
 }
-//* `type` ko declare thêm vào dc, còn `interface` thì có -> dùng `interface` cho public API để người dùng tự thêm vào, còn `type` cho Props hay State vì nó nhất quán hơn.
-interface Person {
-  id: number;
-} // ok
-type Userr = { id: number }; // error duplicate line 41
 
 //? Function
-{
-  //* Normal Fn
-  function add(a: number = 0, b?: number): number {
-    if (b) return a + b;
-    return a;
-  }
-}
 {
   //* Interface Fn
   interface AddFuncInterface {
@@ -74,7 +61,7 @@ type Userr = { id: number }; // error duplicate line 41
   }
 }
 
-//? Type Assertion: Chỉ chuyển kiểu dữ liệu nếu có thể
+//? Type Assertion: Only to more or less specific type
 let anyVar: any = '1';
 let numberType: number = <number>anyVar;
 let numberType2: number = anyVar as number;
@@ -83,29 +70,34 @@ function getState(state: 'active') {
 }
 let s = 'active'; // s: string
 getState(s as 'active'); // Ép kiểu của s về 'active' trong function này
+const req = { url: 'https://example.com', method: 'GET' } as const; // as const -> không thay đổi giá trị của object
 
 //? Generics: Lấy param làm Typedef
 const stringList: Array<string> = ['a', 'b', 'c', 'd', 'e'];
-const personList: Array<Person> = [
-  { id: 1, name: 'John' },
-  { id: 2, name: 'Uyen' },
-];
+const personList: Array<Person> = [{ name: 'John' }, { name: 'Uyen' }];
+//* Generics with Function
 {
-  //* Generics with Function
-  function loggingIdentity<Type>(arg: readonly Type[]): readonly Type[] {
-    console.log(arg.length);
-    return arg;
+  let getTuple1: <T1, T2>(a: T1, b: T2) => [T1, T2] = (a, b) => [a, b];
+  let getTuple1Sample: [string, number] = getTuple1('a', 1);
+  // --------------------------------------------------
+  type TupleFunc = <T1, T2>(a: T1, b: T2) => [T1, T2]; // `TupleFunc` type: 1 fn có 2 param có type lần lượt là T1 & T2, trả về 1 array có 2 phần tử cũng có type là T1 & T2
+  let getTuple2: TupleFunc = (a, b) => [a, b]; // function with `TupleFunc` type
+  let getTuple2Sample: [string, number] = getTuple2('a', 1);
+  // --------------------------------------------------
+  interface TupleFuncInterface {
+    <T1, T2>(a: T1, b: T2): [T1, T2]; // `TupleFuncInterface` type: HOÀN TOÀN giống như `TupleFunc` type
   }
-  loggingIdentity(stringList);
-  // Hoặc:
-  function li2<Type>(arg: ReadonlyArray<Type>): ReadonlyArray<Type> {
-    //! readonly Array<Type> -> Error
-    console.log(arg.length);
-    return arg;
+  let getTuple3: TupleFuncInterface = (a, b) => [a, b]; // function with `TupleFuncInterface` type
+  let getTuple3Sample: [string, number] = getTuple3('a', 1);
+  // --------------------------------------------------
+  interface TupleFuncInterface2<T1, T2> {
+    (a: T1, b: T2): [T1, T2]; // `TupleFuncInterface2` type: HOÀN TOÀN giống như `TupleFunc` type
   }
+  let getTuple4: TupleFuncInterface2<string, number> = (a, b) => [a, b]; // function with `TupleFuncInterface2` type
+  let getTuple4Sample: [string, number] = getTuple4('a', 1);
 }
+//* Generics with Interface
 {
-  //* Generics with Interface
   interface GenericIdentityFn<T> {
     (arg: T): T; // TYPEDEF 1 Fn có param loại `T`, trả về cũng là loại `T`
   }
@@ -128,10 +120,10 @@ const personList: Array<Person> = [
   loggingIdentity3({ length: 10, value: 3 }); // Phải có thuộc tính `length`
 }
 
-//? Destructing Parameter (hơi khác so với JS). Dùng interface Person: { id, name, age? }
-function createPerson({ id, name }: Person): Person {
-  return { id, name };
+//? Destructing Parameter (hơi khác so với JS). Dùng interface Person: { name, age? }
+function createPerson({ name }: Person): Person {
+  return { name };
 }
 
 //? keyof
-type PersonKeys = keyof Person; // PersonKeys = 'id' | 'name' | 'age'
+type PersonKeys = keyof Person; // PersonKeys = 'name' | 'age'
