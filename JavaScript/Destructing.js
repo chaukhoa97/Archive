@@ -3,7 +3,7 @@
 function f() {
   return [1, 2];
 }
-[firstElelement, , thirdElement = 5] = f(); // fE = 1;  tE = 5
+[firstElelement, , thirdElement = 5] = f(); // fE = 1; tE = 5
 
 //? Object
 const { a, b = 'default b' } = { a: 3, c: 5, d: 6 }; //! Nếu không có const, JS sẽ hiểu vế trái là 1 block chứ k phải 1 object literal.
