@@ -489,16 +489,6 @@
 					"label": "Active menu item with Router"
 				}
 			]
-		},
-		{
-			"path": "src/Form/SignIn.jsx",
-			"bookmarks": [
-				{
-					"line": 50,
-					"column": 80,
-					"label": "font"
-				}
-			]
 		}
 	]
 }
