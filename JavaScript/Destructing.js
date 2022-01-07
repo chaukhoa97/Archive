@@ -3,22 +3,24 @@
 function f() {
   return [1, 2];
 }
-[firstElelement, , thirdElement = 5] = f(); // fE = 1; tE = 5
+[fE, , tE = 5] = f(); // fE = 1; tE = 5
 
 //? Object
 const { a, b = 'default b' } = { a: 3, c: 5, d: 6 }; //! Nếu không có const, JS sẽ hiểu vế trái là 1 block chứ k phải 1 object literal.
 console.log(a, b); // 3, 'default b'
 const { a, ...rest } = { a: 1, b: 2, c: 3, d: 4 }; // rest = { b: 2, c: 3, d: 4 };
 
-//? Destructing Parameters
-function createUser({ id, fullName: { firstName, lastName } }) {
-  console.log(id, firstName, lastName);
+//? Parameter Destructuring
+/// JS:
+function sum({ a, b, c }) {
+  console.log(a + b + c);
 }
 
-createUser({
-  id: 42,
-  fullName: {
-    firstName: 'John',
-    lastName: 'Doe',
-  },
-});
+/// TS:
+function sum2({ a, b, c }: { a: number, b: number, c: number }) {
+  console.log(a + b + c);
+}
+type ABC = { a: number, b: number, c: number };
+function sum3({ a, b, c }: ABC) {
+  console.log(a + b + c);
+}

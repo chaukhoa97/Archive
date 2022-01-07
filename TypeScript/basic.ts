@@ -54,12 +54,6 @@ interface Person {
   };
   interfaceAdd(1, 2); //! Chỉ cộng số chứ ko cộng string dc
 }
-/// Void: Khi function không return gì cả
-{
-  function print(msg: string): void {
-    console.log(msg);
-  }
-}
 
 //? Type Assertion: Only to more or less specific type
 let anyVar: any = '1';
@@ -101,11 +95,6 @@ const personList: Array<Person> = [{ name: 'John' }, { name: 'Uyen' }];
     return arg;
   }
   loggingIdentity3({ length: 10, value: 3 }); // Phải có thuộc tính `length`
-}
-
-//? Destructing Parameter (hơi khác so với JS). Dùng interface Person: { name, age? }
-function createPerson({ name }: Person): Person {
-  return { name };
 }
 
 //? keyof
