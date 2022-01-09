@@ -1,514 +1,504 @@
 {
-  "files": [
-    {
-      "path": "src/App.js",
-      "bookmarks": [
-        {
-          "line": 25,
-          "column": 2,
-          "label": ""
-        },
-        {
-          "line": 46,
-          "column": 2,
-          "label": ""
-        },
-        {
-          "line": 57,
-          "column": 2,
-          "label": ""
-        },
-        {
-          "line": 63,
-          "column": 2,
-          "label": "Side effect/Async code with Redux 1: Code ở trong Component ( = useEffect )"
-        },
-        {
-          "line": 81,
-          "column": 2,
-          "label": "Router SearchParams"
-        },
-        {
-          "line": 84,
-          "column": 4,
-          "label": "Dynamic object key"
-        },
-        {
-          "line": 92,
-          "column": 2,
-          "label": "Router Location: { pathname:/products/2 , search: ?category=Clothes&sort=Asc }  }"
-        },
-        {
-          "line": 96,
-          "column": 4,
-          "label": "React Context 2: Wrap = numberContext.Provider"
-        },
-        {
-          "line": 110,
-          "column": 6,
-          "label": "Router Navigate: const navigate = useNavigate();"
-        },
-        {
-          "line": 122,
-          "column": 0,
-          "label": "Router <Outlet>: Render element của <Route> con, giống props.children"
-        },
-        {
-          "line": 147,
-          "column": 0,
-          "label": "https://overreacted.io/before-you-memo/"
-        },
-        {
-          "line": 169,
-          "column": 2,
-          "label": "Router <NavLink>"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/ExpenseForm.jsx",
-      "bookmarks": [
-        {
-          "line": 5,
-          "column": 2,
-          "label": "useRef vs useState"
-        },
-        {
-          "line": 42,
-          "column": 8,
-          "label": "React Fragment"
-        },
-        {
-          "line": 57,
-          "column": 10,
-          "label": "Uncontrolled Component: useRef link tới DOM element vs Controlled component"
-        },
-        {
-          "line": 64,
-          "column": 14,
-          "label": "callbackRef: ref = {(input) => someRef = input.id}"
-        },
-        {
-          "line": 84,
-          "column": 7,
-          "label": "ReactDOM.createPortal"
-        }
-      ]
-    },
-    {
-      "path": "src/components/UI/Card.jsx",
-      "bookmarks": [
-        {
-          "line": 4,
-          "column": 2,
-          "label": "props.children"
-        }
-      ]
-    },
-    {
-      "path": "src/components/Expenses/ExpenseDate.jsx",
-      "bookmarks": [
-        {
-          "line": 10,
-          "column": 4,
-          "label": "Fragment"
-        },
-        {
-          "line": 12,
-          "column": 6,
-          "label": "Portal: Có thể dùng logic của file này, nhưng render chỗ khác"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/ChartBar.jsx",
-      "bookmarks": [
-        {
-          "line": 13,
-          "column": 3,
-          "label": "Import styles.module.css to component (from line 1)"
-        },
-        {
-          "line": 16,
-          "column": 10,
-          "label": "Conditional className"
-        },
-        {
-          "line": 23,
-          "column": 12,
-          "label": "Conditional styling (inline)"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/useReducer.jsx",
-      "bookmarks": [
-        {
-          "line": 2,
-          "column": 0,
-          "label": "reducer = (prevState, action-to-the-prevState) => newState"
-        },
-        {
-          "line": 51,
-          "column": 8,
-          "label": "Passing onClick function"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/Custom Hook/Forward.jsx",
-      "bookmarks": [
-        {
-          "line": 3,
-          "column": 2,
-          "label": "custom Hook use"
-        }
-      ]
-    },
-    {
-      "path": "src/index.js",
-      "bookmarks": [
-        {
-          "line": 10,
-          "column": 0,
-          "label": "FontAwesome Icon + Mapping Array to JSX"
-        },
-        {
-          "line": 23,
-          "column": 41,
-          "label": ""
-        },
-        {
-          "line": 26,
-          "column": 2,
-          "label": "Redux 3: Kẹp Provider quanh thằng nào dùng tới store"
-        },
-        {
-          "line": 31,
-          "column": 12,
-          "label": "Router Index: Chưa chọn sp -> Hiện trước một cái gì đó"
-        },
-        {
-          "line": 35,
-          "column": 63,
-          "label": "Router Params 1:  path = \":id\""
-        },
-        {
-          "line": 63,
-          "column": 0,
-          "label": "Fix lỗi chuyển page ko đưa lên đầu trang"
-        }
-      ]
-    },
-    {
-      "path": "src/Redux/redux-component.jsx",
-      "bookmarks": [
-        {
-          "line": 6,
-          "column": 56,
-          "label": "Redux 4: useSelector((store) => store.stateObjectProperty)"
-        },
-        {
-          "line": 11,
-          "column": 1,
-          "label": "Redux 5: dispatch(actions.reducerName( {action.payload} )"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/useContext.jsx",
-      "bookmarks": [
-        {
-          "line": 7,
-          "column": 2,
-          "label": "React Context 3: const ctx = useContext"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/Context/number-context.js",
-      "bookmarks": [
-        {
-          "line": 3,
-          "column": 0,
-          "label": "React Context 1: React.createContext(modelState) "
-        }
-      ]
-    },
-    {
-      "path": "src/Redux/state-action.js",
-      "bookmarks": [
-        {
-          "line": 3,
-          "column": 0,
-          "label": "Redux 1: createSlice"
-        },
-        {
-          "line": 8,
-          "column": 1,
-          "label": ""
-        },
-        {
-          "line": 9,
-          "column": 1,
-          "label": ""
-        },
-        {
-          "line": 15,
-          "column": 19,
-          "label": ""
-        },
-        {
-          "line": 22,
-          "column": 0,
-          "label": "Redux 2: export slice.actions"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/EventTarget.jsx",
-      "bookmarks": [
-        {
-          "line": 6,
-          "column": 4,
-          "label": "Handle big <form>"
-        }
-      ]
-    },
-    {
-      "path": "src/Redux/redux-store.js",
-      "bookmarks": [
-        {
-          "line": 5,
-          "column": 4,
-          "label": "Redux 2: configureStore "
-        }
-      ]
-    },
-    {
-      "path": "src/Redux/slice1.js",
-      "bookmarks": [
-        {
-          "line": 3,
-          "column": 0,
-          "label": "Redux 1: createSlice -> export actions & reducer"
-        },
-        {
-          "line": 8,
-          "column": 6,
-          "label": "state & action trong Redux là gì"
-        },
-        {
-          "line": 15,
-          "column": 6,
-          "label": "See current state"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/React-dot-memo.jsx",
-      "bookmarks": [
-        {
-          "line": 2,
-          "column": 2,
-          "label": "React.memo( MyComponent )"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/useEffect.jsx",
-      "bookmarks": [
-        {
-          "line": 12,
-          "column": 2,
-          "label": "useEffect cleanup"
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/Browser_API.js",
-      "bookmarks": [
-        {
-          "line": 5,
-          "column": 29,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "src/Redux/basic-redux-middleware.js",
-      "bookmarks": [
-        {
-          "line": 13,
-          "column": 0,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "src/Storage/useState.jsx",
-      "bookmarks": [
-        {
-          "line": 2,
-          "column": 0,
-          "label": "useState vs props vs let/const"
-        },
-        {
-          "line": 6,
-          "column": 0,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "src/Form/SignUpConsult.jsx",
-      "bookmarks": [
-        {
-          "line": 2,
-          "column": 2,
-          "label": ""
-        },
-        {
-          "line": 41,
-          "column": 2,
-          "label": "Form resetField"
-        },
-        {
-          "line": 43,
-          "column": 4,
-          "label": ""
-        },
-        {
-          "line": 46,
-          "column": 8,
-          "label": ""
-        },
-        {
-          "line": 53,
-          "column": 8,
-          "label": ""
-        },
-        {
-          "line": 58,
-          "column": 33,
-          "label": ""
-        },
-        {
-          "line": 99,
-          "column": 10,
-          "label": "Form validate cho đúng format, trùng password...."
-        },
-        {
-          "line": 122,
-          "column": 8,
-          "label": "Form Ant Select: defaultValue PHẢI ở <Controller>; placeholder ko dùng dc"
-        },
-        {
-          "line": 143,
-          "column": 12,
-          "label": "Form Ant InputNumber:  Nên để `min` ở dưới <InputNumber> thay vì ở trên `rules` của <Controller>"
-        },
-        {
-          "line": 155,
-          "column": 10,
-          "label": ""
-        },
-        {
-          "line": 163,
-          "column": 6,
-          "label": ""
-        },
-        {
-          "line": 169,
-          "column": 8,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "src/Redux/slice2-action-creator.js",
-      "bookmarks": [
-        {
-          "line": 15,
-          "column": 4,
-          "label": "Side effect/Async code with Redux 2: Action Creator Thunk"
-        }
-      ]
-    },
-    {
-      "path": "src/Pages/Products.jsx",
-      "bookmarks": [
-        {
-          "line": 7,
-          "column": 22,
-          "label": "module.scss"
-        }
-      ]
-    },
-    {
-      "path": "JavaScript/ETC.js",
-      "bookmarks": [
-        {
-          "line": 11,
-          "column": 0,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "src/Redux/store.js",
-      "bookmarks": [
-        {
-          "line": 5,
-          "column": 0,
-          "label": ""
-        },
-        {
-          "line": 16,
-          "column": 0,
-          "label": ""
-        }
-      ]
-    },
-    {
-      "path": "src/Pages/ProductDetail.jsx",
-      "bookmarks": [
-        {
-          "line": 4,
-          "column": 2,
-          "label": "Router Params 2: const { id } = useParams();"
-        }
-      ]
-    },
-    {
-      "path": "src/AntDesign/Menu.jsx",
-      "bookmarks": [
-        {
-          "line": 8,
-          "column": 46,
-          "label": "Active menu item with Router"
-        }
-      ]
-    },
-    {
-      "path": "src/Form/SignIn.jsx",
-      "bookmarks": [
-        {
-          "line": 50,
-          "column": 80,
-          "label": "font"
-        }
-      ]
-    },
-    {
-      "path": "TypeScript/basic.ts",
-      "bookmarks": [
-        {
-          "line": 34,
-          "column": 4,
-          "label": "interface vs type"
-        }
-      ]
-    }
-  ]
+	"files": [
+		{
+			"path": "src/App.js",
+			"bookmarks": [
+				{
+					"line": 25,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 46,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 57,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 63,
+					"column": 2,
+					"label": "Side effect/Async code with Redux 1: Code ở trong Component ( = useEffect )"
+				},
+				{
+					"line": 81,
+					"column": 2,
+					"label": "Router SearchParams"
+				},
+				{
+					"line": 84,
+					"column": 4,
+					"label": "Dynamic object key"
+				},
+				{
+					"line": 92,
+					"column": 2,
+					"label": "Router Location: { pathname:/products/2 , search: ?category=Clothes&sort=Asc }  }"
+				},
+				{
+					"line": 96,
+					"column": 4,
+					"label": "React Context 2: Wrap = numberContext.Provider"
+				},
+				{
+					"line": 110,
+					"column": 6,
+					"label": "Router Navigate: const navigate = useNavigate();"
+				},
+				{
+					"line": 122,
+					"column": 0,
+					"label": "Router <Outlet>: Render element của <Route> con, giống props.children"
+				},
+				{
+					"line": 147,
+					"column": 0,
+					"label": "https://overreacted.io/before-you-memo/"
+				},
+				{
+					"line": 169,
+					"column": 2,
+					"label": "Router <NavLink>"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/ExpenseForm.jsx",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 2,
+					"label": "useRef vs useState"
+				},
+				{
+					"line": 42,
+					"column": 8,
+					"label": "React Fragment"
+				},
+				{
+					"line": 57,
+					"column": 10,
+					"label": "Uncontrolled Component: useRef link tới DOM element vs Controlled component"
+				},
+				{
+					"line": 64,
+					"column": 14,
+					"label": "callbackRef: ref = {(input) => someRef = input.id}"
+				},
+				{
+					"line": 84,
+					"column": 7,
+					"label": "ReactDOM.createPortal"
+				}
+			]
+		},
+		{
+			"path": "src/components/UI/Card.jsx",
+			"bookmarks": [
+				{
+					"line": 4,
+					"column": 2,
+					"label": "props.children"
+				}
+			]
+		},
+		{
+			"path": "src/components/Expenses/ExpenseDate.jsx",
+			"bookmarks": [
+				{
+					"line": 10,
+					"column": 4,
+					"label": "Fragment"
+				},
+				{
+					"line": 12,
+					"column": 6,
+					"label": "Portal: Có thể dùng logic của file này, nhưng render chỗ khác"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/ChartBar.jsx",
+			"bookmarks": [
+				{
+					"line": 13,
+					"column": 3,
+					"label": "Import styles.module.css to component (from line 1)"
+				},
+				{
+					"line": 16,
+					"column": 10,
+					"label": "Conditional className"
+				},
+				{
+					"line": 23,
+					"column": 12,
+					"label": "Conditional styling (inline)"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useReducer.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 0,
+					"label": "reducer = (prevState, action-to-the-prevState) => newState"
+				},
+				{
+					"line": 51,
+					"column": 8,
+					"label": "Passing onClick function"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/Custom Hook/Forward.jsx",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 2,
+					"label": "custom Hook use"
+				}
+			]
+		},
+		{
+			"path": "src/index.js",
+			"bookmarks": [
+				{
+					"line": 10,
+					"column": 0,
+					"label": "FontAwesome Icon + Mapping Array to JSX"
+				},
+				{
+					"line": 23,
+					"column": 41,
+					"label": ""
+				},
+				{
+					"line": 26,
+					"column": 2,
+					"label": "Redux 3: Kẹp Provider quanh thằng nào dùng tới store"
+				},
+				{
+					"line": 31,
+					"column": 12,
+					"label": "Router Index: Chưa chọn sp -> Hiện trước một cái gì đó"
+				},
+				{
+					"line": 35,
+					"column": 63,
+					"label": "Router Params 1:  path = \":id\""
+				},
+				{
+					"line": 63,
+					"column": 0,
+					"label": "Fix lỗi chuyển page ko đưa lên đầu trang"
+				}
+			]
+		},
+		{
+			"path": "src/Redux/redux-component.jsx",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 56,
+					"label": "Redux 4: useSelector((store) => store.stateObjectProperty)"
+				},
+				{
+					"line": 11,
+					"column": 1,
+					"label": "Redux 5: dispatch(actions.reducerName( {action.payload} )"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useContext.jsx",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 2,
+					"label": "React Context 3: const ctx = useContext"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/Context/number-context.js",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 0,
+					"label": "React Context 1: React.createContext(modelState) "
+				}
+			]
+		},
+		{
+			"path": "src/Redux/state-action.js",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 0,
+					"label": "Redux 1: createSlice"
+				},
+				{
+					"line": 8,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 9,
+					"column": 1,
+					"label": ""
+				},
+				{
+					"line": 15,
+					"column": 19,
+					"label": ""
+				},
+				{
+					"line": 22,
+					"column": 0,
+					"label": "Redux 2: export slice.actions"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/EventTarget.jsx",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 4,
+					"label": "Handle big <form>"
+				}
+			]
+		},
+		{
+			"path": "src/Redux/redux-store.js",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 4,
+					"label": "Redux 2: configureStore "
+				}
+			]
+		},
+		{
+			"path": "src/Redux/slice1.js",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 0,
+					"label": "Redux 1: createSlice -> export actions & reducer"
+				},
+				{
+					"line": 8,
+					"column": 6,
+					"label": "state & action trong Redux là gì"
+				},
+				{
+					"line": 15,
+					"column": 6,
+					"label": "See current state"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/React-dot-memo.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 2,
+					"label": "React.memo( MyComponent )"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useEffect.jsx",
+			"bookmarks": [
+				{
+					"line": 12,
+					"column": 2,
+					"label": "useEffect cleanup"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/Browser_API.js",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 29,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Redux/basic-redux-middleware.js",
+			"bookmarks": [
+				{
+					"line": 13,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useState.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 0,
+					"label": "useState vs props vs let/const"
+				},
+				{
+					"line": 6,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Form/SignUpConsult.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 2,
+					"label": ""
+				},
+				{
+					"line": 41,
+					"column": 2,
+					"label": "Form resetField"
+				},
+				{
+					"line": 43,
+					"column": 4,
+					"label": ""
+				},
+				{
+					"line": 46,
+					"column": 8,
+					"label": ""
+				},
+				{
+					"line": 53,
+					"column": 8,
+					"label": ""
+				},
+				{
+					"line": 58,
+					"column": 33,
+					"label": ""
+				},
+				{
+					"line": 99,
+					"column": 10,
+					"label": "Form validate cho đúng format, trùng password...."
+				},
+				{
+					"line": 122,
+					"column": 8,
+					"label": "Form Ant Select: defaultValue PHẢI ở <Controller>; placeholder ko dùng dc"
+				},
+				{
+					"line": 143,
+					"column": 12,
+					"label": "Form Ant InputNumber:  Nên để `min` ở dưới <InputNumber> thay vì ở trên `rules` của <Controller>"
+				},
+				{
+					"line": 155,
+					"column": 10,
+					"label": ""
+				},
+				{
+					"line": 163,
+					"column": 6,
+					"label": ""
+				},
+				{
+					"line": 169,
+					"column": 8,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Redux/slice2-action-creator.js",
+			"bookmarks": [
+				{
+					"line": 15,
+					"column": 4,
+					"label": "Side effect/Async code with Redux 2: Action Creator Thunk"
+				}
+			]
+		},
+		{
+			"path": "src/Pages/Products.jsx",
+			"bookmarks": [
+				{
+					"line": 7,
+					"column": 22,
+					"label": "module.scss"
+				}
+			]
+		},
+		{
+			"path": "JavaScript/ETC.js",
+			"bookmarks": [
+				{
+					"line": 11,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Redux/store.js",
+			"bookmarks": [
+				{
+					"line": 5,
+					"column": 0,
+					"label": ""
+				},
+				{
+					"line": 16,
+					"column": 0,
+					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Pages/ProductDetail.jsx",
+			"bookmarks": [
+				{
+					"line": 4,
+					"column": 2,
+					"label": "Router Params 2: const { id } = useParams();"
+				}
+			]
+		},
+		{
+			"path": "src/AntDesign/Menu.jsx",
+			"bookmarks": [
+				{
+					"line": 8,
+					"column": 46,
+					"label": "Active menu item with Router"
+				}
+			]
+		},
+		{
+			"path": "src/Form/SignIn.jsx",
+			"bookmarks": [
+				{
+					"line": 50,
+					"column": 80,
+					"label": "font"
+				}
+			]
+		}
+	]
 }

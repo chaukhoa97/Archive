@@ -17,13 +17,15 @@ interface Person {
   //* Có 2 cách để định nghĩa một method trong một interface
   log1?: (message: string) => void; // Function as property declaration
   log2?(message: string): void; // Method declaration
-  (message: string): string;
+  (message: string): string; //? Call Signature line 7 function.ts
 }
-let p11: Person = {
-  name: 'John',
-  age: 25,
-  log2: (message: string) => {},
-};
+function doSomething2(fn: Person) {
+  console.log(fn.name + ' returned ' + fn('khoa'));
+}
+const fnArg2 = (n: string) => n;
+fnArg2.name = 'fnArg2';
+console.log(fnArg2); // [Function: fnArg2] { name: 'fnArg2' }
+doSomething2(fnArg2);
 
 /// `type` ko declare thêm vào dc, còn `interface` thì có -> dùng `interface` cho public API để người dùng tự thêm vào, còn `type` cho Props hay State vì nó nhất quán hơn.
 {

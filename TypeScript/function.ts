@@ -7,11 +7,15 @@ function greeter(fn: GreetFunction) {
 //? Call Signature - function ngoài being callable còn có thêm properties: Dùng `:` thay vì =>
 type DescribableFunction = {
   description: string;
-  (someArg: number): boolean;
+  (someArg: number): number;
 };
 function doSomething(fn: DescribableFunction) {
   console.log(fn.description + ' returned ' + fn(6));
 }
+const fnArg = (n: number) => n;
+fnArg.description = 'This is a function';
+console.log(fnArg); // [Function: fn] { description: 'This is a function' }
+doSomething(fnArg);
 
 //? Generic Function: Phải relate multiple types. Ex: Relate giữa input & output, hay giữa các input với nhau
 function map<Input, Output>(

@@ -3,6 +3,14 @@ Object.keys(obj); // => ['a', 'b', 'c']
 Object.values(obj); // => [1, 2, 3]
 Object.entries(obj); // => [['a', 1], ['b', 2], ['c', 3]]
 
+//? Object.assign
+const source = { b: 4, c: 5 };
+const target = { a: 1, b: 2 };
+const returnedTarget = Object.assign(target, source);
+console.log(returnedTarget); // Object { a: 1, b: 4, c: 5 }
+console.log(target); // Object { a: 1, b: 4, c: 5 }
+console.log(source); // Object { b: 4, c: 5 };
+
 //? Lodash
 var _ = require('lodash');
 
