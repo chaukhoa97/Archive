@@ -499,6 +499,16 @@
 					"label": "font"
 				}
 			]
+		},
+		{
+			"path": "TypeScript/basic.ts",
+			"bookmarks": [
+				{
+					"line": 36,
+					"column": 4,
+					"label": "interface vs type"
+				}
+			]
 		}
 	]
 }

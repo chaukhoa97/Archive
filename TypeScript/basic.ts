@@ -65,6 +65,3 @@ doSomething2(fnArg2);
 let anyVar: any = '1';
 let numberType: number = <number>anyVar;
 let numberType2: number = anyVar as number;
-
-//? keyof
-type PersonKeys = keyof Person; // PersonKeys = 'name' | 'age'
