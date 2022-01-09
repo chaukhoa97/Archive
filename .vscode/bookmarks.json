@@ -504,7 +504,7 @@
 			"path": "TypeScript/basic.ts",
 			"bookmarks": [
 				{
-					"line": 37,
+					"line": 34,
 					"column": 4,
 					"label": "interface vs type"
 				}

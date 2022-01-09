@@ -24,3 +24,7 @@ type ABC = { a: number, b: number, c: number };
 function sum3({ a, b, c }: ABC) {
   console.log(a + b + c);
 }
+//! TS sai: Lấy `a` và redefine lại tên của `a` là `number`
+function sum4({ a: number, b: string }) {
+  console.log(a + b);
+}

@@ -1,12 +1,9 @@
 //? Basics
 let a: number = 1; // infer: let a = 1
-const sekai = 1; //* Literal Types: const sekai: 1 (kiểu type là "1" luôn chứ kp là number, vì const kbh thay đổi)
 let idArray: number[] = [1, 2, 3, 4, 5]; //! hoặc Array<number>
-let tuple: [string, number] = ['John', 25];
-let tupleArray: [string, number][] = [
-  ['John', 25],
-  ['Uyen', 23],
-];
+/// Const
+const sekai = 1; //* Literal Types: const sekai: 1 (kiểu type là "1" luôn chứ kp là number, vì const kbh thay đổi)
+const req = { url: 'https://example.com', method: 'GET' } as const; //* Chuyển cả obj về Literal types hết: url: "https://example.com"; method: "GET"
 
 //? Type(alias): A name for any `Type`
 type StringOrNumber = string | number; // Đặt tên cho "string | number" type là "StringOrNumber"
@@ -37,7 +34,7 @@ interface Person {
   interface Contact {
     email: string;
   }
-  type Customer = Identity & Contact & { gender: string };
+  type Customer = Identity & Contact & { gender: string }; //! type cũng có thể dc tạo từ 2 interface intersection
   interface Customer2 extends Identity, Contact {
     gender: string;
   }
@@ -59,7 +56,6 @@ interface Person {
 let anyVar: any = '1';
 let numberType: number = <number>anyVar;
 let numberType2: number = anyVar as number;
-const req = { url: 'https://example.com', method: 'GET' } as const; // as const -> không thay đổi giá trị của object
 
 //? Generics: Lấy param làm Typedef
 const stringList: Array<string> = ['a', 'b', 'c', 'd', 'e'];

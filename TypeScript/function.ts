@@ -55,7 +55,10 @@ const f2 = firstElement2([1, 2, 3]); // b: any (bad)
 //? Other types
 /// unknown: Similar to `any`, but safer because u can't do anything with it
 function fU(a: unknown) {
-  a.b();
+  a.b(); //! Error! u need to check typeof `a` before using it
+  if (typeof a === 'string') {
+    console.log(a.length); // ok
+  }
 }
 /// Void: Khi function không return gì cả
 function print(msg: string): void {
