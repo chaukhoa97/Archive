@@ -1,5 +1,5 @@
-//? Function type expression: Cú pháp giống arrow fn
-type GreetFunction = (a: string) => void; // A function with 1 param, named `a`, of type string, that doesn’t have a return value. Just like with function declarations, if a parameter type isn’t specified, it’s implicitly `any`
+//? Function Type expression: Cú pháp giống arrow fn
+type GreetFunction = (a: string) => void; // A function with 1 param, named `a`, of type `string`, that doesn’t have a return value. Just like with function declarations, if a parameter type isn’t specified, it’s implicitly `any`
 function greeter(fn: GreetFunction) {
   fn('Hello');
 }
@@ -20,7 +20,7 @@ function map<Input, Output>(
 ): Output[] {
   return arr.map(func);
 }
-//* Infer: <Input> dc infer theo type của argument array: string; <Output> dc infer theo type của return value từ function(`parseInt`): number
+//* Infer: <Input> dc infer theo type của `argument array`: string; <Output> dc infer theo type của `return value` từ function(`parseInt`): number
 const parsed = map(['1', '2', '3'], (n) => parseInt(n)); // Array<string>, ( arg: string ) => number
 
 /// Constraint

@@ -15,9 +15,16 @@ interface Person {
   name: string;
   readonly age?: number;
   //* Có 2 cách để định nghĩa một method trong một interface
-  log1?: (message: string) => void; // Khai báo như là một thuộc tính(property) với type là function
-  log2?(message: string): void; // Khai báo như một function bình thường
+  log1?: (message: string) => void; // Function as property declaration
+  log2?(message: string): void; // Method declaration
+  (message: string): string;
 }
+let p11: Person = {
+  name: 'John',
+  age: 25,
+  log2: (message: string) => {},
+};
+
 /// `type` ko declare thêm vào dc, còn `interface` thì có -> dùng `interface` cho public API để người dùng tự thêm vào, còn `type` cho Props hay State vì nó nhất quán hơn.
 {
   interface Person {
@@ -56,42 +63,6 @@ interface Person {
 let anyVar: any = '1';
 let numberType: number = <number>anyVar;
 let numberType2: number = anyVar as number;
-
-//? Generics: Lấy param làm Typedef
-const stringList: Array<string> = ['a', 'b', 'c', 'd', 'e'];
-const personList: Array<Person> = [{ name: 'John' }, { name: 'Uyen' }];
-/// Generics with Function
-{
-  let getTuple1: <T1, T2>(a: T1, b: T2) => [T1, T2] = (a, b) => [a, b];
-  let tuple1 = getTuple1<string, number>('a', 1);
-  // --------------------------------------------------
-  type TupleFuncType = <T1, T2>(a: T1, b: T2) => [T1, T2]; // `TupleFunc` type: 1 fn có 2 param có type lần lượt là T1 & T2, trả về 1 array có 2 phần tử cũng có type là T1 & T2
-  let getTuple2: TupleFuncType = (a, b) => [a, b];
-  let tuple2 = getTuple2('a', 1); //* ko cần <string, number> vì infer
-  // --------------------------------------------------
-  interface TupleFuncInterface {
-    <T1, T2>(a: T1, b: T2): [T1, T2];
-  }
-  let getTuple3: TupleFuncInterface = (a, b) => [a, b];
-  let tuple3 = getTuple3('a', 1);
-  // --------------------------------------------------
-  interface TupleFuncInterface2<T1, T2> {
-    (a: T1, b: T2): [T1, T2];
-  }
-  let getTuple4: TupleFuncInterface2<string, number> = (a, b) => [a, b];
-  let tuple4 = getTuple4('a', 1);
-}
-/// Generic Constraint (ràng buộc)
-{
-  interface Lengthwise {
-    length: number;
-  }
-  function loggingIdentity3<T extends Lengthwise>(arg: T): T {
-    console.log(arg.length); //! Có thể truy cập length vì đã extend từ Lengthwise
-    return arg;
-  }
-  loggingIdentity3({ length: 10, value: 3 }); // Phải có thuộc tính `length`
-}
 
 //? keyof
 type PersonKeys = keyof Person; // PersonKeys = 'name' | 'age'
