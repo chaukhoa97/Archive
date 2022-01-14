@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import numberContext from './Context/number-context';
 
-//? useContext: Cho ContextExample (ở đây cụ thể là ctx) khả năng truy cập vào value của <numberContext.Provider>
+//1 useContext: Cho ContextExample (ở đây cụ thể là ctx) khả năng truy cập vào value của <numberContext.Provider>
 //! Trong trường hợp Component dc wrap bởi nhiều Provider, nó sẽ truy cập vào value của Provider GẦN NHẤT
 
 function ContextExample() {

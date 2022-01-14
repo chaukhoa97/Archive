@@ -1,18 +1,17 @@
 // Generics: Lấy param làm typedef
 const stringList: Array<string> = ['a', 'b', 'c', 'd', 'e'];
-const personList: Array<Person> = [{ name: 'John' }, { name: 'Uyen' }];
 
-//? Generics with Function
+//1 Generics with Function
 interface GenericIdentityFn {
   <Type>(arg: Type): Type;
 }
-function identity<Type>(arg: Type): Type {
+function identity<Type = string>(arg: Type): Type {
+  // Nếu ko specify cho `Type`, sẽ dc mặc định là string
   return arg;
 }
 let myIdentity: GenericIdentityFn = identity;
 let myIdentity3: GenericIdentityFn = (arg) => arg;
-console.log(myIdentity, myIdentity3);
-console.log(identity, myIdentity);
+console.log(identity, myIdentity, myIdentity3);
 
 interface GenericIdentityFn2<Type> {
   (arg: Type): Type;

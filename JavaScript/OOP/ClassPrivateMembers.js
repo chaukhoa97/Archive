@@ -1,4 +1,4 @@
-//? Private members using Symbol & WeakMap.
+//1 Private members using Symbol & WeakMap.
 // Convention: Có underline đằng trước cho những Private members
 const _size = Symbol();
 const _draw = Symbol();

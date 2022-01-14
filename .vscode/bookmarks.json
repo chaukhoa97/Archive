@@ -179,11 +179,6 @@
 					"label": ""
 				},
 				{
-					"line": 26,
-					"column": 2,
-					"label": "Redux 3: Kẹp Provider quanh thằng nào dùng tới store"
-				},
-				{
 					"line": 31,
 					"column": 12,
 					"label": "Router Index: Chưa chọn sp -> Hiện trước một cái gì đó"
@@ -504,9 +499,19 @@
 			"path": "TypeScript/basic.ts",
 			"bookmarks": [
 				{
-					"line": 36,
+					"line": 32,
 					"column": 4,
 					"label": "interface vs type"
+				}
+			]
+		},
+		{
+			"path": "TypeScript/types.ts",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 4,
+					"label": ""
 				}
 			]
 		}

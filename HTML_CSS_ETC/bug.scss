@@ -1,4 +1,4 @@
-//? Grid gutter gây overflow
+//1 Grid gutter gây overflow
 .ant-row {
   margin-right: 0 !important;
   margin-left: 0 !important;
@@ -12,7 +12,7 @@
   padding-right: 0 !important;
 }
 
-//? Slick Carousel Duplicate Fix
+//1 Slick Carousel Duplicate Fix
 // Cách 1
 .slick-slide > div {
   margin: 0 10px;
@@ -29,7 +29,7 @@
 //   margin: 0 -10px;
 // }
 
-//? Hidden element
+//1 Hidden element
 div {
   display: none;
   transition: opacity 1s ease-out;
@@ -40,12 +40,12 @@ div.active {
   display: block;
 }
 
-//? Border-radius ko hoạt động
+//1 Border-radius ko hoạt động
 .div {
   overflow: hidden;
 }
 
-//? Hover cho after/before: pseudo class đứng trước pseudo element
+//1 Hover cho after/before: pseudo class đứng trước pseudo element
 .alo:hover::before {
   content: '';
   position: absolute;

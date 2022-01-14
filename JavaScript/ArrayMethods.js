@@ -69,7 +69,7 @@ numbers.splice(2, 1, 'a', 'b'); // (fromIndex, deleteCount, item1, item2, ...)
   arr2.flat(2); // [1, 2, 3, 4, 5, 6]
 }
 
-//? Map & forEach
+//1 Map & forEach
 {
   const arr = [1, 2, 3, 4, 5];
   //* Map: Creating a NEW array containing output of some processing done on each element of the array.
@@ -83,7 +83,7 @@ numbers.splice(2, 1, 'a', 'b'); // (fromIndex, deleteCount, item1, item2, ...)
   ); // returns undefined
 }
 
-//? Lodash
+//1 Lodash
 var _ = require('lodash');
 
 _.zipObject(['a', 'b'], [1, 2]); //* => { 'a': 1, 'b': 2 }

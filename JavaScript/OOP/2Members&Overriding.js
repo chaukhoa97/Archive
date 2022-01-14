@@ -5,7 +5,7 @@ Shape.prototype.duplicate = () => {
   console.log('duplicate shape');
 };
 function Circle(radius, color) {
-  //? Instance members của Circle:
+  //1 Instance members của Circle:
   // Gọi this.color = color (line 3) lên this, ở đây là function Circle, color trong (this, color) là giá trị color trong function Circle(radius, color).
   Shape.call(this, color);
   const id = 1;
@@ -19,7 +19,7 @@ function Circle(radius, color) {
     console.log(location);
   };
 }
-//? PROTOTYPE MEMBER CỦA CIRCLE
+//1 PROTOTYPE MEMBER CỦA CIRCLE
 /* Dùng cho những method lặp đi lặp lại để tiết kiệm bộ nhớ thay vì tạo ra hằng trăm copy của method đó ở từng Circle object,
   ở đây vì radius mỗi Circle khác nhau nên không dùng, nhưng method "move" ở các object đều giống nhau nên sẽ sử dụng Prototype members ở đây.
   ! Function trong Property members KHÔNG dùng Arrow function được (KHÔNG dùng Circle.prototype.move = () => {this.draw()...}),

@@ -1,4 +1,4 @@
-//? Static Methods: An utility function that takes an input and returns something, DOESN'T NEED A NEW OBJECT FROM THE CLASS
+//1 Static Methods: An utility function that takes an input and returns something, DOESN'T NEED A NEW OBJECT FROM THE CLASS
 class SM {
   static sayHi() {
     console.log('Hi!');

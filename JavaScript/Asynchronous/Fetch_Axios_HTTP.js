@@ -2,7 +2,7 @@ import axios from 'axios';
 // 1xx -> 5xx response: Information, Succeed, Redirection, Client Err, Server Err
 // Axios vs Fetch: Fetch phải tốn thêm 1 promise (.json()), ngoài ra trong các lệnh như POST,PATCH,... phải convert data bằng JSON.stringify. Axios có thể trực tiếp handle error còn Fetch thì phải check response.ok
 
-//? Concurrent
+//1 Concurrent
 const alo = async function () {
   const response1 = await fetch('https://jsonplaceholder.typicode.com/posts/1'); // Returns a Response obj
   const response2 = await fetch('https://jsonplaceholder.typicode.com/posts/2');
@@ -20,7 +20,7 @@ Promise.all([
   axios.get('https://jsonplaceholder.typicode.com/posts/2'),
 ]).then((res) => res.forEach((i) => console.log(i.data)));
 
-//? GET
+//1 GET
 fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => response.json())
   .then((json) => console.log(json));
@@ -29,7 +29,7 @@ axios
   .get('https://jsonplaceholder.typicode.com/todos/1')
   .then((response) => console.log('response', response.data));
 
-//? POST - Creating a Resource
+//1 POST - Creating a Resource
 fetch('https://jsonplaceholder.typicode.com/posts', {
   method: 'POST',
   body: JSON.stringify({
@@ -52,7 +52,7 @@ axios
   .then((response) => console.log(response.data))
   .catch((error) => console.log(error));
 
-//? PUT - Replace a resource
+//1 PUT - Replace a resource
 fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'PUT',
   body: JSON.stringify({
@@ -68,7 +68,7 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
   .then((response) => response.json())
   .then((json) => console.log(json));
 
-//? PATCH - Modify a resource thay vì replace như PUT
+//1 PATCH - Modify a resource thay vì replace như PUT
 fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'PATCH',
   body: JSON.stringify({
@@ -81,17 +81,17 @@ fetch('https://jsonplaceholder.typicode.com/posts/1', {
   .then((response) => response.json())
   .then((json) => console.log(json));
 
-//? Deleting a Resource
+//1 Deleting a Resource
 fetch('https://jsonplaceholder.typicode.com/posts/1', {
   method: 'DELETE',
 });
 
-//? Filtering resources
+//1 Filtering resources
 fetch('https://jsonplaceholder.typicode.com/posts?userId=1')
   .then((response) => response.json())
   .then((json) => console.log(json));
 
-//? Listing nested resources
+//1 Listing nested resources
 // This is equivalent to /comments?postId=1
 fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
   .then((response) => response.json())

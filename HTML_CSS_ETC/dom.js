@@ -1,9 +1,9 @@
-//? TRAVERSAL
+//1 TRAVERSAL
 // Function đổi màu để test
 function changeColor(element) {
   element.style.backgroundColor = '#333';
 }
-//? Selector
+//1 Selector
 const grandparent = document.querySelector('#grandparent--id'); // Hoặc = document.getElementById("grandparent--id");
 const parents = document.querySelectorAll('.parent'); // Hoặc = Array.from(document.getElementsByClassName("parent"));
 //! Get all <input> with the attribute "value" and has the attribute "value" that is not blank; and all <div class = 'yolo>
@@ -27,7 +27,7 @@ const children2 = child1.nextElementSibling;
 const anotherChildren1 = children2.previousElementSibling;
 //! Các selector NHIỀU element đều Return a NodeList collection (NOT AN ARRAY)
 
-//? element.addEventListener( 'click', callbackFunction(e) )
+//1 element.addEventListener( 'click', callbackFunction(e) )
 //* Theo thứ tự xuất hiện khi click vào Child1: Capture từ trên xuống dưới -> Bubble từ dưới lên trên
 document.addEventListener(
   'click',
@@ -64,7 +64,7 @@ addGlobalEventListener('click', 'div', (e) => {
   console.log('5. Global Event Listener');
 });
 
-//? MANIPULATION
+//1 MANIPULATION
 const body = document.body; // Chọn <body> element, NOTE: Nếu muốn chọn hết cả file thì dùng document.documentElement
 //* Creating, Adding, Modyfying elements
 const strong = document.createElement('strong');

@@ -3,7 +3,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import counterReducer from './slice1';
 import champReducer from './slice2-action-creator';
 
-//? Redux 2: configureStore with multi slices, by Redux Toolkit
+//1 Redux 2: configureStore with multi slices, by Redux Toolkit
 //* Nhiệm vụ của store: Giữ application state; Truy cập vào state thông qua getState(); Cho phép state update thông qua dispatch(action); Register listenders thông qua fn subscriber(listener); Unregister listeners thông qua fn unsubscribe(listener)
 const store = configureStore({
   reducer: {
@@ -14,8 +14,8 @@ const store = configureStore({
 
 export default store;
 
-//? REDUX THUẦN with React:
-//? Reducer: Function that is used to update store
+//1 REDUX THUẦN with React:
+//1 Reducer: Function that is used to update store
 // Khi store dc khởi tạo, nó sẽ chạy hàm counterReducer, nhưng lúc đó state chưa tồn tại -> phải khai báo default state
 // const counterReducer = (state = { counter: 100, showCounter: true }, action) => {
 //   switch (action.type) {

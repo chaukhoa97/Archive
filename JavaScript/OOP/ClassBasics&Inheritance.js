@@ -3,7 +3,7 @@ class Square {
     this.size = size;
   }
   color = 'blue'; //* New in ES7: Tương đương this.color = 'blue' ở trên constructor
-  //? 3 kiểu viết Function trong 1 class
+  //1 3 kiểu viết Function trong 1 class
   move = () => 'move Square'; //! ES7: Xịn nhất, dùng Arrow Function -> keyword 'this' hoạt động ok(reference tới Square objects thay vì Window object)
   // ES6
   move2() {

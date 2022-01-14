@@ -1,11 +1,11 @@
 // HtmlElement
 function HtmlElement() {
   this.click = function () {
-    console.log("clicked");
+    console.log('clicked');
   };
 }
 HtmlElement.prototype.focus = function () {
-  console.log("focused");
+  console.log('focused');
 };
 const he = new HtmlElement();
 function HtmlSelectElement(array = []) {
@@ -20,7 +20,7 @@ function HtmlSelectElement(array = []) {
   };
   HtmlElement.call(this); // Xem dòng 12-14
   this.render = function () {
-    return `<select>${this.array.map((n) => `<option>${n}</option>`).join("")}
+    return `<select>${this.array.map((n) => `<option>${n}</option>`).join('')}
       </select>`;
   };
 }
@@ -32,7 +32,7 @@ HtmlSelectElement.prototype = new HtmlElement();
 // Tạo biến để test
 const select = new HtmlSelectElement([1, 3, 2, 3, 4, 3]);
 
-function HtmlImageElement(src = "") {
+function HtmlImageElement(src = '') {
   this.src = src;
   this.render = function () {
     return `<img src="${this.src}" />`;
@@ -40,9 +40,9 @@ function HtmlImageElement(src = "") {
 }
 HtmlImageElement.prototype = new HtmlElement();
 HtmlImageElement.prototype.constructor = HtmlImageElement;
-const img = new HtmlImageElement("google.com");
+const img = new HtmlImageElement('google.com');
 
-//// Stack
+//2/ Stack
 const _array = new WeakMap();
 class Stack {
   constructor() {
@@ -58,12 +58,12 @@ class Stack {
   }
 
   pop() {
-    if (_array.get(this).length === 0) throw new Error("Empty stack");
+    if (_array.get(this).length === 0) throw new Error('Empty stack');
     _array.get(this).pop();
   }
 
   peek() {
-    if (_array.get(this).length === 0) throw new Error("Empty stack");
+    if (_array.get(this).length === 0) throw new Error('Empty stack');
     return _array.get(this);
   }
 }

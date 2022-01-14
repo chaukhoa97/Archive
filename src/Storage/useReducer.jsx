@@ -15,7 +15,7 @@ const reducer = (state, action) => {
   }
 };
 
-//? object Reducer
+//1 object Reducer
 const initialState = { loading: false, data: [], type: 'success' };
 const reducer2 = (state, action) => {
   switch (action.type) {
@@ -30,7 +30,7 @@ const reducer2 = (state, action) => {
 };
 
 function ReducerExample() {
-  //? dispatch(action): Describe the action that should be executed when dispatch(action) being triggered(ex: by clicking button,...) but NOT EXECUTED THE ACTION DIRECTLY, mà forward qua cho reducer(state, action) - line 3
+  //1 dispatch(action): Describe the action that should be executed when dispatch(action) being triggered(ex: by clicking button,...) but NOT EXECUTED THE ACTION DIRECTLY, mà forward qua cho reducer(state, action) - line 3
   //* Ex: action = {key1: 1, key2: 2} -> dispatch(action) -> Gọi reducer(state, action) -> switch(action.key1)...
   const [state, dispatch] = useReducer(reducer, 0); // reducer Là fn ở line 3
   const [state2, dispatch2] = useReducer(reducer2, initialState);

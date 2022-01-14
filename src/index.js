@@ -8,7 +8,7 @@ import Admin from './Pages/Admin';
 import Products from './Pages/Products';
 import ProductDetail from './Pages/ProductDetail';
 
-//? Ở Parent: Declare to use icon
+//1 Ở Parent: Declare to use icon
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { faStar, faUser, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -18,10 +18,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const n = 4;
 const arr = [...Array(n).keys()]; // [0, 1, 2, 3, 4]
 
-//? Redux 3: Tất cả ~ component của App sẽ dc truy cập vào store
+//1 Redux 3: Tất cả ~ component của App sẽ dc truy cập vào store
 import store from './Redux/store';
 import { Provider } from 'react-redux';
-//? Router 1: <Routes> cha chỉ render THE MOST SPECIFIC MATCH <Route>
+//1 Router 1: <Routes> cha chỉ render THE MOST SPECIFIC MATCH <Route>
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -23,7 +23,7 @@ import {
 import styles from './nav.module.scss';
 
 function App() {
-  //? Lazy init: `expenseviveFn` chỉ chạy ở lần render đầu tiên để tạo ra giá trị init của state
+  //1 Lazy init: `expenseviveFn` chỉ chạy ở lần render đầu tiên để tạo ra giá trị init của state
   const expensiveFn = () => {
     console.log(100);
     return 100;
@@ -40,11 +40,11 @@ function App() {
   ];
   const [expenses, setExpenses] = useState(INITITAL_EXPENSES);
 
-  //? Context
+  //1 Context
   const n = 0;
   const fn = () => 1;
 
-  //? useCallback(storedFn, dependencyArray): Trả về chính storedFn (ở đây là hàm setTemp). Khi App re-evaluate, storedFn sẽ ko bị re-create lại.
+  //1 useCallback(storedFn, dependencyArray): Trả về chính storedFn (ở đây là hàm setTemp). Khi App re-evaluate, storedFn sẽ ko bị re-create lại.
   // Ở đây callbackButtonHandler, là prop của useCallback.jsx, ko bị re-create khi App re-evaluate -> CallbackExample sẽ ko bị re-evaluate vô ích vì prop của nó (callbackButtonHandler) giờ sẽ không thay đổi
   const [temp, setTemp] = useState(true);
   setTimeout(() => setTemp(false), 5000);
@@ -55,13 +55,13 @@ function App() {
     }
   }, [temp]); //! Nếu ko có dependency, temp ở trong if(temp) sẽ ko dc cập nhật thành false bởi setTimeout -> button ko bị disable
 
-  //? useMemo(expensiveFn, dependencyArray): Trả về result (reference value - ở đây là object) của 1 function (ở đây là expensiveFn)
+  //1 useMemo(expensiveFn, dependencyArray): Trả về result (reference value - ở đây là object) của 1 function (ở đây là expensiveFn)
   //! ÍT DÙNG HƠN useCallback: Chỉ dùng khi function này quá phức tạp (ex: Sort,...) mà value ko đổi (nhưng vẫn phải re-initialize vì đây là Reference)
   const expensiveFnResult = useMemo(() => {
     value: 'I am an object that was created by a expensive fn';
   }, []);
 
-  //? Side effect/Async code with Redux 1: Code ở trong Component (với useEffect). KO DC BỎ Ở TRONG reducer (vì reducerFn phải là pure)
+  //1 Side effect/Async code with Redux 1: Code ở trong Component (với useEffect). KO DC BỎ Ở TRONG reducer (vì reducerFn phải là pure)
   //* Redux store thay đổi -> App do có useSelector() sẽ dc re-render -> UI sẽ luôn dc update tương ứng với state
   const dispatch = useDispatch();
   useEffect(() => {
@@ -75,7 +75,7 @@ function App() {
     sendRequest();
   }, [dispatch]);
 
-  //? Router
+  //1 Router
   const navigate = useNavigate(); // <button> line 102
 
   // Hoạt động tương tự useState nhưng ko log searchParams dc, đọc các method của searchParams ở https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
@@ -144,7 +144,7 @@ function App() {
 }
 
 /* #region */
-//? Trước khi áp optimizations như memo/useMemo, hãy thử chia component ra thành 2 phần, phần thay đổi(care about state) và phần ko thay đổi (doesn't care about state)
+//1 Trước khi áp optimizations như memo/useMemo, hãy thử chia component ra thành 2 phần, phần thay đổi(care about state) và phần ko thay đổi (doesn't care about state)
 function Care(props) {
   const [careValue, setCareValue] = useState('Care');
   console.log('Care running');

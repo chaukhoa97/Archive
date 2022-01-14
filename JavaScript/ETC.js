@@ -1,4 +1,4 @@
-//? ... Spread Operator vs Rest Operator
+//1 ... Spread Operator vs Rest Operator
 {
   // The Spread Operator: Split up Array elements/Object Properties.
   //! Deep copy topmost data, shallow copy nested data.
@@ -9,7 +9,7 @@
   function showArgs(time, ...args) {} //* args = [...]
 }
 
-//? Closures bao gồm: Function và References tới các biến ở outer scope của function đó (Lexical Environment). Trong JS, closures của 1 function dc tạo ra ở thời điểm declare function đó.
+//1 Closures bao gồm: Function và References tới các biến ở outer scope của function đó (Lexical Environment). Trong JS, closures của 1 function dc tạo ra ở thời điểm declare function đó.
 {
   function f1() {
     let x = 0; // Dc giữ lại trong closure
@@ -22,12 +22,12 @@
     };
   }
   const f3 = f1(); // execute f1() returns f2 -> những biến ở outer scope của f2 sẽ dc giữ lại.
-  f3(); //? 2
-  f3(); //? 4
+  f3(); //1 2
+  f3(); //1 4
   console.log(x); // ReferenceError: Biến x chỉ dc sử dụng trong f1
 }
 
-//? Hoisting
+//1 Hoisting
 {
   add(3, 4); //* returns 7
   // Function declaretion -> hoisting lên đầu
@@ -42,13 +42,13 @@
   };
 }
 
-//? Parameter(tham số) & Argument(đối số)
+//1 Parameter(tham số) & Argument(đối số)
 function test(a) {
   return a; // a là param
 }
 test(100); // 100 là arg
 
-//? Factory Functions
+//1 Factory Functions
 function createPerson(name) {
   return {
     name,
@@ -56,7 +56,7 @@ function createPerson(name) {
   };
 }
 
-//? Const property update
+//1 Const property update
 {
   //* OK
   const obj = {};
@@ -76,7 +76,7 @@ function createPerson(name) {
   const obj = { key1: 'foo' }; // error - re-declaring
 }
 
-//? Optional Chaining
+//1 Optional Chaining
 {
   const adventurer = {
     name: 'Alice',
@@ -90,7 +90,7 @@ function createPerson(name) {
   adventurer.someNonExistentMethod?.(); // undefined
 }
 
-//? Date
+//1 Date
 {
   Date.now(); // Returns numbers. Faster than new Date().getTime()
   const eventTime = new Date(); // Tue Nov 16 2021 23:37:35 GMT+0700 (Indochina Time)
@@ -99,13 +99,13 @@ function createPerson(name) {
   eventTime.toLocaleTimeString(); // 11:37:35 PM
 }
 
-//? Arrow Fn:
+//1 Arrow Fn:
 const add = (num1, num2) => num1 + num2;
 const add2 = (num1, num2) => {
   return num1 + num2;
 };
 
-//? x++ và ++x
+//1 x++ và ++x
 let x = 10;
 let y = ++x; // Cộng x thành 11 rồi mới set cho y => y = x = 10 + 1 = 11
 y = x++; // Cho y thành giá trị của x hiện tại, rồi mới + 1 cho x => y = 11, x = 11 + 1 = 12

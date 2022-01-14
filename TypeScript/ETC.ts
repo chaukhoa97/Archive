@@ -1,5 +1,5 @@
-//? Enum
-/// Number enum
+//1 Enum
+//2 Number enum
 {
   enum Status0 {
     Pending, // 0
@@ -16,7 +16,7 @@
   // Reverse mapping
   console.log(Status1[10]); // Rejected
 }
-/// String enum: KHÔNG REVERSE MAPPING như Number enum dc
+//2 String enum: KHÔNG REVERSE MAPPING như Number enum dc
 {
   enum ResponseTypes {
     Success = 'SUCCESS',
@@ -25,21 +25,21 @@
   const ss: ResponseTypes.Success = ResponseTypes.Success; // 'SUCCESS'
 }
 
-//? Non-null assertion Operator:
+//1 Non-null assertion Operator:
 //! Only use ! when you know that the value can’t be null or undefined.
 function liveDangerously(x?: number | null) {
   //* No error
   console.log(x!.toFixed());
 }
 
-//? Extends keyof
+//1 Extends keyof
 function prop<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
 }
 let str = prop({ name: 'John' }, 'name'); // 'John'
 
-//? Narrowing
-/// in
+//1 Narrowing
+//2 in
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 type Human = { swim?: () => void; fly?: () => void };
@@ -50,7 +50,7 @@ function move(animal: Fish | Bird | Human) {
     animal;
   }
 }
-/// instanceof
+//2 instanceof
 function logValue(x: Date | string) {
   if (x instanceof Date) {
     console.log(x.toLocaleDateString());

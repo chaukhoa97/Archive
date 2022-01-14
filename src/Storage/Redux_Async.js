@@ -3,7 +3,7 @@
 /* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 
-//? Async code 1 vs Async code 2 cùng làm 1 việc
+//1 Async code 1 vs Async code 2 cùng làm 1 việc
 //* 1: Ở App.js (useEffect)
 useEffect(() => {
   const sendCartData = async () => {

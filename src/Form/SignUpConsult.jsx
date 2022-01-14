@@ -44,19 +44,19 @@ function SignUpForm() {
     //! Form main 2: `handleSubmit` sẽ validate your inputs before invoking `onSubmit` (line 12)
     <form onSubmit={handleSubmit(onSubmit)}>
       <Controller
-        //? Form controller 1: UNIQUE `name`; `rules` giống với `register` (Cả 2 đọc ở line `Form main 3`)
+        //1 Form controller 1: UNIQUE `name`; `rules` giống với `register` (Cả 2 đọc ở line `Form main 3`)
         name="email"
         rules={{
           required: true,
           pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
         }}
         defaultValue="Được nhập sẵn ở input, KHÔNG PHẢI PLACEHOLDER"
-        //? Form controller 2: Từ 53 -> 56: KO CẦN CARE
+        //1 Form controller 2: Từ 53 -> 56: KO CẦN CARE
         control={control}
         render={({ field }) => (
           <Input
             {...field}
-            //? Form controller 3: `onChange` ở đây là property quan trọng nhất của obj `field`, dùng để customize values dc nhập vào trước khi gửi tới hook. Ở đây là chuyển value về int thay vì str. https://react-hook-form.com/api/usecontroller/controller
+            //1 Form controller 3: `onChange` ở đây là property quan trọng nhất của obj `field`, dùng để customize values dc nhập vào trước khi gửi tới hook. Ở đây là chuyển value về int thay vì str. https://react-hook-form.com/api/usecontroller/controller
             onChange={(e) => field.onChange(parseInt(e.target.value))}
             // Props riêng của ant-design
             size="large"
