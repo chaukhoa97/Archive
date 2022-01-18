@@ -6,7 +6,7 @@ const ExpenseForm = (props) => {
   //1 useRef(initValue): amountRef value sẽ dc preserve khi Component re-render (giống useState). Nhưng khi amountRef thay đổi, nó ko khiến Component bị re-render (khác useState)
   //! Vì vậy, value show ra trên UI thì dùng useState. Còn những thứ khác như form người dùng nhập vào thì dùng useRef sẽ đỡ bị re-render hơn. Những thứ constant thì xem xét dùng JS variable như bình thường
   const amountRef = useRef();
-  //* ref can be any valid JS, ví dụ như ở đây là numbẻ, ở line 60 là node trong DOM
+  //* ref can be any valid JS, ví dụ như ở đây là number, ở line 60 là node trong DOM
   const numberRef = useRef(0); //! numberRef.current = 0
   setInterval(() => {
     numberRef.current = numberRef.current + 1;

@@ -96,51 +96,6 @@
 			]
 		},
 		{
-			"path": "src/components/UI/Card.jsx",
-			"bookmarks": [
-				{
-					"line": 4,
-					"column": 2,
-					"label": "props.children"
-				}
-			]
-		},
-		{
-			"path": "src/components/Expenses/ExpenseDate.jsx",
-			"bookmarks": [
-				{
-					"line": 10,
-					"column": 4,
-					"label": "Fragment"
-				},
-				{
-					"line": 12,
-					"column": 6,
-					"label": "Portal: Có thể dùng logic của file này, nhưng render chỗ khác"
-				}
-			]
-		},
-		{
-			"path": "src/Storage/ChartBar.jsx",
-			"bookmarks": [
-				{
-					"line": 13,
-					"column": 3,
-					"label": "Import styles.module.css to component (from line 1)"
-				},
-				{
-					"line": 16,
-					"column": 10,
-					"label": "Conditional className"
-				},
-				{
-					"line": 23,
-					"column": 12,
-					"label": "Conditional styling (inline)"
-				}
-			]
-		},
-		{
 			"path": "src/Storage/useReducer.jsx",
 			"bookmarks": [
 				{
@@ -231,52 +186,12 @@
 			]
 		},
 		{
-			"path": "src/Redux/state-action.js",
-			"bookmarks": [
-				{
-					"line": 3,
-					"column": 0,
-					"label": "Redux 1: createSlice"
-				},
-				{
-					"line": 8,
-					"column": 1,
-					"label": ""
-				},
-				{
-					"line": 9,
-					"column": 1,
-					"label": ""
-				},
-				{
-					"line": 15,
-					"column": 19,
-					"label": ""
-				},
-				{
-					"line": 22,
-					"column": 0,
-					"label": "Redux 2: export slice.actions"
-				}
-			]
-		},
-		{
 			"path": "src/Storage/EventTarget.jsx",
 			"bookmarks": [
 				{
 					"line": 6,
 					"column": 4,
 					"label": "Handle big <form>"
-				}
-			]
-		},
-		{
-			"path": "src/Redux/redux-store.js",
-			"bookmarks": [
-				{
-					"line": 5,
-					"column": 4,
-					"label": "Redux 2: configureStore "
 				}
 			]
 		},
@@ -301,42 +216,12 @@
 			]
 		},
 		{
-			"path": "src/Storage/React-dot-memo.jsx",
-			"bookmarks": [
-				{
-					"line": 2,
-					"column": 2,
-					"label": "React.memo( MyComponent )"
-				}
-			]
-		},
-		{
 			"path": "src/Storage/useEffect.jsx",
 			"bookmarks": [
 				{
 					"line": 12,
 					"column": 2,
 					"label": "useEffect cleanup"
-				}
-			]
-		},
-		{
-			"path": "src/Storage/Browser_API.js",
-			"bookmarks": [
-				{
-					"line": 5,
-					"column": 29,
-					"label": ""
-				}
-			]
-		},
-		{
-			"path": "src/Redux/basic-redux-middleware.js",
-			"bookmarks": [
-				{
-					"line": 13,
-					"column": 0,
-					"label": ""
 				}
 			]
 		},
@@ -431,16 +316,6 @@
 			]
 		},
 		{
-			"path": "src/Pages/Products.jsx",
-			"bookmarks": [
-				{
-					"line": 7,
-					"column": 22,
-					"label": "module.scss"
-				}
-			]
-		},
-		{
 			"path": "JavaScript/ETC.js",
 			"bookmarks": [
 				{
@@ -499,7 +374,7 @@
 			"path": "TypeScript/basic.ts",
 			"bookmarks": [
 				{
-					"line": 32,
+					"line": 24,
 					"column": 4,
 					"label": "interface vs type"
 				}

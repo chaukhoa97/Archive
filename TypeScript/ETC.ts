@@ -32,24 +32,39 @@ function liveDangerously(x?: number | null) {
   console.log(x!.toFixed());
 }
 
-//1 Extends keyof
-function prop<T, K extends keyof T>(obj: T, key: K) {
+//1 Narrowing
+//2 keyof: array_object.ts line 36
+//3 extends keyof
+function getProperty5<T, K extends keyof T>(obj: T, key: K): T[K] {
   return obj[key];
 }
-let str = prop({ name: 'John' }, 'name'); // 'John'
+const person7: Person = {
+  age: 22,
+  name: 'Tobias',
+};
+const name4 = getProperty5(person7, 'name'); // Ok, name is a property of Person
+const gender = getProperty5(person7, 'gender'); //! Error,'gender' is not a property of Person
+//3 in keyof
+type Optional<T> = {
+  [K in keyof T]?: T[K];
+};
 
-//1 Narrowing
-//2 in
+const person4: Optional<Person> = {
+  name: 'Tobias', //* No need to specify age anymore, since age's type is now mapped from 'number' to 'number?', and therefore becomes optional
+};
+
+//2 in: if an object has a property with a name
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 type Human = { swim?: () => void; fly?: () => void };
 function move(animal: Fish | Bird | Human) {
   if ('swim' in animal) {
-    animal;
+    animal.swim;
   } else {
     animal;
   }
 }
+
 //2 instanceof
 function logValue(x: Date | string) {
   if (x instanceof Date) {

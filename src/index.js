@@ -25,7 +25,7 @@ import { Provider } from 'react-redux';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ScrollToTop />
+      {/* <ScrollToTop /> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />}>
@@ -61,10 +61,10 @@ const Icons = () => {
   }
 };
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-  return null;
-}
+// function ScrollToTop() {
+//   const { pathname } = useLocation();
+//   useEffect(() => {
+//     window.scrollTo(0, 0);
+//   }, [pathname]);
+//   return null;
+// }

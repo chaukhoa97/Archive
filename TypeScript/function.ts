@@ -10,7 +10,7 @@ type DescribableFunction = {
   (someArg: number): number;
 };
 function doSomething(fn: DescribableFunction) {
-  console.log(fn.description + ' returned ' + fn(6));
+  console.log(fn.description + ' returns ' + fn(6));
 }
 const fnArg = (n: number) => n;
 fnArg.description = 'This is a function';
@@ -28,13 +28,13 @@ function map<Input, Output>(
 const parsed = map(['1', '2', '3'], (n) => parseInt(n)); // Array<string>, ( arg: string ) => number
 
 //2 Constraint
-function getProperty<Type, Key extends keyof Type>(obj: Type, key: Key) {
+function getProperty3<Type, Key extends keyof Type>(obj: Type, key: Key) {
   return obj[key];
 }
 let x = { a: 1, b: 2, c: 3, d: 4 };
-getProperty(x, 'a'); // 1
-getProperty(x, 'm');
-//! Error-prone: obj là array -> crash vì array đã có sẵn `length` property
+getProperty3(x, 'a');
+getProperty3(x, 'm');
+//2 Error-prone: obj là array -> crash vì array đã có sẵn `length` property
 function minimumLength<Type extends { length: number }>(
   obj: Type,
   minimum: number
@@ -42,9 +42,9 @@ function minimumLength<Type extends { length: number }>(
   if (obj.length >= minimum) {
     return obj;
   }
-  return { length: minimum };
+  return { length: minimum }; //! Error
 }
-//! Nên áp type cho param <Type>(arr: Type[]) thay vì constraint <Type extends any[]>(arr: Type)
+//2 Nên áp type cho param <Type>(arr: Type[]) thay vì constraint <Type extends any[]>(arr: Type)
 let firstElement1 = <Type>(arr: Type[]) => arr[0];
 function firstElement2<Type extends any[]>(arr: Type) {
   return arr[0];
@@ -61,7 +61,7 @@ let s1: string = vAny; // Any is assignable to anything
 let s2: string = vUnknown; // Invalid; we can't assign vUnknown to any other type (without an explicit assertion)
 
 vAny.method(); // Ok; anything goes with any
-vUnknown.method(); // Not ok; we don't know anything about this variable
+vUnknown.method(); //! Not ok; we don't know anything about this variable
 //2 Void: Khi function không return gì cả
 function print(msg: string): void {
   console.log(msg);
