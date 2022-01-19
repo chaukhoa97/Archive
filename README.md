@@ -1,5 +1,10 @@
 # React
 
+|               | xs  | sm  | md  | lg   | xl   | xxl  |
+| :-----------: | :-: | :-: | :-: | ---- | ---- | ---- |
+| Ant/Bootstrap |  0  | 576 | 768 | 992  | 1200 | 1400 |
+|      MUI      |  0  | 600 | 900 | 1200 | 1536 | N/A  |
+
 ## Terms & Notes
 
 - Pass callback vào onClick
