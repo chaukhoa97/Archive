@@ -14,7 +14,7 @@ console.log(source); // Object { b: 4, c: 5 };
 //1 Lodash
 var _ = require('lodash');
 
-// Shallow Copy vs Deep Copy:
+//2 Shallow Copy vs Deep Copy:
 var obj = [{ a: 1 }, { b: 2 }]; // _isEqual -> true; == -> false
 var shallow = _.clone(obj);
 console.log(shallow[0] === obj[0]); // => true

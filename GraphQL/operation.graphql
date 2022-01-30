@@ -1,0 +1,18 @@
+#* query, mutation, subscription là các `operation type`
+mutation createReview($ep: Episode!, $review: ReviewInput!) {
+  createReview(episode: $ep, review: $review) {
+    stars
+    commentary
+  }
+}
+
+# $variableName(episode): Type(Episode) = defaultValue(2)
+query HeroNameAndFriends($episode: Episode = 2) {
+  #* HeroNameAndFriends là `operation name`
+  hero(episode: $episode) {
+    name
+    friends {
+      name
+    }
+  }
+}

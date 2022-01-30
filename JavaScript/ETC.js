@@ -28,19 +28,17 @@
 }
 
 //1 Hoisting
-{
-  add(3, 4); //* returns 7
-  // Function declaretion -> hoisting lên đầu
-  function add(num1, num2) {
-    return num1 + num2;
-  }
-
-  // Function expression -> ko hoisting
-  subtract(7, 4); //! Uncaught TypeError: subtract is not a function
-  var subtract = function (num1, num2) {
-    return num1 - num2;
-  };
+add(3, 4); //* returns 7
+// Function declaretion -> hoisting lên đầu
+function add(num1, num2) {
+  return num1 + num2;
 }
+
+//* Function expression -> ko hoisting
+subtract(7, 4); //! Uncaught TypeError: subtract is not a function
+var subtract = function (num1, num2) {
+  return num1 - num2;
+};
 
 //1 Parameter(tham số) & Argument(đối số)
 function test(a) {

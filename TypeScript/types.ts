@@ -37,7 +37,8 @@ let numberType2: number = anyVar as number; //* Nên dùng loại này hơn cho 
 type Person2 = { age: number; name: string; alive: boolean };
 type Age = Person2['age' | 'name']; // = number | string
 //2 Using `number` to get the type of an array's elements
-type typeOfTuple2 = typeof tuple2[number]; // = string | boolean | number
+const tuple2: [number, string] = [1, '2'];
+type typeOfTuple2 = typeof tuple2[number]; // string | number
 
 //1 TS Template Literals:
 type EmailLocaleIDs = 'welcome_email' | 'email_heading';

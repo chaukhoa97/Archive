@@ -17,15 +17,6 @@
   <h1 className={`${styles['active-nav']} ${styles.red}`}>Hello</h1>;
   ```
 
-## Redux
-
-1. Component lấy dữ liệu từ Store để thể hiện trên UI (View)
-2. Người dùng tương tác lên UI (Ex: onClick button ….)
-3. Component đóng vai trò là Action Creator, tạo ra action obj bằng cách tự declare 1 action object (slice2 line 40) hoặc bằng THUNK: 1 async fn that returns the action object (slice2 line 18)
-4. Component gọi hàm dispatch với tham số là action obj vừa tạo từ 1 trong 2 cách trên, bao gồm 2 property là type (để store biết nên gọi reducer nào) và payload (tham số cho hàm reducer).
-5. Redux store dựa theo type của action object để gọi reducerFn tương ứng
-6. Update Store data dựa theo storeState & payload
-
 # TypeScript
 
 ```ts
@@ -154,17 +145,67 @@ Lazy load: Images are `lazy loaded` by default. That means your page speed isn't
 
 ## Pre-rendering
 
-### vs No Pre-rendering
-
-`Hydration`: When a page is loaded by the browser, its JavaScript code runs and makes the page fully interactive
+**_By default, Next.js pre-renders every page. Nghĩa là Next.js sẽ tạo trước HTML, thay vì để JS ở client-side làm hết_**  
+**_Each generated HTML is associated with minimal JavaScript code necessary for that page. When a page is loaded by the browser, its JavaScript code runs and makes the page fully interactive. (This process is called `hydration`.)_**
 
 ![](https://nextjs.org/static/images/learn/data-fetching/pre-rendering.png)
 ![](https://nextjs.org/static/images/learn/data-fetching/no-pre-rendering.png)
 
 ### 2 forms of Pre-rendering
 
-- [Static Generation](https://nextjs.org/docs/basic-features/pages#static-generation-recommended) is the pre-rendering method that generates the HTML at build time. The pre-rendered HTML is then reused on each request.
-  ![](https://nextjs.org/static/images/learn/data-fetching/static-generation.png)
+#### [Static-site Generation](https://nextjs.org/docs/basic-features/pages#static-generation-recommended) is the pre-rendering method that generates the HTML at build time. The pre-rendered HTML is then reused on each request.
 
-- [Server-side Rendering](https://nextjs.org/docs/basic-features/pages#server-side-rendering) is the pre-rendering method that generates the HTML on each request.
-  ![](https://nextjs.org/static/images/learn/data-fetching/server-side-rendering.png)
+Ngoài đẻ HTML ra, SSG còn đẻ ra 1 file `JSON` là kq dc return từ `getStaticProps`. Khi navigate sang ~ page dc pre-render, Next.js sẽ lấy file `JSON` này làm prop cho `page component`. As a result, client-side page transitions will **NOT** call `getStaticProps` vì đã có sẵn JSON mà dùng rồi.
+
+File JSON có dạng:
+
+```json
+{
+  "pageProps": {
+    "post": {
+      "id": 57,
+      "title": "sed ab est est"
+    }
+  },
+  "__N_SSG": true
+}
+```
+
+![](https://nextjs.org/static/images/learn/data-fetching/static-generation.png)
+
+#### [Server-side Rendering](https://nextjs.org/docs/basic-features/pages#server-side-rendering):
+
+Khi user request, `getServerSideProps` ko tạo HTML ở build time như SSG mà chỉ tạo file JSON(format giống như trên) làm prop cho page componnent, từ đó render ra trang HTML và trả về cho client.
+
+![](https://nextjs.org/static/images/learn/data-fetching/server-side-rendering.png)
+
+#### [Incremental Static Regeneration](https://vercel.com/docs/concepts/next.js/incremental-static-regeneration): `revalidate: 60`
+
+![](https://vercel.com/_next/image?url=%2Fdocs-proxy%2Fstatic%2Fdocs%2Fconcepts%2Fnext.js%2Fisr%2Fregeneration.png&w=1080&q=75)
+Tạo Paths with ISR: Đẻ 100 most popular products từ `getStaticPaths`, user request product khác thì kẹp thêm `fallback`: `true`(`router.isFallback?loading...`) hoặc `'blocking'` (bắt đầu load trang bằng SSR).
+
+1. The initial request to the product page will show the cached page(just like SSG)
+2. The data for the product is updated in the CMS.
+3. Any requests to the page after the initial request and before the 60 seconds window will show the cached page with old data.
+4. After the 60 second window, the next request will still show the same cached page with old data, but Next.js will now trigger a regeneration of the page in the background.
+5. Once the page has been successfully generated, Next.js will invalidate the cache and show the updated product page. If the background regeneration fails, the old page remains unaltered.
+
+#### Client-side Rendering
+
+![](https://nextjs.org/static/images/learn/data-fetching/client-side-rendering.png)
+
+```jsx
+useEffect(() => {
+  fetch('api/profile-data')
+    .then((res) => res.json())
+    .then((data) => {
+      setData(data);
+    });
+}, []);
+```
+
+## Routing:
+
+- Homepage: https://www.example.com → pages/index.js
+- Listings: https://www.example.com/products → `pages/products.js` or `pages/products/index.js`
+- Product:https://www.example.com/products/nextjs-shirt → pages/products/[product].js

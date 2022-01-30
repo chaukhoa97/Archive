@@ -38,5 +38,5 @@ const readonlyArrayReturn = () => {
   return [1, 'a'] as const; //* return type is ` readonly [1, 'a'] `
 };
 const unionArrayReturn = () => {
-  return [1, 'a']; //* return type is ` (string | number)[] `, do TS infer
+  return [1, 'a']; //* return type is ` (string | number)[] `,due to TS infer
 };

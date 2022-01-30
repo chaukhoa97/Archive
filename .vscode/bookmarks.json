@@ -274,6 +274,11 @@
 					"label": ""
 				},
 				{
+					"line": 70,
+					"column": 80,
+					"label": "font"
+				},
+				{
 					"line": 99,
 					"column": 10,
 					"label": "Form validate cho đúng format, trùng password...."
@@ -357,16 +362,6 @@
 					"line": 8,
 					"column": 46,
 					"label": "Active menu item with Router"
-				}
-			]
-		},
-		{
-			"path": "src/Form/SignIn.jsx",
-			"bookmarks": [
-				{
-					"line": 50,
-					"column": 80,
-					"label": "font"
 				}
 			]
 		},

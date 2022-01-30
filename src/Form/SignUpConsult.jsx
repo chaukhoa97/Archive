@@ -68,7 +68,7 @@ function SignUpForm() {
         )}
       />
       {errors.email && (
-        <span className="account__error">Email không đúng định dạng!</span>
+        <span className="account__error">Email nhập không đúng định dạng!</span>
       )}
       <Controller
         name="password"
