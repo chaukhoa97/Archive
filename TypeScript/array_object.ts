@@ -23,9 +23,10 @@ let tupleArray: [string, number][] = [
 ];
 var tuple2: [string, ...boolean[], number] = ['John', true, false, 1]; //* Rest elements must be array/tuple type
 
-//1 Index Signature: An index signature property type must be either ‘string’ or ‘number’
+//1 Index Signature:
+//! An index signature property type must be either ‘string’ or ‘number’
 interface NumberOrStringDictionary {
-  [index: string]: number | string; //* A dict with any number of properties, chỉ biết value trả về là `number | string`
+  [index: string]: number | string; //* NumberOrStringDictionary can have any number of properties, chỉ biết value trả về là `number | string`
   length: number;
   name: string;
   1: string;

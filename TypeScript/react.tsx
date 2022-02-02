@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 //1 Hooks
 const [user, setUser] = useState<User | null>(null);
 //2 useEffect: not to return anything other than a function or undefined
@@ -19,7 +19,7 @@ function Foo() {
 
   useEffect(() => {
     // Note that ref.current may be null. This is expected, because you may conditionally render the ref-ed element, or you may forgot to assign it
-    if (!divRef.current) throw Error('divRef is not assigned');
+    if (!divRef.current) throw Error("divRef is not assigned");
 
     // Now divRef.current is sure to be HTMLDivElement
     console.log(divRef.current);
@@ -35,8 +35,8 @@ function Bar() {
 }
 //2 Custom Hook
 const readonlyArrayReturn = () => {
-  return [1, 'a'] as const; //* return type is ` readonly [1, 'a'] `
+  return [1, "a"] as const; //* return type is ` readonly [1, 'a'] `
 };
 const unionArrayReturn = () => {
-  return [1, 'a']; //* return type is ` (string | number)[] `,due to TS infer
+  return [1, "a"]; //* return type is ` (string | number)[] `,due to TS infer
 };

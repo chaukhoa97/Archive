@@ -1,15 +1,17 @@
-//1 Conditional Types:
+//1 Conditional Types: Left assignable to Right?A:B
 type IdLabel = number;
 type NameLabel = string;
 type NameOrId<T extends number | string> = T extends number
   ? IdLabel
   : NameLabel;
-//2 `never` common use case with conditional types
+//2 `never` use case with conditional types
+// Line 35 generics.ts: Quả quyết `T` phải ÍT NHẤT có `message` property
+type MessageOf<T> = T extends { message: unknown } ? T["message"] : never;
+
 type NonNullable2<T> = T extends null | undefined ? never : T;
 type A2 = NonNullable<boolean>; // boolean
 type B2 = NonNullable<number | null>; // number
 
-type MessageOf<T> = T extends { message: unknown } ? T['message'] : never;
 interface Email {
   message: string;
 }
@@ -22,27 +24,53 @@ type DogMessageContents = MessageOf<Dog>; // never
 type ToArray<Type> = Type extends any ? Type[] : never;
 type StrArrOrNumArr = ToArray<string | boolean>; // string[] | boolean[]
 
-//1 Assertion: Only to more or less specific type
+//1 Type Assertion: Quả quyết với type-system là variable đó có type như vậy
+//! Only be used to more or less specific type; không thể có ~ chuyển đổi vô lý như `"hello" as number`
+//2 `unknown` use case with Type Assertion
+let foo: unknown = 10;
+const upperCase = (x: string) => console.log(x.toUpperCase());
+upperCase(foo as string); //* Assert là string nên type-system ko báo lỗi, lúc run mới ra lỗi TypeError: x.toUpperCase is not a function
+
+//2 Non-null assertion Operator
+//! Only use ! when you know that the value can’t be null or undefined.
+function liveDangerously(x?: number | null) {
+  console.log(x!.toFixed()); // No error
+}
+
 //2 Const: default -> infer the most general; as const -> infer the most specific
 const sekai = 1; //* Literal Types: const sekai: 1 (kiểu type là "1" luôn chứ kp là number, vì const kbh thay đổi)
-const req = { url: 'https://example.com', method: 'GET' } as const; //* Chuyển all obj property về Literal types hết: url: "https://example.com"; method: "GET"
+const req = { url: "https://example.com", method: "GET" } as const; //* Chuyển all obj property về Literal types hết: url: "https://example.com"; method: "GET"
+const twoArgFn1 = ([a = 1, b = "b"]) => [a, b]; // return type: [string | number][]
+const twoArgFn2 = ([a = 1, b = "b"]) => [a, b] as const; // return type: readonly [number, string]
 
-const twoArgFn1 = ([a = 1, b = 'b']) => [a, b]; // return type: [string | number][]
-const twoArgFn2 = ([a = 1, b = 'b']) => [a, b] as const; // return type: readonly [number, string]
-//2 Type assertion:
-let anyVar: any = '1';
-let numberType: number = <number>anyVar;
-let numberType2: number = anyVar as number; //* Nên dùng loại này hơn cho React
 //1 Indexed Access Types:
 type Person2 = { age: number; name: string; alive: boolean };
-type Age = Person2['age' | 'name']; // = number | string
+type Age = Person2["age" | "name"]; // = number | string
 //2 Using `number` to get the type of an array's elements
-const tuple2: [number, string] = [1, '2'];
+const tuple2: [number, string] = [1, "2"];
 type typeOfTuple2 = typeof tuple2[number]; // string | number
 
 //1 TS Template Literals:
-type EmailLocaleIDs = 'welcome_email' | 'email_heading';
-type FooterLocaleIDs = 'footer_title' | 'footer_sendoff';
+type EmailLocaleIDs = "welcome_email" | "email_heading";
+type FooterLocaleIDs = "footer_title" | "footer_sendoff";
 type AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`;
-type Lang = 'en' | 'ja' | 'pt';
+type Lang = "en" | "ja" | "pt";
 type LocaleMessageIDs = `${Lang}_${AllLocaleIDs}`;
+
+//1 Other types
+//2 unknown: Similar to `any`, but safer because u can't do anything with it
+let vAny: any = 10;
+let vUnknown: unknown = 10; //* We can assign anything to unknown just like any
+
+let s1: string = vAny; // Any is assignable to anything
+let s2: string = vUnknown; // Invalid; we can't assign vUnknown to any other type (without an explicit assertion)
+
+vAny.method(); // Ok; anything goes with any
+vUnknown.method(); //! Not ok; we don't know anything about this variable
+//2 Void: Khi function không return gì cả
+function print(msg: string): void {
+  console.log(msg);
+}
+
+type TO = { id: number };
+let tao: TO extends { name: string } ? TO : never;

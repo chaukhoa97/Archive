@@ -5,7 +5,7 @@ let idArray: number[] = [1, 2, 3, 4, 5]; //! hoặc Array<number>
 //1 Type(alias): A name for any `Type`
 type StringOrNumber = string | number; // Đặt tên cho "string | number" type là "StringOrNumber"
 type User = { name: string; readonly age?: number }; //* readonly: không thể thay đổi giá trị của biến
-let user: User = { name: 'John', age: 25 }; //! user.age = 30 -> Error: Cannot assign to 'age' because it is a read-only property.
+let user: User = { name: "John", age: 25 }; //! user.age = 30 -> Error: Cannot assign to 'age' because it is a read-only property.
 
 //1 Interface: Another way to name an OBJECT type (chỉ dùng dc cho object)
 interface Person {
@@ -24,16 +24,29 @@ interface Person {
   type Userr = { id: number }; //! Error: type duplicate line 13
 }
 
-//1 Intersection(& || extends) Combine 2 interface Identity & Contact -> type Customer/interface Customer2 = { name, email, gender }
-{
-  interface Identity {
-    name: string;
-  }
-  interface Contact {
-    email: string;
-  }
-  type Customer = Identity & Contact & { gender: string }; //! type cũng có thể dc tạo từ 2 interface intersection
-  interface Customer2 extends Identity, Contact {
-    gender: string;
-  }
+//1 Intersection(& || extends) Combine types/interfaces lại với nhau
+interface Identity {
+  name: string;
 }
+interface Contact {
+  email: string;
+}
+type Customer = Identity & Contact & { gender: string }; //! type cũng có thể dc tạo từ 2 interface intersection
+interface Customer2 extends Identity, Contact {
+  gender: string;
+}
+
+//1 [Type-assign Table](https://www.typescriptlang.org/docs/handbook/type-compatibility.html#any-unknown-object-void-undefined-null-and-never-assignability)
+//* undefined ->(assign to) null = ✓
+const test1 = (x: null) => {};
+test1(undefined);
+
+//! object -> void = X
+const test2 = (x: void) => {};
+test2({ id: 1 });
+
+// Generic constraint extends empty array:
+const genericConstraint = <T extends {}>(arg: T) => {
+  console.log(arg);
+};
+genericConstraint("bro");

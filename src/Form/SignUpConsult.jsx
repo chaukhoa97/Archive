@@ -13,7 +13,7 @@ function SignUpForm() {
   const onSubmit = (data) => {
     axios
       .post(
-        'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCKu_tYKQAM4t0Aint-mdHTheBzrbsX4_8',
+        "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCKu_tYKQAM4t0Aint-mdHTheBzrbsX4_8",
         {
           email: data.email,
           password: data.password,
@@ -22,7 +22,7 @@ function SignUpForm() {
       )
       .then((res) => {
         axios
-          .post('users.json', {
+          .post("users.json", {
             localId: res.data.localId,
             email: res.data.email,
             isAdmin: false,
@@ -39,7 +39,7 @@ function SignUpForm() {
       })
       .catch((err) => {});
   };
-  if (selectedNationality !== 'Việt Nam') resetField('identity');
+  if (selectedNationality !== "Việt Nam") resetField("identity");
   return (
     //! Form main 2: `handleSubmit` sẽ validate your inputs before invoking `onSubmit` (line 12)
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -97,7 +97,7 @@ function SignUpForm() {
         rules={{
           required: true,
           //* watch('password') -> Value hiện tại của input có name là "password"
-          validate: (value) => value === watch('password'),
+          validate: (value) => value === watch("password"),
         }}
         render={({ field }) => (
           <Input
@@ -140,7 +140,7 @@ function SignUpForm() {
         render={({ field }) => (
           <InputNumber
             {...field}
-            style={{ width: '100%' }}
+            style={{ width: "100%" }}
             in={0}
             type="number"
             placeholder="Nhập giá"
@@ -154,7 +154,7 @@ function SignUpForm() {
           className="me-2"
           id="acceptTerms"
           //! Form main 3: Đăng ký input này với UNIQUE `name`(ở đây là 'acceptTerms') vào `useForm()` hook, với ~ validate từ https://react-hook-form.com/api/useform/register
-          {...register('acceptTerms', { required: true })}
+          {...register("acceptTerms", { required: true })}
         />
         <label htmlFor="acceptTerms">
           Bấm đăng ký đồng nghĩa với việc tôi đồng ý với các

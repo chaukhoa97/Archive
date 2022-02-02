@@ -372,6 +372,11 @@
 					"line": 24,
 					"column": 4,
 					"label": "interface vs type"
+				},
+				{
+					"line": 38,
+					"column": 0,
+					"label": "Type assign meaning"
 				}
 			]
 		},
