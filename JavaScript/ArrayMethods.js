@@ -68,6 +68,12 @@ var arr2 = [1, 2, [3, 4, [5, 6]]];
 arr2.flat(); // [1, 2, 3, 4, [5, 6]]
 arr2.flat(2); // [1, 2, 3, 4, 5, 6]
 
+//* Move item in array to last position
+// Already know the index of the item to move
+array.push(array.splice(index, 1)[0]);
+// If you don't have the index, and only the element
+array.push(array.splice(array.indexOf(element), 1)[0]);
+
 //1 Lodash
 var _ = require("lodash");
 

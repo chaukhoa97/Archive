@@ -12,7 +12,7 @@ console.log(target); // Object { a: 1, b: 4, c: 5 }
 console.log(source); // Object { b: 4, c: 5 };
 
 //1 Lodash
-var _ = require('lodash');
+var _ = require("lodash");
 
 //2 Shallow Copy vs Deep Copy:
 var obj = [{ a: 1 }, { b: 2 }]; // _isEqual -> true; == -> false
@@ -32,5 +32,5 @@ var users = {
 };
 _.findKey(users, (o) => o.age < 40); // => 'barney'
 _.findKey(users, { age: 1, active: true }); // => 'pebbles'
-_.findKey(users, ['active', false]); // => 'fred'
-_.findKey(users, 'active'); // => 'barney'
+_.findKey(users, ["active", false]); // => 'fred'
+_.findKey(users, "active"); // => 'barney'
