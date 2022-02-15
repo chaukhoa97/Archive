@@ -1,8 +1,10 @@
-import './ExpenseForm.css';
-import React, { useState, useRef } from 'react';
+import "./ExpenseForm.css";
+import React, { useState, useRef } from "react";
+import ReactDOM from "react-dom";
+
 const ExpenseForm = (props) => {
-  const [enteredTitle, setEnteredTitle] = useState(''); // event.target.value mặc định luôn luôn là string
-  const [enteredDate, setEnteredDate] = useState('');
+  const [enteredTitle, setEnteredTitle] = useState(""); // event.target.value mặc định luôn luôn là string
+  const [enteredDate, setEnteredDate] = useState("");
   //1 useRef(initValue): amountRef value sẽ dc preserve khi Component re-render (giống useState). Nhưng khi amountRef thay đổi, nó ko khiến Component bị re-render (khác useState)
   //! Vì vậy, value show ra trên UI thì dùng useState. Còn những thứ khác như form người dùng nhập vào thì dùng useRef sẽ đỡ bị re-render hơn. Những thứ constant thì xem xét dùng JS variable như bình thường
   const amountRef = useRef();
@@ -22,7 +24,7 @@ const ExpenseForm = (props) => {
   const submitHandler = (event) => {
     event.preventDefault(); //* Tránh reload lại trang
     console.log(amountRef.current); //! ref.current có thể là bất cứ thứ gì, kể cả một Node
-    console.log('amountRef.current.value: ' + amountRef.current.value); // Value mình nhập vào ở NewExpense
+    console.log("amountRef.current.value: " + amountRef.current.value); // Value mình nhập vào ở NewExpense
     const enteredAmount = amountRef.current.value;
     const expenseData = {
       title: enteredTitle,
@@ -35,8 +37,8 @@ const ExpenseForm = (props) => {
     props.onReceivingExpenseForm(expenseData);
 
     // Xóa input khi người dùng submit xong
-    setEnteredTitle('');
-    setEnteredDate('');
+    setEnteredTitle("");
+    setEnteredDate("");
   };
 
   return (
@@ -88,7 +90,7 @@ const ExpenseForm = (props) => {
           This h2 in ExpenseDate will be brought to the top of the file by
           ReactDOM.createPortal()
         </h2>,
-        document.querySelector('#portal')
+        document.querySelector("#portal")
       )}
     </Fragment>
   );
