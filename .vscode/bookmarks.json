@@ -4,94 +4,39 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 25,
-					"column": 2,
-					"label": ""
-				},
-				{
-					"line": 46,
-					"column": 2,
-					"label": ""
-				},
-				{
-					"line": 57,
-					"column": 2,
-					"label": ""
-				},
-				{
-					"line": 63,
+					"line": 21,
 					"column": 2,
 					"label": "Side effect/Async code with Redux 1: Code ở trong Component ( = useEffect )"
 				},
 				{
-					"line": 81,
+					"line": 39,
 					"column": 2,
 					"label": "Router SearchParams"
 				},
 				{
-					"line": 84,
-					"column": 4,
-					"label": "Dynamic object key"
-				},
-				{
-					"line": 92,
+					"line": 50,
 					"column": 2,
 					"label": "Router Location: { pathname:/products/2 , search: ?category=Clothes&sort=Asc }  }"
 				},
 				{
-					"line": 96,
+					"line": 54,
 					"column": 4,
 					"label": "React Context 2: Wrap = numberContext.Provider"
 				},
 				{
-					"line": 110,
+					"line": 68,
 					"column": 6,
 					"label": "Router Navigate: const navigate = useNavigate();"
 				},
 				{
-					"line": 122,
+					"line": 80,
 					"column": 0,
 					"label": "Router <Outlet>: Render element của <Route> con, giống props.children"
 				},
 				{
-					"line": 147,
-					"column": 0,
-					"label": "https://overreacted.io/before-you-memo/"
-				},
-				{
-					"line": 169,
+					"line": 90,
 					"column": 2,
 					"label": "Router <NavLink>"
-				}
-			]
-		},
-		{
-			"path": "src/Storage/ExpenseForm.jsx",
-			"bookmarks": [
-				{
-					"line": 7,
-					"column": 2,
-					"label": "useRef vs useState"
-				},
-				{
-					"line": 44,
-					"column": 8,
-					"label": "React Fragment"
-				},
-				{
-					"line": 59,
-					"column": 10,
-					"label": "Uncontrolled Component: useRef link tới DOM element vs Controlled component"
-				},
-				{
-					"line": 66,
-					"column": 14,
-					"label": "callbackRef: ref = {(input) => someRef = input.id}"
-				},
-				{
-					"line": 86,
-					"column": 7,
-					"label": "ReactDOM.createPortal"
 				}
 			]
 		},
@@ -102,21 +47,6 @@
 					"line": 2,
 					"column": 0,
 					"label": "reducer = (prevState, action-to-the-prevState) => newState"
-				},
-				{
-					"line": 51,
-					"column": 8,
-					"label": "Passing onClick function"
-				}
-			]
-		},
-		{
-			"path": "src/Storage/Custom Hook/Forward.jsx",
-			"bookmarks": [
-				{
-					"line": 3,
-					"column": 2,
-					"label": "custom Hook use"
 				}
 			]
 		},
@@ -124,29 +54,19 @@
 			"path": "src/index.js",
 			"bookmarks": [
 				{
-					"line": 10,
-					"column": 0,
-					"label": "FontAwesome Icon + Mapping Array to JSX"
-				},
-				{
-					"line": 23,
+					"line": 15,
 					"column": 41,
 					"label": ""
 				},
 				{
-					"line": 31,
+					"line": 23,
 					"column": 12,
 					"label": "Router Index: Chưa chọn sp -> Hiện trước một cái gì đó"
 				},
 				{
-					"line": 35,
+					"line": 27,
 					"column": 63,
 					"label": "Router Params 1:  path = \":id\""
-				},
-				{
-					"line": 63,
-					"column": 0,
-					"label": "Fix lỗi chuyển page ko đưa lên đầu trang"
 				}
 			]
 		},
@@ -211,7 +131,7 @@
 				{
 					"line": 15,
 					"column": 6,
-					"label": "See current state"
+					"label": "Redux: See current state"
 				}
 			]
 		},
@@ -232,11 +152,6 @@
 					"line": 2,
 					"column": 0,
 					"label": "useState vs props vs let/const"
-				},
-				{
-					"line": 6,
-					"column": 0,
-					"label": ""
 				}
 			]
 		},
@@ -321,16 +236,6 @@
 			]
 		},
 		{
-			"path": "JavaScript/ETC.js",
-			"bookmarks": [
-				{
-					"line": 11,
-					"column": 0,
-					"label": ""
-				}
-			]
-		},
-		{
 			"path": "src/Redux/store.js",
 			"bookmarks": [
 				{
@@ -361,7 +266,7 @@
 				{
 					"line": 8,
 					"column": 46,
-					"label": "Active menu item with Router"
+					"label": "Router: Active menu item"
 				}
 			]
 		},

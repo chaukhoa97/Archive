@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 //! Must start with "use"
-function useCounter(forward = true) {
+function useCounter(forward = true, prev = false) {
   const [num, setNum] = useState(0);
 
   useEffect(() => {

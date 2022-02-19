@@ -57,6 +57,21 @@ type AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`;
 type Lang = "en" | "ja" | "pt";
 type LocaleMessageIDs = `${Lang}_${AllLocaleIDs}`;
 
+//1 Utility Types:
+//2 Record:
+type anUnknownObj = Record<string, unknown>;
+interface CatInfo {
+  age: number;
+  breed: string;
+}
+type CatName = "miffy" | "boris" | "mordred";
+const cats: Record<CatName, CatInfo> = {
+  miffy: { age: 10, breed: "Persian" },
+  boris: { age: 5, breed: "Maine Coon" },
+  mordred: { age: 16, breed: "British Shorthair" },
+};
+cats.boris;
+
 //1 Other types
 //2 unknown: Similar to `any`, but safer because u can't do anything with it
 let vAny: any = 10;
