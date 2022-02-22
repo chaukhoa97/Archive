@@ -54,6 +54,11 @@
 			"path": "src/index.js",
 			"bookmarks": [
 				{
+					"line": 12,
+					"column": 0,
+					"label": ""
+				},
+				{
 					"line": 15,
 					"column": 41,
 					"label": ""
@@ -142,16 +147,6 @@
 					"line": 12,
 					"column": 2,
 					"label": "useEffect cleanup"
-				}
-			]
-		},
-		{
-			"path": "src/Storage/useState.jsx",
-			"bookmarks": [
-				{
-					"line": 2,
-					"column": 0,
-					"label": "useState vs props vs let/const"
 				}
 			]
 		},

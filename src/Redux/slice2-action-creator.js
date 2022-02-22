@@ -1,8 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 const champSlice = createSlice({
-  name: 'champ',
-  initialState: { name: 'Caitlyn', skin: 'bac cuc' },
+  name: "champ",
+  initialState: { name: "Caitlyn", skin: "bac cuc" },
   reducers: {
     changeName(state, action) {
       state.name = action.payload.name;
@@ -20,21 +20,16 @@ export const changeChamp = (champ) => {
     console.log(getState()); // {"name": "Caitlyn", "skin": "bac cuc"}
     dp(champActions.changeName({ name: champ.name }));
     console.log(getState()); // {"name": "Jhin", "skin": "bac cuc"}
-    const sendRequest = async () => {
-      try {
-        await fetch('https://react-http-6b4a6.firebaseio.com/cart.json');
-        dp(champActions.changeSkin(champ.skin)); // action ko bắt buộc phải là 1 obj
-        console.log(getState()); // {"name": "Jhin", "skin": "hac tinh"}
-      } catch (error) {}
-    };
-    sendRequest();
+    await fetch("https://react-http-6b4a6.firebaseio.com/cart.json");
+    dp(champActions.changeSkin(champ.skin)); // action ko bắt buộc phải là 1 obj
+    console.log(getState()); // {"name": "Jhin", "skin": "hac tinh"}
   };
 };
 
-export const champActions = champSlice.actions;
-export default champSlice.reducer;
-
 //* Example action creator that returns object:
 export function showNotification(text) {
-  return { type: 'SHOW_NOTIFICATION', text };
+  return { type: "SHOW_NOTIFICATION", text };
 }
+
+export const champActions = champSlice.actions;
+export default champSlice.reducer;

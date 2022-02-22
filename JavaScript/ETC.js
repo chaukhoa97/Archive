@@ -1,13 +1,11 @@
 //1 ... Spread Operator vs Rest Operator
-{
-  // The Spread Operator: Split up Array elements/Object Properties.
-  //! Deep copy topmost data, shallow copy nested data.
-  const newArray = [...firstArray, 10, ...secondArray];
-  const newObject = { ...oldObject, newProp: "New property value" };
+//2 The Spread Operator: Split up Array elements/Object Properties.
+//! Deep copy topmost data, shallow copy nested data.
+const newArray = [...firstArray, 10, ...secondArray];
+const newObject = { ...oldObject, newProp: "New property value" };
 
-  // The Rest Operator: Merge FUNCTION ARGUMENTS vào một array --> Có thể dùng các Array method lên các arguments đó
-  function showArgs(time, ...args) {} //* args = [...]
-}
+//2 The Rest Operator: Merge FUNCTION ARGUMENTS vào một array --> Có thể dùng các Array method lên các arguments đó
+function showArgs(time, ...args) {} //* args = [...]
 
 //1 Parameter(tham số) & Argument(đối số)
 function test(a) {
@@ -22,55 +20,6 @@ function createPerson(name) {
     age: 23,
   };
 }
-
-//1 Const property update
-{
-  //* OK
-  const obj = {};
-  obj.foo = "bar"; // {foo : 'bar'}
-  obj.foo = "bar2"; // {foo : 'bar2'}
-
-  const ar = [];
-  ar.push("foo"); // ['foo']
-  ar.pop(); // []
-
-  //! ERR
-  const text = "a";
-  text = "b"; // error - re-assigning
-  const text = "c"; // error - re-declaring
-
-  obj = { key1: "foo" }; // error - re-assigning
-  const obj = { key1: "foo" }; // error - re-declaring
-}
-
-//1 Optional Chaining
-{
-  const adventurer = {
-    name: "Alice",
-    cat: {
-      name: "Dinah",
-    },
-  };
-
-  //* Không có property -> dừng lại và trả về undefined
-  adventurer.dog?.age; // undefined
-  adventurer.someNonExistentMethod?.(); // undefined
-}
-
-//1 Date
-{
-  Date.now(); // Returns numbers. Faster than new Date().getTime()
-  const eventTime = new Date(); // Tue Nov 16 2021 23:37:35 GMT+0700 (Indochina Time)
-  eventTime.toLocaleString(); // 11/16/2021, 11:37:35 PM
-  eventTime.toLocaleDateString(); // 11/16/2021
-  eventTime.toLocaleTimeString(); // 11:37:35 PM
-}
-
-//1 Arrow Fn:
-const add = (num1, num2) => num1 + num2;
-const add2 = (num1, num2) => {
-  return num1 + num2;
-};
 
 //1 x++ và ++x
 let x = 10;

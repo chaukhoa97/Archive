@@ -44,9 +44,3 @@ test1(undefined);
 //! object -> void = X
 const test2 = (x: void) => {};
 test2({ id: 1 });
-
-// Generic constraint extends empty array:
-const genericConstraint = <T extends {}>(arg: T) => {
-  console.log(arg);
-};
-genericConstraint("bro");

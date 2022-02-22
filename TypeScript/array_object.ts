@@ -10,18 +10,18 @@ function visitForBirthday(home: Home) {
 function evict(home: Home) {
   // But we can't write to the 'resident' property itself on a 'Home'.
   home.resident = {
-    name: 'Victor the Evictor',
+    name: "Victor the Evictor",
     age: 42,
   };
 }
 
 //1 Tuple: Knows exactly how many elements it contains, and exactly which types it contains at specific positions.
-let tuple1: [string, number, number?] = ['John', 25]; // tuple1.length = 2 | 3
+let tuple1: [string, number, number?] = ["John", 25]; // tuple1.length = 2 | 3
 let tupleArray: [string, number][] = [
-  ['John', 25],
-  ['Uyen', 23],
+  ["John", 25],
+  ["Uyen", 23],
 ];
-var tuple2: [string, ...boolean[], number] = ['John', true, false, 1]; //* Rest elements must be array/tuple type
+var tuple2: [string, ...boolean[], number] = ["John", true, false, 1]; //* Rest elements must be array/tuple type
 
 //1 Index Signature:
 //! An index signature property type must be either ‘string’ or ‘number’
@@ -31,10 +31,10 @@ interface NumberOrStringDictionary {
   name: string;
   1: string;
 }
-let aa: NumberOrStringDictionary = { length: 8, name: 'bro', 1: 'one' }; // aa.length = 8; aa.name = 'bro'; aa[1] = 'one';
+let aa: NumberOrStringDictionary = { length: 8, name: "bro", 1: "one" }; // aa.length = 8; aa.name = 'bro'; aa[1] = 'one';
 
 //1 keyof
 type Point = { x: number; y: number };
 type P = keyof Point; // type P = 'x' | 'y'
 //2 If the type has a string or number `Index signature`, keyof will return those types instead:
-type N = keyof NumberOrStringDictionary; //* type N = string | number. Có `number` vì obj[0] và obj["0"] giống nhau
+type N = keyof NumberOrStringDictionary; //* type N = string | number vì obj[0] và obj["0"] giống nhau

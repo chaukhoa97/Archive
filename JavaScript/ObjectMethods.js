@@ -11,6 +11,15 @@ console.log(returnedTarget); // Object { a: 1, b: 4, c: 5 }
 console.log(target); // Object { a: 1, b: 4, c: 5 }
 console.log(source); // Object { b: 4, c: 5 };
 
+//1 Deleting Reference value
+let arr1 = [1, 2];
+const arr2 = arr1;
+//! Xóa arr1 dính luôn arr2
+arr1.length = 0; // arr2 = []
+arr1.splice(0, arr1.length); // arr2 = []
+//* Xóa arr1 ko ảnh hưởng đến arr2
+arr1 = []; // arr2 = [1, 2];
+
 //1 Lodash
 var _ = require("lodash");
 
