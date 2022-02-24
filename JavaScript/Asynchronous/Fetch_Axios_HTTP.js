@@ -6,9 +6,9 @@ import axios from "axios";
 const alo = async function () {
   const response1 = await fetch("https://jsonplaceholder.typicode.com/posts/1"); // Returns a Response obj
   const response2 = await fetch("https://jsonplaceholder.typicode.com/posts/2");
-  const responses = await Promise.all([response1, response2]); // [Response obj, Response obj]
-  responses.forEach((res) => console.log(res.ok, res.status)); // true/false; 2xx/4xx
-  responses.forEach(async (res) => {
+  const allResponses = await Promise.all([response1, response2]); // [Response obj, Response obj]
+  allResponses.forEach((res) => console.log(res.ok, res.status)); // true/false; 2xx/4xx
+  allResponses.forEach(async (res) => {
     const a = await res.json(); //! Hàm `json()` return về data, lý do là response1 & response2 chỉ mới là header, phải fetch thêm phần body -> phải có await
     console.log(a);
   });
@@ -18,7 +18,7 @@ alo();
 Promise.all([
   axios.get("https://jsonplaceholder.typicode.com/posts/1"),
   axios.get("https://jsonplaceholder.typicode.com/posts/2"),
-]).then((res) => res.forEach((i) => console.log(i.data)));
+]).then((responses) => responses.forEach((res) => console.log(res.data)));
 
 //1 GET
 fetch("https://jsonplaceholder.typicode.com/todos/1")
@@ -27,7 +27,8 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
 
 axios
   .get("https://jsonplaceholder.typicode.com/todos/1")
-  .then((response) => console.log("response", response.data));
+  .then((response) => console.log("response", response.data))
+  .catch((err) => console.log(err));
 
 //1 POST - Creating a Resource
 fetch("https://jsonplaceholder.typicode.com/posts", {
@@ -38,11 +39,11 @@ fetch("https://jsonplaceholder.typicode.com/posts", {
   }),
 })
   .then((response) => {
-    if (!response.ok) throw Error(response.statusText);
+    if (!response.ok) throw Error(response.status);
     return response.json();
   })
   .then((data) => console.log(data))
-  .catch((error) => console.log(error));
+  .catch((err) => console.log(err));
 
 axios
   .post("https://jsonplaceholder.typicode.com/posts", {
