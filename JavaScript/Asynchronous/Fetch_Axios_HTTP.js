@@ -38,9 +38,9 @@ fetch("https://jsonplaceholder.typicode.com/posts", {
     password: "yolo",
   }),
 })
-  .then((response) => {
-    if (!response.ok) throw Error(response.status);
-    return response.json();
+  .then((res) => {
+    if (!res.ok) throw Error(res.status); // throw -> thoát luôn ra khỏi hàm, ko return
+    return res.json();
   })
   .then((data) => console.log(data))
   .catch((err) => console.log(err));
