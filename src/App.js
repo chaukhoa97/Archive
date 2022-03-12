@@ -37,7 +37,7 @@ function App() {
   const navigate = useNavigate(); // <button> line 102
 
   // Hoạt động tương tự useState nhưng ko log searchParams dc, đọc các method của searchParams ở https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
-  const [searchParams, setSearchParams] = useSearchParams(); // input line 100
+  const [searchParams, setSearchParams] = useSearchParams(); // input line 58
   const handleChange = (event) => {
     const { name, id } = event.target;
     setSearchParams({ [name]: id }); // { 'sort': 'asc' }

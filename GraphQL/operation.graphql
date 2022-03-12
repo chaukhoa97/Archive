@@ -1,18 +1,20 @@
-#* query, mutation, subscription là các `operation type`
-mutation createReview($ep: Episode!, $review: ReviewInput!) {
-  createReview(episode: $ep, review: $review) {
-    stars
-    commentary
-  }
-}
-
-# $variableName(episode): Type(Episode) = defaultValue(2)
-query HeroNameAndFriends($episode: Episode = 2) {
-  #* HeroNameAndFriends là `operation name`
+#1 query, mutation, subscription là các `operation type` (MUST-HAVE)
+#2 HnF là `operation name` (OPTIONAL)
+query HnF($episode: Episode = 2) {
+  #! operation có `hero` ở trong `query` (line 6) -> ở schema cũng phải có `hero` trong `type Query` (line 25)
+  #* $variableName: Type = defaultValue ($episode: Episode = 2)
   hero(episode: $episode) {
     name
     friends {
       name
     }
+  }
+}
+
+mutation createReviewForEpisode($ep: Episode!, $rv: ReviewInput!) {
+  #! Check line 21 schema
+  createReview(episode: $ep, review: $rv) {
+    stars
+    commentary
   }
 }
