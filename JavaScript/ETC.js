@@ -3,7 +3,6 @@
 //! Deep copy topmost data, shallow copy nested data.
 const newArray = [...firstArray, 10, ...secondArray];
 const newObject = { ...oldObject, newProp: "New property value" };
-
 //2 The Rest Operator: Merge FUNCTION ARGUMENTS vào một array --> Có thể dùng các Array method lên các arguments đó
 function showArgs(time, ...args) {} //* args = [...]
 

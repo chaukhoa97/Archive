@@ -1,8 +1,8 @@
 #1 query, mutation, subscription là các `operation type` (MUST-HAVE)
 #2 HnF là `operation name` (OPTIONAL)
+#! operation có `hero` (line 6) ở trong một operation `query` (line 3) -> ở schema cũng phải có `hero` trong `type Query` (line 23)
 query HnF($episode: Episode = 2) {
-  #! operation có `hero` ở trong `query` (line 6) -> ở schema cũng phải có `hero` trong `type Query` (line 25)
-  #* $variableName: Type = defaultValue ($episode: Episode = 2)
+  #* $episode: Episode = 2 ($variableName: Type = defaultValue)
   hero(episode: $episode) {
     name
     friends {
@@ -12,7 +12,7 @@ query HnF($episode: Episode = 2) {
 }
 
 mutation createReviewForEpisode($ep: Episode!, $rv: ReviewInput!) {
-  #! Check line 21 schema
+  #! Tương tự như trên - Check line 21 schema
   createReview(episode: $ep, review: $rv) {
     stars
     commentary

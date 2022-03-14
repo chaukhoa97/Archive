@@ -1,28 +1,27 @@
-#1 Scalar Type: String, Int, Float, Boolean, ID -> can't have sub-fields like Array or Object.
+#1 GraphQL Type
+#2 "Scalar Type": String, Int, Float, Boolean, ID -> can't have sub-fields like Array or Object.
 # Chúng ta có thể tự khai báo Scalar Type ví dụ ntn:
 scalar Episode
 
-#1 Hero là 1 `GraphQL Object Type` - PascalCase; còn name, missions là các `field` của nó.
+#2 Hero là 1 `Object Type` - PascalCase; còn name, missions là các `field` của nó.
 type Hero {
   name: String!
   "Non-null list of non-null Mission"
   missions: [Mission!]!
-  #* "episode" là 1 arg của `hero`, với `type` là "Episode" và có "1" là `default value`
+  #* "episode" là 1 arg của `hero`, có `type` là "Episode"; "1" là `default value`
   hero(episode: Episode = 1): Float
 }
 
-#1 input: Giống với object bình thường, chỉ khác là dc dùng trong các operation, như `mutation` chẳng hạn:
+#2 input: Giống với object bình thường, chỉ khác là dc dùng trong các operation, như `mutation` chẳng hạn:
 input ReviewInput {
   stars: Int!
   commentary: String
 }
-
 type Mutation {
   createReview(episode: Episode!, review: ReviewInput!): String
 }
-
 type Query {
-  #! Trong `type Query` có hero -> có thể dùng dc trong các operation, ví dụ như ở line 6 operation
+  #! Trong `type Query` có hero -> có thể dùng dc trong các operation, ví dụ như ở line 6 trong operation.graphql
   hero(episode: Episode): Hero
 }
 
