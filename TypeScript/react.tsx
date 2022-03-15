@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 //1 Hooks
 const [user, setUser] = useState<User | null>(null);
-//2 useEffect: not to return anything other than a function or undefined
+//2 useEffect: not return anything other than a function or undefined
 function DelayedEffect(props: { timerMs: number }) {
   const { timerMs } = props;
   useEffect(() => {
@@ -33,10 +33,11 @@ function Bar() {
   const intervalRef = useRef<number | null>(null); // returns MutableRefObject<number | null>
   intervalRef.current = 100; // You manage the ref yourself (that's why it's called MutableRefObject!)
 }
+
 //2 Custom Hook
-const readonlyArrayReturn = () => {
-  return [1, "a"] as const; //* return type is ` readonly [1, 'a'] `
-};
 const unionArrayReturn = () => {
   return [1, "a"]; //* return type is ` (string | number)[] `,due to TS infer
+};
+const readonlyArrayReturn = () => {
+  return [1, "a"] as const; //* return type is ` readonly [1, 'a'] `
 };

@@ -1,11 +1,6 @@
-//1 Basics
-let a: number = 1; // infer: let a = 1
-let idArray: number[] = [1, 2, 3, 4, 5]; //! hoặc Array<number>
-
 //1 Type(alias): A name for any `Type`
 type StringOrNumber = string | number; // Đặt tên cho "string | number" type là "StringOrNumber"
-type User = { name: string; readonly age?: number }; //* readonly: không thể thay đổi giá trị của biến
-let user: User = { name: "John", age: 25 }; //! user.age = 30 -> Error: Cannot assign to 'age' because it is a read-only property.
+type User = { name: string; readonly age?: number };
 
 //1 Interface: Another way to name an OBJECT type (chỉ dùng dc cho object)
 interface Person {

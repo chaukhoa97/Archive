@@ -269,12 +269,12 @@
 			"path": "TypeScript/basic.ts",
 			"bookmarks": [
 				{
-					"line": 24,
+					"line": 19,
 					"column": 4,
 					"label": "interface vs type"
 				},
 				{
-					"line": 38,
+					"line": 33,
 					"column": 0,
 					"label": "Type assign meaning"
 				}

@@ -1,11 +1,20 @@
+let idArray: number[] = [1, 2, 3, 4, 5]; //! hoặc Array<number>
+//1 Tuple: Superset of Array - Knows exactly how many elements it contains, and exactly which types it contains at specific positions.
+let tuple1: [string, number, number?] = ["John", 25]; // tuple1.length = 2 | 3
+let tupleArray: [string, number][] = [
+  ["John", 25],
+  ["Uyen", 23],
+];
+var tuple2: [string, ...boolean[], number] = ["John", true, false, 1]; //* Rest elements must be array type
+
 //1 readonly
 interface Home {
   readonly resident: { name: string; age: number };
 }
 function visitForBirthday(home: Home) {
-  // We can read and update properties from 'home.resident'.
-  console.log(`Happy birthday ${home.resident.name}!`);
+  // We can update properties of `home.resident`
   home.resident.age++;
+  home.resident.name = "Bro";
 }
 function evict(home: Home) {
   // But we can't write to the 'resident' property itself on a 'Home'.
@@ -14,14 +23,6 @@ function evict(home: Home) {
     age: 42,
   };
 }
-
-//1 Tuple: Knows exactly how many elements it contains, and exactly which types it contains at specific positions.
-let tuple1: [string, number, number?] = ["John", 25]; // tuple1.length = 2 | 3
-let tupleArray: [string, number][] = [
-  ["John", 25],
-  ["Uyen", 23],
-];
-var tuple2: [string, ...boolean[], number] = ["John", true, false, 1]; //* Rest elements must be array/tuple type
 
 //1 Index Signature:
 //! An index signature property type must be either ‘string’ or ‘number’
