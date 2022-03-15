@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function EventTarget(props) {
-  const [user, setUser] = useState({ id: '', phone: '' });
+  const [user, setUser] = useState({ id: "", phone: "" });
   const userHandler = (e) => {
     console.log(e);
-    const { name, value } = e.target; //* { name: ['id' / 'phone'] ; value: <what we type in> }
+    const { name, value } = e.target; //* name = ['id' / 'phone']; value = <what we type in>
     setUser({ ...user, [name]: value });
   };
 
@@ -28,11 +28,7 @@ function EventTarget(props) {
         value={user.phone}
         placeholder="phone: Được cập nhật"
       />
-      <input
-        type="button"
-        value="setUser({ id: 100, phone: 100 })"
-        onClick={handleValueChange}
-      />
+      <button onClick={handleValueChange}>Line 11</button>
     </form>
   );
 }

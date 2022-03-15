@@ -54,11 +54,6 @@
 			"path": "src/index.js",
 			"bookmarks": [
 				{
-					"line": 12,
-					"column": 0,
-					"label": ""
-				},
-				{
 					"line": 15,
 					"column": 41,
 					"label": ""
@@ -97,16 +92,6 @@
 					"line": 7,
 					"column": 2,
 					"label": "React Context 3: const ctx = useContext"
-				}
-			]
-		},
-		{
-			"path": "src/Storage/Context/number-context.js",
-			"bookmarks": [
-				{
-					"line": 3,
-					"column": 0,
-					"label": "React Context 1: React.createContext(modelState) "
 				}
 			]
 		},
@@ -287,6 +272,16 @@
 					"line": 6,
 					"column": 4,
 					"label": ""
+				}
+			]
+		},
+		{
+			"path": "src/Storage/number-context.js",
+			"bookmarks": [
+				{
+					"line": 3,
+					"column": 0,
+					"label": "React Context 1: React.createContext(modelState)"
 				}
 			]
 		}

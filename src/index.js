@@ -1,18 +1,18 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
 //1 Ở Parent: Declare to use icon
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
-import { faStar, faUser, faTrash } from "@fortawesome/free-solid-svg-icons";
-library.add(far, faStar, faUser, faTrash);
+import { faStar, faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
 //* Ở component dùng tới icon:
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+//1 Redux 3: Tất cả ~ component của App sẽ dc truy cập vào store
+import store from "./Redux/store";
+
+library.add(far, faStar, faUser, faTrash);
 const n = 4;
 const arr = [...Array(n).keys()]; // [0, 1, 2, 3, 4]
 
-//1 Redux 3: Tất cả ~ component của App sẽ dc truy cập vào store
-import store from "./Redux/store";
-import { Provider } from "react-redux";
 //1 Router 1: <Routes> cha chỉ render THE MOST SPECIFIC MATCH <Route>
 ReactDOM.render(
   <React.StrictMode>
