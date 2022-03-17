@@ -23,10 +23,10 @@ function App() {
   //* Redux store thay đổi -> App do có useSelector() sẽ dc re-render -> UI sẽ luôn dc update tương ứng với state
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(champActions.changeName({ name: "Vayne" }));
     const sendRequest = async () => {
       try {
         await fetch("https://react-http-6b4a6.firebaseio.com/cart.json");
+        dispatch(champActions.changeName({ name: "Vayne" }));
         dispatch(champActions.changeSkin("Sieu pham"));
       } catch (error) {}
     };

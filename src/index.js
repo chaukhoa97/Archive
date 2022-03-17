@@ -4,9 +4,9 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { faStar, faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
 //* Ở component dùng tới icon:
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//1 Redux 3: Tất cả ~ component của App sẽ dc truy cập vào store
+//1 Redux 3: Tất cả ~ component của App sẽ dc truy cập vào store - line 19
+import { Provider } from "react-redux";
 import store from "./Redux/store";
 
 library.add(far, faStar, faUser, faTrash);

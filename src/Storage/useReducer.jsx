@@ -1,14 +1,14 @@
-import { useReducer } from 'react';
+import { useReducer } from "react";
 
-//* const reducer = (prevState, action-to-the-prevState) => newState
+//* Reducer - Function that is used to update store: `const reducer = (prevState, action-to-the-prevState) => newState`
 //* Định nghĩa general "reducer" trong progamming: Nhận vào input, transform --> output
 const reducer = (state, action) => {
   switch (action) {
-    case '+':
+    case "+":
       return state + 1;
-    case '-':
+    case "-":
       return state - 1;
-    case 'reset':
+    case "reset":
       return 0;
     default:
       return state;
@@ -16,12 +16,12 @@ const reducer = (state, action) => {
 };
 
 //1 object Reducer
-const initialState = { loading: false, data: [], type: 'success' };
+const initialState = { loading: false, data: [], type: "success" };
 const reducer2 = (state, action) => {
   switch (action.type) {
-    case 'loading':
+    case "loading":
       return { ...initialState, loading: true };
-    case 'success':
+    case "success":
       console.log(action);
       return action;
     default:
@@ -35,9 +35,9 @@ function ReducerExample() {
   const [state, dispatch] = useReducer(reducer, 0); // reducer Là fn ở line 3
   const [state2, dispatch2] = useReducer(reducer2, initialState);
   const getUsers = () => {
-    dispatch2({ ...initialState, type: 'loading' });
+    dispatch2({ ...initialState, type: "loading" });
     setTimeout(() => {
-      fetch('https://jsonplaceholder.typicode.com/todos/1')
+      fetch("https://jsonplaceholder.typicode.com/todos/1")
         .then((response) => response.json())
         .then((json) => dispatch2({ ...initialState, data: json }));
     }, 1000);
@@ -50,9 +50,9 @@ function ReducerExample() {
         <h4>With variable</h4>
         <h5>{state}</h5>
         {/* PHẢI PASS callback vào onClick với dispatch nói riêng hay React nói chung */}
-        <button onClick={() => dispatch('+')}>+</button>
-        <button onClick={() => dispatch('-')}>-</button>
-        <button onClick={() => dispatch('reset')}>RESET</button>
+        <button onClick={() => dispatch("+")}>+</button>
+        <button onClick={() => dispatch("-")}>-</button>
+        <button onClick={() => dispatch("reset")}>RESET</button>
       </div>
 
       <div className="useReducer-with-object">

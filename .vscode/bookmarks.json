@@ -6,7 +6,7 @@
 				{
 					"line": 21,
 					"column": 2,
-					"label": "Side effect/Async code with Redux 1: Code ở trong Component ( = useEffect )"
+					"label": "Side effect/Async code with Redux 1: Bỏ phần async ở trong `useEffect` (trong Component)"
 				},
 				{
 					"line": 39,
@@ -67,6 +67,11 @@
 					"line": 27,
 					"column": 63,
 					"label": "Router Params 1:  path = \":id\""
+				},
+				{
+					"line": 7,
+					"column": 1,
+					"label": ""
 				}
 			]
 		},
@@ -76,12 +81,17 @@
 				{
 					"line": 6,
 					"column": 56,
-					"label": "Redux 4: useSelector((store) => store.stateObjectProperty)"
+					"label": "Redux 4: `useSelector` để lấy value từ store state"
 				},
 				{
 					"line": 11,
 					"column": 1,
-					"label": "Redux 5: dispatch(actions.reducerName( {action.payload} )"
+					"label": "Redux 5: `const dispatch = useDIspatch()`"
+				},
+				{
+					"line": 14,
+					"column": 4,
+					"label": ""
 				}
 			]
 		},
@@ -111,7 +121,7 @@
 				{
 					"line": 3,
 					"column": 0,
-					"label": "Redux 1: createSlice -> export actions & reducer"
+					"label": "Redux 1: `createSlice` -> export actions & reducer"
 				},
 				{
 					"line": 8,
@@ -221,7 +231,7 @@
 				{
 					"line": 5,
 					"column": 0,
-					"label": ""
+					"label": "Redux 2: `configureStore` with multi slices, by Redux Toolkit"
 				},
 				{
 					"line": 16,
