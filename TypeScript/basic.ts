@@ -20,9 +20,9 @@ interface Person {
 }
 
 //1 Intersection(& || extends) Combine types/interfaces lại với nhau
-interface Identity {
+type Identity = {
   name: string;
-}
+};
 interface Contact {
   email: string;
 }

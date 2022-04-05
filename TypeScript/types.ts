@@ -32,8 +32,7 @@ let foo: unknown = 10;
 const upperCase = (x: string) => console.log(x.toUpperCase());
 upperCase(foo as string); //* Assert là string nên type-system ko báo lỗi, lúc run mới ra lỗi TypeError: number ko có method toUpperCase
 
-//2 Non-null assertion Operator
-//! Only use ! when you know that the value can’t be null or undefined.
+//2 Non-null assertion Operator - Only use it when you know that the value can’t be null or undefined.
 function liveDangerously(x?: number | null) {
   console.log(x!.toFixed()); // No error
 }

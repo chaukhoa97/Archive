@@ -9,7 +9,7 @@ var tuple2: [string, ...boolean[], number] = ["John", true, false, 1]; //* Rest 
 
 //1 readonly
 interface Home {
-  readonly resident: { name: string; age: number };
+  readonly resident: { name: string; age?: number };
 }
 function visitForBirthday(home: Home) {
   // We can update properties of `home.resident`

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 //1 Hooks
-const [user, setUser] = useState<User | null>(null);
-//2 useEffect: not return anything other than a function or undefined
+const [user, setUser] = useState<number[]>([1, 2, 3]);
+//2 useEffect: Effect callback type - `type EffectCallback = () => (void | Destructor)`
 function DelayedEffect(props: { timerMs: number }) {
   const { timerMs } = props;
   useEffect(() => {

@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 let myTimer;
 
-const MyComponent = (props) => {
-  const [timerIsActive, setTimerIsActive] = useState(false);
-  const timerDuration = props.timerDuration;
+const MyComponent = (timerDuration) => {
   //1 Execute the callback after [dependencies] changes
   //*   MOUNTING: render(JSX) -> `useEffectFunction`
   //*   UPDATING: render(JSX) -> `cleanUp` -> `useEffectFunction`
@@ -19,18 +17,14 @@ const MyComponent = (props) => {
   // 3. Các hàm hay biến defined bên ngoài components - myTimer, vì thay đổi mấy cái này klq tới component
   useEffect(() => {
     const timerEffect = () => {
-      if (!timerIsActive) {
-        setTimerIsActive(true);
-        myTimer = setTimeout(() => {
-          setTimerIsActive(false);
-        }, timerDuration);
-      }
-      console.log(myTimer);
+      myTimer = setTimeout(() => {
+        console.log("bro");
+      }, timerDuration);
     };
     return () => {
       clearTimeout(timerEffect);
     };
-  }, [timerIsActive, timerDuration]);
+  }, [timerDuration]);
 };
 
 export default MyComponent;
