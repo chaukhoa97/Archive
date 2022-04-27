@@ -11,5 +11,3 @@ const MyComponent = ({ children }: Props) => {
 };
 
 export default MyComponent;
-
-<MyComponent />;
