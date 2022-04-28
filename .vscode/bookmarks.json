@@ -34,7 +34,7 @@
 					"label": "Router <Outlet>: Render element của <Route> con, giống props.children"
 				},
 				{
-					"line": 90,
+					"line": 94,
 					"column": 2,
 					"label": "Router <NavLink>"
 				}

@@ -88,28 +88,26 @@ function App() {
 export default App;
 
 const Links = () => {
-  //! isActive dc cho sẵn
   return (
-    <>
-      <nav>
-        <NavLink
-          to="/products"
-          className={({ isActive }) => isActive && "active-nav"}
-        >
-          Products
-        </NavLink>
-        <NavLink
-          to="/admin"
-          style={({ isActive }) => {
-            return {
-              marginLeft: "10px",
-              color: isActive ? "turquoise" : "",
-            };
-          }}
-        >
-          Admin
-        </NavLink>
-      </nav>
-    </>
+    <nav>
+      <NavLink
+        to="/products"
+        //! isActive dc cho sẵn
+        className={({ isActive }) => isActive && "active-nav"}
+      >
+        Products
+      </NavLink>
+      <NavLink
+        to="/admin"
+        style={({ isActive }) => {
+          return {
+            marginLeft: "10px",
+            color: isActive ? "turquoise" : "",
+          };
+        }}
+      >
+        Admin
+      </NavLink>
+    </nav>
   );
 };
