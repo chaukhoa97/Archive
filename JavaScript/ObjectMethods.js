@@ -1,7 +1,11 @@
 var obj = { a: 1, b: 2, c: 3 };
-Object.keys(obj); // => ['a', 'b', 'c']
-Object.values(obj); // => [1, 2, 3]
-Object.entries(obj); // => [['a', 1], ['b', 2], ['c', 3]]
+
+//1 Đều trả về array
+Object.keys(obj); // => Array ['a', 'b', 'c']
+Object.values(obj); // => Array [1, 2, 3]
+for (const [key, value] of Object.entries(obj)) {
+  console.log(`${key}: ${value}`);
+} // => 'a: 1', 'b: 2', 'c: 3'
 
 //1 Object.assign
 const source = { b: 4, c: 5 };
