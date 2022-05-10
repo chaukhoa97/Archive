@@ -1,5 +1,5 @@
 export default function App() {
-  // When the color changes, <ExpensiveTree /> will be re-rendered
+  //* When the color changes, <ExpensiveTree /> will be re-rendered
   let [color, setColor] = useState("red");
   return (
     <div style={{ color }}>
@@ -10,9 +10,29 @@ export default function App() {
   );
 }
 
-
-// Cách 1: Vì <ExpensiveTree /> ko quan tâm đến `color` nên tách phần quan tâm đến `color` ra riêng 1 component - ở đây là <Form />
+//1 Cách 1: Lifting <ExpensiveTree /> lên rồi truyền vào <ColorPicker /> bằng {children}
 export default function App2() {
+  return (
+    <ColorPicker>
+      <p>Hello, world!</p>
+      <ExpensiveTree />
+    </ColorPicker>
+  );
+}
+function ColorPicker({ children }) {
+  let [color, setColor] = useState("red");
+  return (
+    <div style={{ color }}>
+      <input value={color} onChange={(e) => setColor(e.target.value)} />
+      {children}
+    </div>
+  );
+}
+
+
+//1 Cách 2: Nếu <ExpensiveTree /> ko quan tâm đến `color` thì ta có thể tách ~ phần quan tâm đến `color` ra riêng 1 component - ở đây là <Form />
+//! Ko dùng dc khi state phải dc viết ở component cha (eg. <App /> ở trên dùng `style` cho container div)
+export default function App3() {
   return (
     <>
       <Form />
@@ -30,21 +50,3 @@ function Form() {
   );
 }
 
-// Cách 2: Cách 1 ko dùng dc khi state phải dc viết ở component cha.
-export default function App3() {
-  return (
-    <ColorPicker>
-      <p>Hello, world!</p>
-      <ExpensiveTree />
-    </ColorPicker>
-  );
-}
-function ColorPicker({ children }) {
-  let [color, setColor] = useState("red");
-  return (
-    <div style={{ color }}>
-      <input value={color} onChange={(e) => setColor(e.target.value)} />
-      {children}
-    </div>
-  );
-}
