@@ -25,9 +25,9 @@ function evict(home: Home) {
 }
 
 //1 Index Signature:
-//! An index signature property type must be either ‘string’ or ‘number’
 interface NumberOrStringDictionary {
-  [index: string]: number | string; //* NumberOrStringDictionary can have any number of properties, chỉ biết value trả về là `number | string`
+  //! An index signature property type must be either ‘string’ or ‘number’
+  [index: string | number]: any; //* NumberOrStringDictionary can have any number of properties, với value là `any`
   length: number;
   name: string;
   1: string;
