@@ -6,9 +6,8 @@ function f() {
 const [fE, , tE = 5] = f(); // fE = 1; tE = 5
 
 //1 Object
-const { a, b = "default b" } = { a: 3, c: 5, d: 6 }; //! Nếu không có const, JS sẽ hiểu vế trái là 1 block chứ k phải 1 object literal.
-console.log(a, b); // 3, 'default b'
-const { a, ...rest } = { a: 1, b: 2, c: 3, d: 4 }; // rest = { b: 2, c: 3, d: 4 };
+const { a: vip, b = "default b" } = { a: 3, c: 5, d: 6 }; //1 vip = 3; b = 'default b'
+const { c, ...rest } = { a: 1, b: 2, c: 3, d: 4 }; // rest = { d: 4 };
 
 //1 Nested Destructuring
 const {
