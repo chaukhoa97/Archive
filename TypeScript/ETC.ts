@@ -7,9 +7,9 @@
     Rejected, // 2
   }
   enum Status1 {
-    Pending = 1, // 1
-    Approved, // 2
-    Rejected = 10, // 10
+    Pending = 1,
+    Approved, // Tự động = 2
+    Rejected = 10,
   }
   const s1: Status0 = Status0.Approved;
   const sAny: Status1 = 1000;
@@ -18,11 +18,12 @@
 }
 //2 String enum: KHÔNG REVERSE MAPPING như Number enum dc
 {
-  enum ResponseTypes {
-    Success = 'SUCCESS',
-    Error = 'ERROR',
+  enum Responses {
+    Success = "SUCCESS",
+    Error = "ERROR",
   }
-  const ss: ResponseTypes.Success = ResponseTypes.Success; // 'SUCCESS'
+  const ss = Responses.Success; // 'SUCCESS'
+  type ResponseType = keyof typeof Responses; // 'SUCCESS' | 'ERROR'
 }
 
 //1 Narrowing
@@ -31,7 +32,7 @@ type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 type Human = { swim?: () => void; fly?: () => void };
 function move(animal: Fish | Bird | Human) {
-  if ('swim' in animal) {
+  if ("swim" in animal) {
     animal.swim;
   } else {
     animal;
@@ -43,7 +44,7 @@ type Optional<T> = {
   [K in keyof T]?: T[K];
 };
 const person4: Optional<Person> = {
-  name: 'Tobias', //* No need to specify age anymore, since age's type is now mapped from 'number' to 'number?', and therefore becomes optional
+  name: "Tobias", //* No need to specify age anymore, since age's type is now mapped from 'number' to 'number?', and therefore becomes optional
 };
 
 //2 instanceof
