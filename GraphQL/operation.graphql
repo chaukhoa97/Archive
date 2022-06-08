@@ -1,20 +1,43 @@
-#1 query, mutation, subscription là các `operation type` (MUST-HAVE)
-#2 HnF là `operation name` (OPTIONAL)
-#! operation có `hero` (line 6) ở trong một operation `query` (line 3) -> ở schema cũng phải có `hero` trong `type Query` (line 23)
-query HnF($episode: Episode = 2) {
-  #* $episode: Episode = 2 ($variableName: Type = defaultValue)
-  hero(episode: $episode) {
-    name
-    friends {
-      name
-    }
-  }
-}
-
+#1 query, mutation, subscription là các `operation type`, tiếp theo là `operation name` (OPTIONAL) "createReviewForEpisode"
 mutation createReviewForEpisode($ep: Episode!, $rv: ReviewInput!) {
-  #! Tương tự như trên - Check line 21 schema
+  #! operation có `createReview` trong một `mutation` -> ở schema cũng phải có `createReview` trong `type Mutation`
   createReview(episode: $ep, review: $rv) {
     stars
     commentary
+  }
+}
+
+#1. Fragment & Aliases
+query HeroComparison($first: Int = 3) {
+  empireHero: hero(episode: EMPIRE) {
+    ...comparisonFields
+  }
+  jediHero: hero(episode: JEDI) {
+    ...comparisonFields
+  }
+}
+
+#2 Các field ở trong fragment `comparisonFields` phải có trong type Character (line 42)
+fragment comparisonFields on Character {
+  name
+  gender
+}
+
+#1 Inline fragment: Dùng khi field trả về là `interface` hoặc `union`
+query getProductsFromCollection($categoryId: ID!, $first: Int = 250) {
+  #* 1. query `node` có arg là `id`, khi ta truyền vào có thể là bất kỳ id nào (productId, collectionId, ...)
+  node(id: $categoryId) {
+    #* 2. query `node` trả về `Node` nên chắc chắn sẽ có id...
+    id
+    #* 3. ... và vì `Product` và `Colllection` đều implement từ `Node` -> Dùng `inline fragment` để trả về thêm các field khác nhau tuỳ trường hợp (Product thì trả về `title`, còn Collection thì trả về `products`).
+    #* 4. Lý do là vì ở Collection ko có field `title` nên ko thể lấy dc, tương tự như Product ko có field `products`
+    ... on Product {
+      title
+    }
+    ... on Collection {
+      products(first: $first) {
+        title
+      }
+    }
   }
 }
