@@ -1,6 +1,6 @@
 import { gql, useQuery, useMutation } from "@apollo/client";
 
-const GET_DOG_PHOTO = gql`
+const getDogPhotoQuery = gql`
   query Dog($breed: String!) {
     dog(breed: $breed) {
       id
@@ -10,7 +10,7 @@ const GET_DOG_PHOTO = gql`
 `;
 
 function DogPhoto({ breed }) {
-  const { loading, error, data, refetch } = useQuery(GET_DOG_PHOTO, {
+  const { loading, error, data, refetch } = useQuery(getDogPhotoQuery, {
     variables: { breed },
   });
 
@@ -21,7 +21,7 @@ function DogPhoto({ breed }) {
       <button
         onClick={() =>
           refetch({
-            breed: "dalmatian", // Always refetches a dalmatian instead of the passed in breed
+            breed: "dalmatian", // Always refetches the query with `dalmatian` instead of `breed` param
           })
         }
       >

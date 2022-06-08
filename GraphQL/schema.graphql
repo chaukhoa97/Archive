@@ -15,7 +15,20 @@ type Product implements Node {
 type Collection implements Node {
   id: ID!
   #* "first" là 1 arg của `products`, có `type` là "Product"; "3" là `default value`
-  products(first: Int = 3): [Product]
+  products(first: Int! = 3): [Product]
+}
+
+#1 GraphQL Types
+#2 "Scalar Type": String, Int, Float, Boolean, ID -> can't have sub-fields like Array or Object.
+# Chúng ta có thể tự khai báo Scalar Type ví dụ ntn:
+scalar Episode
+
+#2 "Object Type": Object, Interface, Union, Enum, Input type
+
+#3 Input type: Giống với object bình thường, chỉ khác là dc dùng trong các `Operation` (ở đây ReviewInput dc dùng ở `createReview` line 41)
+input ReviewInput {
+  stars: Int!
+  commentary: String
 }
 
 #1 Operations: Query, Mutation, Subscription
@@ -26,21 +39,4 @@ type Query {
 type Mutation {
   #! Trong Mutation có `createReview` -> Có thể dùng khi `mutation` - Xem file `operation.graphql` (line 4)
   createReview(episode: Episode!, review: ReviewInput!): String
-}
-
-#1 GraphQL Types
-#2 "Scalar Type": String, Int, Float, Boolean, ID -> can't have sub-fields like Array or Object.
-# Chúng ta có thể tự khai báo Scalar Type ví dụ ntn:
-scalar Episode
-
-#2 input: Giống với object bình thường, chỉ khác là dc dùng trong các `Operation`:
-input ReviewInput {
-  stars: Int!
-  commentary: String
-}
-
-type Character {
-  name: String!
-  gender: String!
-  appearsIn: [Episode]
 }

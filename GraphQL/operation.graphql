@@ -1,31 +1,36 @@
 #1 query, mutation, subscription là các `operation type`, tiếp theo là `operation name` (OPTIONAL) "createReviewForEpisode"
 mutation createReviewForEpisode($ep: Episode!, $rv: ReviewInput!) {
   #! operation có `createReview` trong một `mutation` -> ở schema cũng phải có `createReview` trong `type Mutation`
-  createReview(episode: $ep, review: $rv) {
+  createReview(episode: $ep, review: $review) {
+    # Tương tự `query`, `mutation` sau khi update cũng có thể return data, ta có thể check new state sau khi update.
     stars
     commentary
   }
 }
 
-#1. Fragment & Aliases
-query HeroComparison($first: Int = 3) {
-  empireHero: hero(episode: EMPIRE) {
-    ...comparisonFields
+#1. Variables, Fragment & Aliases
+query collectionComparison($first: Int! = 3) {
+  c1: node(id: "collection-1") {
+    ...collectionProducts
   }
-  jediHero: hero(episode: JEDI) {
-    ...comparisonFields
+  c2: node(id: "collection-2") {
+    ...collectionProducts
   }
 }
 
-#2 Các field ở trong fragment `comparisonFields` phải có trong type Character (line 42)
-fragment comparisonFields on Character {
-  name
-  gender
+# Các field ở trong fragment `collectionProducts` phải có trong type Collection (line 15)
+fragment collectionProducts on Collection {
+  # fragment có thể access variable trong query dùng nó.
+  # Ở đây `first` ở fragment dc lấy từ variable `first` trong query ở trên
+  products(first: $first) {
+    title
+    vendor
+  }
 }
 
-#1 Inline fragment: Dùng khi field trả về là `interface` hoặc `union`
+#1 Inline fragment: Dùng khi query (ở đây là `node`) có field trả về là `interface` hoặc `union`
 query getProductsFromCollection($categoryId: ID!, $first: Int = 250) {
-  #* 1. query `node` có arg là `id`, khi ta truyền vào có thể là bất kỳ id nào (productId, collectionId, ...)
+  #* 1. query `node` có arg là `id`, khi ta truyền vào có thể là bất kỳ `id` nào (productId, collectionId, ...)
   node(id: $categoryId) {
     #* 2. query `node` trả về `Node` nên chắc chắn sẽ có id...
     id
