@@ -9,7 +9,7 @@ interface GenericIdentityFn2 {
   <Type>(arg: Type): Type;
 }
 function identity<Type = string>(arg: Type): number {
-  //! Nếu ko specify cho `Type`, sẽ dc mặc định là string
+  //! Nếu ko specify cho `Type`, sẽ dc default là string
   console.log(arg);
   return 10;
 }

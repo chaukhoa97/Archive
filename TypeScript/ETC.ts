@@ -19,11 +19,11 @@
 //2 String enum: KHÔNG REVERSE MAPPING như Number enum dc
 {
   enum Responses {
-    Success = "OK",
-    Error = "Lỗi",
+    Error = "0",
+    Success = "1",
   }
-  const ss = Responses.Success; // OK
-  type ResponseTypes = keyof typeof Responses; // "Success" | "Error"
+  const ss = Responses.Error; // "0"
+  type ResponseTypes = keyof typeof Responses; // "Error" | "Success"
 }
 
 //1 Narrowing

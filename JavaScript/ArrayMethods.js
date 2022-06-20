@@ -50,8 +50,8 @@ const split = joined.split("+"); // Về lại thành [1, 2, 3]. NOTE: Chỉ dù
 numbers.indexOf(4, 0); // (value, fromIndex). Nếu ko có `value` trong arr -> Return -1
 numbers.lastIndexOf("a", 2); // (value, fromIndex).
 numbers.includes(1, 2); // (value, fromIndex). Returns boolean
-numbers.findIndex((value) => value > 2); // Returns the index of the FIRST element ok with the callback
 numbers.find((value) => value > 2); // Returns the value of the FIRST element ok with the callback-> returns 3
+numbers.findIndex((value) => value > 2); // Returns the index of the FIRST element ok with the callback
 
 //* Reduce
 // first call: previousValue = 15, currentValue = 16, currentIndex = 1
