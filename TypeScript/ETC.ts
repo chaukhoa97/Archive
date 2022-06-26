@@ -1,33 +1,25 @@
 //1 Enum
 //2 Number enum
-{
-  enum Status0 {
-    Pending, // 0
-    Approved, // 1
-    Rejected, // 2
-  }
-  enum Status1 {
-    Pending = 1,
-    Approved, // Tự động = 2
-    Rejected = 10,
-  }
-  const s1: Status0 = Status0.Approved;
-  const sAny: Status1 = 1000;
-  // Reverse mapping
-  console.log(Status1[10]); // Rejected
+enum Status1 {
+  Pending, // 0
+  Approved, // 1
+  Rejected = 10,
 }
-//2 String enum: KHÔNG REVERSE MAPPING như Number enum dc
-{
-  enum Responses {
-    Error = "0",
-    Success = "1",
-  }
-  const ss = Responses.Error; // "0"
-  type ResponseTypes = keyof typeof Responses; // "Error" | "Success"
+console.log(Status1["Rejected"]); // 10
+// Reverse mapping
+console.log(Status1[10]); // Rejected
+
+//2 String enum: KHÔNG REVERSE MAPPING như Number Enum dc
+enum Status2 {
+  Pending = "0",
+  Approved = "1",
 }
+const ss = Status2.Pending; // "0"
+const bb = Status2[0]; // undefined
+type ResponseTypes = keyof typeof Status2; // "Pending" | "Approved"
 
 //1 Narrowing
-//2 in: if an object has a property with a name
+//2 `in`: Use to check if an object has a specific property
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 type Human = { swim?: () => void; fly?: () => void };
@@ -38,7 +30,7 @@ function move(animal: Fish | Bird | Human) {
     animal;
   }
 }
-//3 in keyof
+//3 `in keyof`
 //* keyof: array_object line 36
 type Optional<T> = {
   [K in keyof T]?: T[K];

@@ -264,24 +264,14 @@
 			"path": "TypeScript/basic.ts",
 			"bookmarks": [
 				{
-					"line": 19,
+					"line": 17,
 					"column": 4,
 					"label": "interface vs type"
 				},
 				{
-					"line": 33,
+					"line": 31,
 					"column": 0,
 					"label": "Type assign meaning"
-				}
-			]
-		},
-		{
-			"path": "TypeScript/types.ts",
-			"bookmarks": [
-				{
-					"line": 6,
-					"column": 4,
-					"label": ""
 				}
 			]
 		},
