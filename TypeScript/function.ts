@@ -1,15 +1,18 @@
 //1 Function Type expression:
-//2. Cách 1: Truyền trực tiếp vào ONLY ARROW FN
-const GreetFunction2 = (a: string): void => {
+//2. Cách 1: Truyền trực tiếp (syntax tương tự arrowFn)
+const greeter = (a: string): void => {
   console.log(a);
 };
-//2 Cách 2: Khai báo qua `type`, dùng fn thường hay arrow fn đều dc
-type GreetFunction = (a: string) => void; // A function with 1 param, named `a`, of type `string`, that doesn’t have a return value. Just like with function declarations, if a parameter type isn’t specified, it’s implicitly `any`
-function greeter(fn: GreetFunction) {
+function greeter1(a: string) {
+  console.log(a); // return type dc infer là void
+}
+//2 Cách 2: Khai báo qua `type`, CHỈ DÙNG DC CHO FN THƯỜNG
+type GreetFunction = (a: string) => void;
+function greeter2(fn: GreetFunction) {
   fn("Hello");
 }
 
-//1 Call Signature - function ngoài being callable còn có thêm properties: Dùng `:` thay vì `=>`
+//1 Call Signature - function ngoài being callable còn có thêm properties
 type DescribableFunction = {
   description: string;
   (someArg: number): number;

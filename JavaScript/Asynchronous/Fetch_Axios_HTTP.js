@@ -4,10 +4,10 @@ import axios from "axios";
 
 //1 Concurrent
 const alo = async function () {
-  const response1 = await fetch("https://jsonplaceholder.typicode.com/posts/1"); // Returns a Response obj
-  const response2 = await fetch("https://jsonplaceholder.typicode.com/posts/2");
+  const response1 = fetch("https://jsonplaceholder.typicode.com/posts/1"); // Returns a Promise
+  const response2 = fetch("https://jsonplaceholder.typicode.com/posts/2");
   const allResponses = await Promise.all([response1, response2]); // [Response obj, Response obj]
-  allResponses.forEach((res) => console.log(res.ok, res.status)); // true/false; 2xx/4xx
+  allResponses.forEach((res) => console.log(res.ok, res.status)); // true(false); 2xx(4xx)
   allResponses.forEach(async (res) => {
     const a = await res.json(); //! Hàm `json()` return về data, lý do là response1 & response2 chỉ mới là header, phải fetch thêm phần body -> phải có await
     console.log(a);

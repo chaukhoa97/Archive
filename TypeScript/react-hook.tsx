@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 //1 Hooks
 const [user, setUser] = useState<number[]>([1, 2, 3]);
-//2 useEffect: Effect callback type - `type EffectCallback = () => (void | Destructor)`
+//2 useEffect: Ko dc return gì về ngoại trừ `void` / `Destructor`
 function DelayedEffect(props: { timerMs: number }) {
   const { timerMs } = props;
   useEffect(() => {
     setTimeout(() => {
       /* do stuff */
     }, timerMs);
+    return timerMs;
   }, [timerMs]);
-  return null;
 }
 //2 useRef
 //3 DOM element ref
@@ -18,14 +18,9 @@ function Foo() {
   const divRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Note that ref.current may be null. This is expected, because you may conditionally render the ref-ed element, or you may forgot to assign it
-    if (!divRef.current) throw Error("divRef is not assigned");
-
-    // Now divRef.current is sure to be HTMLDivElement
     console.log(divRef.current);
   });
 
-  // Give the ref to an element so React can manage it for you
   return <div ref={divRef}>etc</div>;
 }
 //3 Mutable value ref
@@ -36,8 +31,8 @@ function Bar() {
 
 //2 Custom Hook
 const unionArrayReturn = () => {
-  return [1, "a"]; //* return type is ` (string | number)[] `,due to TS infer
+  return [1, "a"]; //* return type is `(string | number)[]`,due to TS infer
 };
 const readonlyArrayReturn = () => {
-  return [1, "a"] as const; //* return type is ` readonly [1, 'a'] `
+  return [1, "a"] as const; //* return type is `readonly [1, 'a']`
 };
