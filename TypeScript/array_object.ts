@@ -9,7 +9,7 @@ var tuple2: [string, ...boolean[], number] = ["John", true, false, 1]; //* Rest 
 
 //1 readonly
 interface Home {
-  readonly resident: { name: string; age?: number };
+  readonly resident: { name: string; age: number };
 }
 function visitForBirthday(home: Home) {
   // We can update properties of `home.resident`
@@ -25,17 +25,18 @@ function evict(home: Home) {
 }
 
 //1 Index Signature:
-interface NumberOrStringDictionary {
+interface NumberOrString {
   //! An index signature property type must be either ‘string’ or ‘number’
-  [index: string | number]: any; //* NumberOrStringDictionary can have any number of properties, với value là `any`
+  [index: string]: any; //* NumberOrString can have any number of properties, với value là `any`
   length: number;
   name: string;
   1: string;
 }
-let aa: NumberOrStringDictionary = { length: 8, name: "bro", 1: "one" }; // aa.length = 8; aa.name = 'bro'; aa[1] = 'one';
+let aa: NumberOrString = { length: 8, name: "bro", 1: "one" }; // aa.length = 8; aa.name = 'bro'; aa[1] = 'one';
 
 //1 keyof
 type Point = { x: number; y: number };
 type P = keyof Point; // type P = 'x' | 'y'
 //2 If the type has a string or number `Index signature`, keyof will return those types instead:
-type N = keyof NumberOrStringDictionary; //* type N = string | number vì obj[0] và obj["0"] giống nhau
+type N = keyof NumberOrString;
+const num: N = 100; //* type N = string | number vì obj[0] và obj["0"] giống nhau

@@ -1,5 +1,5 @@
 //1 Type(alias): A name for any `Type`
-type StringOrNumber = string | number; // Đặt tên cho "string | number" type là "StringOrNumber"
+type StringOrNumber = string | number;
 type User = { name: string; readonly age?: number };
 
 //1 Interface: Another way to name an OBJECT type (chỉ dùng dc cho object)
@@ -7,17 +7,15 @@ interface Person {
   name: string;
   readonly age?: number;
   //* Có 2 cách để định nghĩa một method trong một interface
-  log1?: (message: string) => void; // Function as property declaration
+  log1?: (message: string) => void; // Function in Property declaration
   log2?(message: string): void; // Method declaration
 }
 //2 `type` ko declare thêm vào dc, còn `interface` thì có -> dùng `interface` cho public API để người dùng tự thêm vào, còn `type` cho Props hay State vì nó nhất quán hơn.
-{
-  interface Person {
-    //! Có thể override Interface's fn, nhưng ko thể override Interface's property --> log1?: (message: string) => void ~> Error
-    log2?(message: number): void; // ok
-  }
-  type Userr = { id: number }; //! Error: type duplicate line 13
+interface Person {
+  log1?: (message: number) => void; //! Có thể override Interface's fn, nhưng ko thể override Interface's property --> log1?: (message: string) => void ~> Error
+  log2?(message: number): void; // ok
 }
+type User = { id: number }; //! Error: type duplicate line 3
 
 //1 Intersection(& || extends) Combine types/interfaces lại với nhau
 type Identity = {

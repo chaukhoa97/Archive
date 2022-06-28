@@ -9,7 +9,7 @@ interface GenericIdentityFn2 {
   <Type>(arg: Type): Type;
 }
 function identity<Type = string>(arg: Type): number {
-  //! Nếu ko specify cho `Type`, sẽ dc mặc định là string
+  //! Nếu ko specify cho `Type`, sẽ dc default là string
   console.log(arg);
   return 10;
 }
@@ -29,15 +29,12 @@ function map<Input, Output>(
 const parsed = map(["1", "2", "3"], (n) => parseInt(n)); // Array<string>, (arg: string) => number
 
 //1 Generic Constraint - Ràng buộc
-//! Ràng buộc `Type` phải ÍT NHẤT có `length` property
-function minimumLength<Type extends { length: number }>(
-  obj: Type,
-  minimum: number
-): Type {
+//! Ràng buộc `T` phải ÍT NHẤT có `length` property
+function minLength<T extends { length: number }>(obj: T, minimum: number): T {
   if (obj.length >= minimum) {
     return obj;
   }
-  return { length: minimum }; //! Error: Ừ thì '{ length: number; }' is assignable to the constraint of type 'Type', but 'Type' could be instantiated with a different subtype of constraint '{ length: number; }' - ví dụ như array
+  return { length: minimum };
 }
 //2 extends keyof
 let x = { a: 1, b: 2, c: 3, d: 4 };
