@@ -106,16 +106,6 @@
 			]
 		},
 		{
-			"path": "src/Storage/EventTarget.jsx",
-			"bookmarks": [
-				{
-					"line": 6,
-					"column": 4,
-					"label": "Handle big <form>"
-				}
-			]
-		},
-		{
 			"path": "src/Redux/slice1.js",
 			"bookmarks": [
 				{

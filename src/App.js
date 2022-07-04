@@ -10,7 +10,7 @@ import {
 import ReduxComponent from "./Redux/redux-component";
 import { champActions } from "./Redux/slice2-action-creator";
 import numberContext from "./Storage/number-context";
-import EventTarget from "./Storage/EventTarget";
+import EventTarget from "./Storage/Event";
 import CallbackExample from "./Storage/useCallback";
 import ReducerExample from "./Storage/useReducer";
 

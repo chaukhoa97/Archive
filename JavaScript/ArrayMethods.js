@@ -23,18 +23,18 @@ const f = numbers.filter((n) => n > 5); //* New array
 const first = [1, 2, 3];
 const second = [4, 5, 6];
 const combined = first.concat(second); // [1, 2, 3, 4, 5, 6]
-const sliced = combined.slice(2, 5); // Ko tính end; cũng có thể dùng .slice(`omit`) để shallow copy
+const sliced = combined.slice(2, 5); // Ko tính end; cũng có thể dùng .slice() để shallow copy
 
 //1 Map & forEach
 const arr = [1, 2, 3, 4, 5];
 //* Map: Creating a NEW array containing output of some processing done on each element of the array.
 const mappedArray = arr.map((value, index, array) => element.children);
 
-//! forEach: Executes a provided function once per array element. For example, saving all elements in the database.
+//! forEach: Executes a provided function once per array element and Returns `undefined`. For example, saving all elements in the database.
 arr.forEach(
   (currentValue, index, arr) => arr[index] === currentValue, //! Dummy callback
   thisValue // The value used as the function's "this" value
-); // returns undefined
+);
 
 //! Sort
 // a - b <= 0 -> a, b giữ nguyên vị trí (vẫn a xếp trước b), còn > 0 thì đổi chỗ

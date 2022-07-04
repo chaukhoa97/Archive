@@ -8,8 +8,7 @@ interface GenericIdentityFn<Type> {
 interface GenericIdentityFn2 {
   <Type>(arg: Type): Type;
 }
-function identity<Type = string>(arg: Type): number {
-  //! Nếu ko specify cho `Type`, sẽ dc default là string
+function identity<Type>(arg: Type): number {
   console.log(arg);
   return 10;
 }
@@ -29,11 +28,8 @@ function map<Input, Output>(
 const parsed = map(["1", "2", "3"], (n) => parseInt(n)); // Array<string>, (arg: string) => number
 
 //1 Generic Constraint - Ràng buộc
-//! Ràng buộc `Type` phải ÍT NHẤT có `length` property
-function minimumLength<Type extends { length: number }>(
-  obj: Type,
-  minimum: number
-): Type {
+//! Ràng buộc `T` phải ÍT NHẤT có `length` property
+function minLength<T extends { length: number }>(obj: T, minimum: number): T {
   if (obj.length >= minimum) {
     return obj;
   }
@@ -54,3 +50,9 @@ function firstElement2<Type extends any[]>(arr: Type) {
 }
 const f1 = firstElement1([1, 2, 3]); // f1: number (good)
 const f2 = firstElement2([1, 2, 3]); // f2: any (bad)
+
+//1 Default generics value
+
+type F1<T = string> = (a: T) => any;
+
+const Fn1: F1 = (a) => a.split(" ");
