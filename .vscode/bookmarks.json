@@ -41,16 +41,6 @@
 			]
 		},
 		{
-			"path": "src/Storage/useReducer.jsx",
-			"bookmarks": [
-				{
-					"line": 2,
-					"column": 0,
-					"label": "reducer = (prevState, action-to-the-prevState) => newState"
-				}
-			]
-		},
-		{
 			"path": "src/index.js",
 			"bookmarks": [
 				{
@@ -247,21 +237,6 @@
 					"line": 8,
 					"column": 46,
 					"label": "Router: Active menu item"
-				}
-			]
-		},
-		{
-			"path": "TypeScript/basic.ts",
-			"bookmarks": [
-				{
-					"line": 17,
-					"column": 4,
-					"label": "interface vs type"
-				},
-				{
-					"line": 31,
-					"column": 0,
-					"label": "Type assign meaning"
 				}
 			]
 		},

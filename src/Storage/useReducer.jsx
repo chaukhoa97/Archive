@@ -2,64 +2,36 @@ import { useReducer } from "react";
 
 //* Reducer - Function that is used to update store: `const reducer = (prevState, action-to-the-prevState) => newState`
 //* Định nghĩa general "reducer" trong progamming: Nhận vào input, transform --> output
-const reducer = (state, action) => {
-  switch (action) {
-    case "+":
-      return state + 1;
-    case "-":
-      return state - 1;
-    case "reset":
-      return 0;
-    default:
-      return state;
-  }
-};
 
-//1 object Reducer
-const initialState = { loading: false, data: [], type: "success" };
-const reducer2 = (state, action) => {
+const infoReducer = (state, action) => {
   switch (action.type) {
     case "loading":
-      return { ...initialState, loading: true };
+      return { loading: true };
     case "success":
-      console.log(action);
-      return action;
+      return { ...action, loading: false };
     default:
-      return state;
+      throw Error("Unknown action: " + action.type);
   }
 };
 
 function ReducerExample() {
-  //1 dispatch(action): Describe the action that should be executed when dispatch(action) being triggered(ex: by clicking button,...) but NOT EXECUTED THE ACTION DIRECTLY, mà forward qua cho reducer(state, action) - line 5
-  //* Ex: action = {key1: 1, key2: 2} -> dispatch(action) -> Gọi reducer(state, action) -> switch(action.key1)...
-  const [state, dispatch] = useReducer(reducer, 0); // reducer Là fn ở line 3
-  const [state2, dispatch2] = useReducer(reducer2, initialState);
-  const getUsers = () => {
-    dispatch2({ ...initialState, type: "loading" });
+  const [info, dispatch] = useReducer(infoReducer, {
+    loading: false,
+    data: "",
+  });
+  const getInfo = () => {
+    dispatch({ type: "loading" }); // info = `state` line 6 = { loading: true, data: "", type: "loading" }
     setTimeout(() => {
       fetch("https://jsonplaceholder.typicode.com/todos/1")
         .then((response) => response.json())
-        .then((json) => dispatch2({ ...initialState, data: json }));
+        .then((json) => dispatch({ type: "success", data: json })); // info = { loading: false, data: {...}, type: "success" }
     }, 1000);
   };
 
   return (
     <>
-      <div className="useReducer-with-variable">
-        <h1>useReducer:</h1>
-        <h4>With variable</h4>
-        <h5>{state}</h5>
-        {/* PHẢI PASS callback vào onClick với dispatch nói riêng hay React nói chung */}
-        <button onClick={() => dispatch("+")}>+</button>
-        <button onClick={() => dispatch("-")}>-</button>
-        <button onClick={() => dispatch("reset")}>RESET</button>
-      </div>
-
-      <div className="useReducer-with-object">
-        <h4>With object</h4>
-        {state2.loading ? <h5>Loading...</h5> : <h5>{state2.data.title}</h5>}
-        <button onClick={getUsers}>Get data</button>
-      </div>
+      {info.loading ? <h5>Loading...</h5> : <h5>{info.data.title}</h5>}
+      <button onClick={getInfo}>Get data</button>
     </>
   );
 }

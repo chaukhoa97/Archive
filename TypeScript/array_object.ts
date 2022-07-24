@@ -11,32 +11,86 @@ var tuple2: [string, ...boolean[], number] = ["John", true, false, 1]; //* Rest 
 interface Home {
   readonly resident: { name: string; age: number };
 }
-function visitForBirthday(home: Home) {
-  // We can update properties of `home.resident`
-  home.resident.age++;
-  home.resident.name = "Bro";
+const h: Home = {
+  resident: {
+    name: "John",
+    age: 20,
+  },
+};
+// We can update properties of `home.resident`
+h.resident.name = "Bro";
+// But we can't write to the 'resident' property itself on a 'Home'.
+h.resident = {
+  name: "Victor the Evictor",
+  age: 42,
+};
+
+//1 Interface: Another way to name an OBJECT type (chỉ dùng dc cho object)
+interface Person {
+  // Có 2 cách để định nghĩa một method trong một interface
+  log1?: (message: string) => void; // Function in Property declaration
+  log2?(message: string): void; // Method declaration
 }
-function evict(home: Home) {
-  // But we can't write to the 'resident' property itself on a 'Home'.
-  home.resident = {
-    name: "Victor the Evictor",
-    age: 42,
-  };
+//2 Extend interface
+interface Person {
+  log1?: (message: number) => void; //! Có thể override Interface's fn, nhưng ko thể override Interface's property --> log1?: (message: string) => void ~> Error
+  log2?(message: number): void; //* OK
 }
 
-//1 Index Signature:
-interface NumberOrString {
-  //! An index signature property type must be either ‘string’ or ‘number’
-  [index: string]: any; //* NumberOrString can have any number of properties, với value là `any`
-  length: number;
+//1 Intersection(& || extends) Combine types/interfaces lại với nhau
+type Identity = {
   name: string;
-  1: string;
+};
+interface Contact {
+  email: string;
 }
-let aa: NumberOrString = { length: 8, name: "bro", 1: "one" }; // aa.length = 8; aa.name = 'bro'; aa[1] = 'one';
+type Customer = Identity & Contact & { gender: string }; //! type cũng có thể dc tạo từ 2 interface intersection
+interface Customer2 extends Identity, Contact {
+  gender: string;
+}
 
-//1 keyof
+//1 Enum
+//2 Number enum
+enum Status1 {
+  Pending, // 0
+  Approved, // 1
+  Rejected = 10,
+}
+console.log(Status1["Rejected"]); // 10
+// Reverse mapping
+console.log(Status1[10]); // Rejected
+
+//2 String enum: KHÔNG REVERSE MAPPING như Number Enum dc
+enum Status2 {
+  Pending = "0",
+  Approved = "1",
+}
+const ss = Status2.Pending; // "0"
+const bb = Status2[0]; // undefined
+type ResponseTypes = keyof typeof Status2; // "Pending" | "Approved"
+
+//1 Narrowing
+//2 keyof
 type Point = { x: number; y: number };
 type P = keyof Point; // type P = 'x' | 'y'
-//2 If the type has a string or number `Index signature`, keyof will return those types instead:
-type N = keyof NumberOrString;
-const num: N = 100; //* type N = string | number vì obj[0] và obj["0"] giống nhau
+
+//2 `in`: Use to check if an object has a specific property
+type Fish = { swim: () => void };
+type Bird = { fly: () => void };
+type Human = { swim?: () => void; fly?: () => void };
+function move(animal: Fish | Bird | Human) {
+  if ("swim" in animal) {
+    animal.swim;
+  } else {
+    animal;
+  }
+}
+
+//2 instanceof
+function logValue(x: Date | string) {
+  if (x instanceof Date) {
+    console.log(x.toLocaleDateString());
+  } else {
+    console.log(x.toUpperCase());
+  }
+}

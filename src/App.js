@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 import ReduxComponent from "./Redux/redux-component";
 import { champActions } from "./Redux/slice2-action-creator";
-import numberContext from "./Storage/number-context";
+import NumberContext from "./Storage/number-context";
 import EventTarget from "./Storage/Event";
 import CallbackExample from "./Storage/useCallback";
 import ReducerExample from "./Storage/useReducer";
@@ -51,8 +51,8 @@ function App() {
   const location = useLocation();
 
   return (
-    //* ~ component dc wrap bởi <numberContext.Provider> sẽ dùng dc value = useContext() (Line 43)
-    <numberContext.Provider value={{ num: n, fn }}>
+    //* ~ component dc wrap bởi `NumberContext.Provider` sẽ dùng dc `value = useContext()`
+    <NumberContext.Provider value={{ num: n, fn }}>
       {["asc", "desc"].map((value) => (
         <label key={value}>
           <input
@@ -80,7 +80,7 @@ function App() {
       <EventTarget></EventTarget>
       <Outlet /> //* Giống với props.children
       <br />
-    </numberContext.Provider>
+    </NumberContext.Provider>
     //! Context chỉ nên dc dùng cho ~ state ko thay đổi liên tục. Ngc lại thì dùng useState như bt
   );
 }

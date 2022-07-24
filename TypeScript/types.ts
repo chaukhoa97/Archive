@@ -30,11 +30,6 @@ let foo: unknown = 10;
 const upperCase = (x: string) => console.log(x.toUpperCase());
 upperCase(foo as string); //* Assert là string nên type-system ko báo lỗi, lúc run mới ra lỗi TypeError: number ko có method toUpperCase
 
-//2 Non-null assertion Operator - Only use it when you know that the value can’t be null or undefined.
-function liveDangerously(x?: number | null) {
-  console.log(x!.toFixed()); // No error
-}
-
 //2 `as const` -> infer the most specific; default ko type gì -> infer the most general
 const sekai = 1; //* Literal Types: const sekai: 1 (kiểu type là "1" luôn chứ kp là number, vì const kbh thay đổi)
 const req = { url: "https://example.com", method: "GET" } as const; //* Chuyển all obj property về Literal types hết: url: "https://example.com"; method: "GET"
