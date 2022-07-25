@@ -1,4 +1,3 @@
-let idArray: number[] = [1, 2, 3, 4, 5]; //! hoặc Array<number>
 //1 Tuple: Superset of Array - Knows exactly how many elements it contains, and exactly which types it contains at specific positions.
 let tuple1: [string, number, number?] = ["John", 25]; // tuple1.length = 2 | 3
 let tupleArray: [string, number][] = [
@@ -24,30 +23,6 @@ h.resident = {
   name: "Victor the Evictor",
   age: 42,
 };
-
-//1 Interface: Another way to name an OBJECT type (chỉ dùng dc cho object)
-interface Person {
-  // Có 2 cách để định nghĩa một method trong một interface
-  log1?: (message: string) => void; // Function in Property declaration
-  log2?(message: string): void; // Method declaration
-}
-//2 Extend interface
-interface Person {
-  log1?: (message: number) => void; //! Có thể override Interface's fn, nhưng ko thể override Interface's property --> log1?: (message: string) => void ~> Error
-  log2?(message: number): void; //* OK
-}
-
-//1 Intersection(& || extends) Combine types/interfaces lại với nhau
-type Identity = {
-  name: string;
-};
-interface Contact {
-  email: string;
-}
-type Customer = Identity & Contact & { gender: string }; //! type cũng có thể dc tạo từ 2 interface intersection
-interface Customer2 extends Identity, Contact {
-  gender: string;
-}
 
 //1 Enum
 //2 Number enum

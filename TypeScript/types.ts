@@ -18,7 +18,6 @@ interface Dog {
 }
 type EmailMessageContents = MessageOf<Email>; // string
 type DogMessageContents = MessageOf<Dog>; // never
-
 //2 Distributive Conditional Types
 type ToArray<Type> = Type extends any ? Type[] : never;
 type StrArrOrNumArr = ToArray<string | boolean>; // string[] | boolean[]
@@ -40,12 +39,12 @@ const twoArgFn2 = ([a = 1, b = "b"]) => [a, b] as const; // return type: readonl
 let vAny: any = 10;
 let vUnknown: unknown = 10; //* We can assign anything to unknown just like any
 
-let s1: string = vAny; // `any` is assignable to anything
+let s1: string = vAny; //* Ok; `any` is assignable to anything
 
 let s2: string = vUnknown; //! Invalid; we can't assign `unknown` to any other type (without an explicit assertion)
-let s3: string = vUnknown as string; //* ok
+let s3: string = vUnknown as string; //* Ok
 
-vAny.method(); // Ok; anything goes with any
+vAny.method(); //* Ok; anything goes with any
 vUnknown.method(); //! Not ok; we don't know anything about this variable
 
 //1 Utility Types:

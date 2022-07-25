@@ -21,7 +21,7 @@
 				{
 					"line": 54,
 					"column": 4,
-					"label": "React Context 2: Wrap = numberContext.Provider"
+					"label": "React Context 2: Wrap = NumberContext.Provider"
 				},
 				{
 					"line": 68,
@@ -37,6 +37,16 @@
 					"line": 94,
 					"column": 2,
 					"label": "Router <NavLink>"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/useReducer.jsx",
+			"bookmarks": [
+				{
+					"line": 2,
+					"column": 0,
+					"label": "reducer = (prevState, action-to-the-prevState) => newState"
 				}
 			]
 		},
@@ -91,7 +101,17 @@
 				{
 					"line": 7,
 					"column": 2,
-					"label": "React Context 3: const ctx = useContext"
+					"label": "React Context 3: const ctx = useContext(NumberContext)"
+				}
+			]
+		},
+		{
+			"path": "src/Storage/EventTarget.jsx",
+			"bookmarks": [
+				{
+					"line": 6,
+					"column": 4,
+					"label": "Handle big <form>"
 				}
 			]
 		},
@@ -241,12 +261,27 @@
 			]
 		},
 		{
+			"path": "TypeScript/basic.ts",
+			"bookmarks": [
+				{
+					"line": 17,
+					"column": 4,
+					"label": "interface vs type"
+				},
+				{
+					"line": 31,
+					"column": 0,
+					"label": "Type assign meaning"
+				}
+			]
+		},
+		{
 			"path": "src/Storage/number-context.ts",
 			"bookmarks": [
 				{
-					"line": 4,
+					"line": 2,
 					"column": 30,
-					"label": "React Context 1: React.createContext(modelState)"
+					"label": "React Context 1: React.createContext(initValue)"
 				}
 			]
 		}
