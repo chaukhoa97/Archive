@@ -10,34 +10,28 @@ numbers.shift(); // Xóa 1 số đầu
 numbers.reverse(); // Đảo ngược
 numbers.splice(2, 1, "a", "b"); // (fromIndex, deleteCount, item1, item2, ...); returns an array containing the deleted items
 //! Sort
-// a - b <= 0 -> a, b giữ nguyên vị trí (vẫn a xếp trước b), còn > 0 thì đổi chỗ
-anotherCombined.sort((a, b) => a - b);
-// Sort theo text alphabet
-users.sort((a, b) => a.localeCompare(b));
-//! forEach: Executes a provided function once per array element and Returns `undefined`. For example, saving all elements in the database.
-const arr = [1, 2, 3, 4, 5];
-arr.forEach(
-  (currentValue, index, arr) => arr[index] === currentValue, //! Dummy callback
-  thisValue // The value used as the function's "this" value
-);
+[2, 1].sort((a, b) => a - b); // Sort theo _compare fn_: Nếu returns < 0 thì a xếp trước b, 0 thì giữ nguyên
+//! forEach: Executes a provided function once per array element (returns `undefined`), e.g. saving all elements in the database.
+numbers.forEach((element, index) => {
+  element.savingToDatabase();
+});
 //* Map: Creating a NEW array containing output of some processing done on each element of the array.
-const mappedArray = arr.map((value, index, array) => element.children);
-
-//* Set
-uniqueArray = [...new Set(array)];
-
-//* Filters, every, some - Same arguments: .filter((value, index, array)=>{...})
-const allPositive = numbers.every((value) => value >= 0); // true
-const atLeastOneNegative = numbers.some((value) => value <= 0); // false
-const f = numbers.filter((n) => n > 5); //* Returns new array
+const newNumbers = arr.map((element, index) => {
+  element += index;
+});
 
 //* .concat & .slice
-const combined = [1, 2].concat([3, 4]); // [1, 2, 3, 4]
-const sliced = combined.slice(1, 3); // Index 1 2 (ko lấy 3); cũng có thể dùng .slice() để shallow copy
+const cc = [1, 2].concat([3, 4]); // [1, 2, 3, 4]
+const sl = cc.slice(1, 3); // Index 1 2 (ko lấy 3); cũng có thể dùng .slice() để shallow copy
 
-//* Joining & Spliting, first = [1, 2, 3]
-const joined = first.join("+"); // Return string "1+2+3"
-const split = joined.split("+"); // Về lại thành [1, 2, 3]. NOTE: Chỉ dùng dc lên string.
+//* Filters, every, some - Same arguments: .filter((value, index, array)=>{...})
+const f = numbers.filter((n) => n > 5); //* Returns new array
+const allPositive = numbers.every((value) => value >= 0); // true
+const atLeastOneNegative = numbers.some((value) => value <= 0); // false
+
+//* Joining & Spliting
+const joined = [1, 2, 3].join("+"); // Return string "1+2+3"
+const split = joined.split("+"); // String method: Về lại thành [1, 2, 3]
 
 //* Finding PRIMITIVE Elements
 numbers.indexOf(4, 0); // (value, fromIndex). Nếu ko có `value` trong arr -> Return -1
@@ -45,6 +39,9 @@ numbers.lastIndexOf("a", 2); // (value, fromIndex).
 numbers.includes(1, 2); // (value, fromIndex). Returns boolean
 numbers.find((value) => value > 2); // Returns the value of the FIRST element ok with the callback-> returns 3
 numbers.findIndex((value) => value > 2); // Returns the index of the FIRST element ok with the callback
+
+//* Set
+uniqueArray = [...new Set(array)];
 
 //* Reduce
 // first call: previousValue = 15, currentValue = 16, currentIndex = 1
