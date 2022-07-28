@@ -9,8 +9,7 @@ numbers.unshift(1, 2); // Thêm vào đầu
 numbers.shift(); // Xóa 1 số đầu
 numbers.reverse(); // Đảo ngược
 numbers.splice(2, 1, "a", "b"); // (fromIndex, deleteCount, item1, item2, ...); returns an array containing the deleted items
-//! Sort
-[2, 1].sort((a, b) => a - b); // Sort theo _compare fn_: Nếu returns < 0 thì a xếp trước b, 0 thì giữ nguyên
+numbers.sort((a, b) => a - b); // Sort theo `compare fn`: Nếu returns < 0 thì a xếp trước b, 0 thì giữ nguyên
 //! forEach: Executes a provided function once per array element (returns `undefined`), e.g. saving all elements in the database.
 numbers.forEach((element, index) => {
   element.savingToDatabase();
