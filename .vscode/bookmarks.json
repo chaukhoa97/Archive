@@ -136,16 +136,6 @@
 			]
 		},
 		{
-			"path": "src/Storage/useEffect.jsx",
-			"bookmarks": [
-				{
-					"line": 10,
-					"column": 2,
-					"label": "useEffect cleanup"
-				}
-			]
-		},
-		{
 			"path": "src/Form/SignUpConsult.jsx",
 			"bookmarks": [
 				{
