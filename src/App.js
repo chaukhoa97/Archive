@@ -52,7 +52,7 @@ function App() {
 
   return (
     //* ~ component dc wrap bởi `NumberContext.Provider` sẽ dùng dc `value = useContext()`
-    <NumberContext.Provider value={{ num: n, fn }}>
+    <>
       {["asc", "desc"].map((value) => (
         <label key={value}>
           <input
@@ -80,7 +80,7 @@ function App() {
       <EventTarget></EventTarget>
       <Outlet /> //* Giống với props.children
       <br />
-    </NumberContext.Provider>
+    </>
     //! Context chỉ nên dc dùng cho ~ state ko thay đổi liên tục. Ngc lại thì dùng useState như bt
   );
 }

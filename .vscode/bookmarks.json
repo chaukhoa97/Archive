@@ -19,11 +19,6 @@
 					"label": "Router Location: { pathname:/products/2 , search: ?category=Clothes&sort=Asc }  }"
 				},
 				{
-					"line": 54,
-					"column": 4,
-					"label": "React Context 2: Wrap = NumberContext.Provider"
-				},
-				{
 					"line": 68,
 					"column": 6,
 					"label": "Router Navigate: const navigate = useNavigate();"
