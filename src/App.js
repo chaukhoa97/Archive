@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import ReduxComponent from "./Redux/redux-component";
 import { champActions } from "./Redux/slice2-action-creator";
-import NumberContext from "./Storage/number-context";
 import EventTarget from "./Storage/Event";
 import CallbackExample from "./Storage/useCallback";
 import ReducerExample from "./Storage/useReducer";

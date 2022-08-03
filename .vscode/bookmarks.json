@@ -4,32 +4,32 @@
 			"path": "src/App.js",
 			"bookmarks": [
 				{
-					"line": 21,
+					"line": 20,
 					"column": 2,
 					"label": "Side effect/Async code with Redux 1: Bỏ phần async ở trong `useEffect` (trong Component)"
 				},
 				{
-					"line": 39,
+					"line": 38,
 					"column": 2,
 					"label": "Router SearchParams"
 				},
 				{
-					"line": 50,
+					"line": 49,
 					"column": 2,
 					"label": "Router Location: { pathname:/products/2 , search: ?category=Clothes&sort=Asc }  }"
 				},
 				{
-					"line": 68,
+					"line": 67,
 					"column": 6,
 					"label": "Router Navigate: const navigate = useNavigate();"
 				},
 				{
-					"line": 80,
+					"line": 79,
 					"column": 0,
 					"label": "Router <Outlet>: Render element của <Route> con, giống props.children"
 				},
 				{
-					"line": 94,
+					"line": 93,
 					"column": 2,
 					"label": "Router <NavLink>"
 				}
