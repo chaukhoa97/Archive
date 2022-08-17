@@ -23,8 +23,7 @@ type Collection implements Node {
 # Chúng ta có thể tự khai báo Scalar Type ví dụ ntn:
 scalar Episode
 
-#2 "Object Type": Object, Interface, Union, Enum, Input type
-
+#2 "Object Type": Object, Interface, Union, Enum, INPUT TYPE (below)
 #3 Input type: Giống với object bình thường, chỉ khác là dc dùng trong các `Operation` (ở đây ReviewInput dc dùng ở `createReview` line 41)
 input ReviewInput {
   stars: Int!

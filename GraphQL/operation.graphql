@@ -18,10 +18,10 @@ query collectionComparison($first: Int! = 3) {
   }
 }
 
-# Các field ở trong fragment `collectionProducts` phải có trong type Collection (line 15)
+# Các field ở trong fragment `collectionProducts` phải có trong type Collection
 fragment collectionProducts on Collection {
   # fragment có thể access variable trong query dùng nó.
-  # Ở đây `first` ở fragment dc lấy từ variable `first` trong query ở trên
+  # Ở đây `first` ở fragment dc lấy từ variable `first` trong query `collectionComparison` ở trên
   products(first: $first) {
     title
     vendor
@@ -34,7 +34,7 @@ query getProductsFromCollection($categoryId: ID!, $first: Int = 250) {
   node(id: $categoryId) {
     #* 2. query `node` trả về `Node` nên chắc chắn sẽ có id...
     id
-    #* 3. ... và vì `Product` và `Colllection` đều implement từ `Node` -> Dùng `inline fragment` để trả về thêm các field khác nhau tuỳ trường hợp (Product thì trả về `title`, còn Collection thì trả về `products`).
+    #* 3. ... và vì `Product` và `Colllection` all IMPLEMENTs `Node` -> Dùng `inline fragment` để trả về thêm các field khác nhau tuỳ trường hợp (Product thì trả về `title`, còn Collection thì trả về `products`).
     #* 4. Lý do là vì ở Collection ko có field `title` nên ko thể lấy dc, tương tự như Product ko có field `products`
     ... on Product {
       title
