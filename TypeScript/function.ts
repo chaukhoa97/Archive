@@ -1,18 +1,18 @@
 //1 Function Type expression:
-//2. Cách 1: Truyền trực tiếp (syntax tương tự arrowFn)
+//2. Cách 1: Truyền trực tiếp
 const greeter = (a: string): void => {
   console.log(a);
 };
 function greeter1(a: string) {
   console.log(a); // return type dc infer là void
 }
-//2 Cách 2: Khai báo qua `type`, CHỈ DÙNG DC CHO FN THƯỜNG
+//2 Cách 2: Khai báo qua `type`
 type GreetFunction = (a: string) => void;
-function greeter2(fn: GreetFunction) {
-  fn("Hello");
-}
+const greeter2: GreetFunction = (a) => {
+  console.log(a);
+};
 
-//1 Call Signature - function ngoài being callable còn có thêm properties
+//1 (Uncommon) Call Signature - function ngoài being callable còn có thêm properties
 type DescribableFunction = {
   description: string;
   (someArg: number): number;

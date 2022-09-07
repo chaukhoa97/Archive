@@ -6,24 +6,6 @@ let tupleArray: [string, number][] = [
 ];
 var tuple2: [string, ...boolean[], number] = ["John", true, false, 1]; //* Rest elements must be array type
 
-//1 readonly
-interface Home {
-  readonly resident: { name: string; age: number };
-}
-const h: Home = {
-  resident: {
-    name: "John",
-    age: 20,
-  },
-};
-// We can update properties of `home.resident`
-h.resident.name = "Bro";
-// But we can't write to the 'resident' property itself on a 'Home'.
-h.resident = {
-  name: "Victor the Evictor",
-  age: 42,
-};
-
 //1 Enum
 //2 Number enum
 enum Status1 {
@@ -49,7 +31,7 @@ type ResponseTypes = keyof typeof Status2; // "Pending" | "Approved"
 type Point = { x: number; y: number };
 type P = keyof Point; // type P = 'x' | 'y'
 
-//2 `in`: Use to check if an object has a specific property
+//2 `in`: Usage is the same with object
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
 type Human = { swim?: () => void; fly?: () => void };
@@ -61,7 +43,7 @@ function move(animal: Fish | Bird | Human) {
   }
 }
 
-//2 instanceof
+//2 (Uncommon) instanceof
 function logValue(x: Date | string) {
   if (x instanceof Date) {
     console.log(x.toLocaleDateString());
