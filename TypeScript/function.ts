@@ -7,10 +7,16 @@ function greeter1(a: string) {
   console.log(a); // return type dc infer là void
 }
 //2 Cách 2: Khai báo qua `type`
-type GreetFunction = (a: string) => void;
+type GreetFunction = (a: string, b?: number) => void;
 const greeter2: GreetFunction = (a) => {
   console.log(a);
 };
+
+//1 Utility Types
+//2 `Parameter`
+type GreeterParams = Parameters<typeof greeter2>;
+//2 `ReturnType`
+type GreeterReturn = ReturnType<GreetFunction>;
 
 //1 (Uncommon) Call Signature - function ngoài being callable còn có thêm properties
 type DescribableFunction = {
