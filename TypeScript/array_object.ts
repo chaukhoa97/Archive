@@ -27,10 +27,6 @@ const bb = Status2[0]; // undefined
 type ResponseTypes = keyof typeof Status2; // "Pending" | "Approved"
 
 //1 Narrowing
-//2 keyof
-type Point = { x: number; y: number };
-type P = keyof Point; // type P = 'x' | 'y'
-
 //2 `in`: Usage is the same with object
 type Fish = { swim: () => void };
 type Bird = { fly: () => void };
