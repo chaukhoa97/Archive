@@ -58,16 +58,10 @@ type Person3 = { age: number; name: string; alive: boolean };
 type Age = Person3["age" | "alive"]; //! Viết là Person3.age -> Lỗi syntax
 
 //1 Conditional Types: Left assignable to Right ? A : B
-type IdLabel = number;
-type NameLabel = string;
-type NameOrId<T extends number | string> = T extends number
-  ? IdLabel
-  : NameLabel;
+type Id = number;
+type Name = string;
+type NameOrId<T extends number | string> = T extends number ? Id : Name;
 //2 `never` use case with Conditional Types
-//3 Ex1
-type NonNullable2<T> = T extends null | undefined ? never : T;
-type B2 = NonNullable<number | null>; // number
-//3 Ex2
 type MessageOf<T> = T extends { message: unknown } ? T["message"] : never;
 interface Email {
   message: string;
