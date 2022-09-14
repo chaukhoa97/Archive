@@ -21,7 +21,7 @@ function DogPhoto({ breed }) {
       <button
         onClick={() =>
           refetch({
-            breed: "dalmatian", // Always refetches the query with `dalmatian` instead of `breed` param
+            breed: "dalmatian", // Always refetches the query with "dalmatian" as the arg, instead of `breed` variable
           })
         }
       >
