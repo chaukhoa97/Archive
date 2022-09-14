@@ -24,12 +24,11 @@ getProperty3(x, "m");
 //! Các Generic phải relate với nhau. Ex: Relate giữa input & output, hay giữa các input với nhau
 function map<Input, Output>(
   arr: Input[],
-  func: (arg: Input) => Output
+  func: (arg: Input) => Output,
 ): Output[] {
-  return arr.map(func);
+  return arr.map(func)
 }
-//* Infer: <Input> dc infer theo type của `argument array`: string; <Output> dc infer theo type của return value từ `parseInt`: number
-const parsed = map(["1", "2", "3"], (n) => parseInt(n)); // Array<string>, (arg: string) => number
+const parsed = map(['1', '2', '3'], (n) => parseInt(n)) // Infer `Input` = string; `Output` = number
 
 //1 (Uncommon) Ép type cho Function bằng Interface
 interface GenericIdentityFn<Type> {
