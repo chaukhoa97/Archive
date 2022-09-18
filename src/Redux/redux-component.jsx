@@ -13,7 +13,7 @@ function ReduxComponent() {
   const dispatch = useDispatch();
   const incrementHandler = () => {
     //2 Dispatch kiểu Redux thuần vs Redux Toolkit
-    dispatch({ type: "increment", amount: 10 }); // dispatch (<action obj>) của Redux thuần
+    dispatch({ type: "increment", amount: 10 }); // dispatch (`action obj`) của Redux thuần
     dispatch(counterActions.increment({ amount: 10 }));
     // Ngoài ra hàm dispatch cũng return action obj - `console.log(dispatch(...))` -> { "type": "counter/increment", "payload": {"amount": 10} }
   };
