@@ -14,10 +14,6 @@ import CallbackExample from "./Storage/useCallback";
 import ReducerExample from "./Storage/useReducer";
 
 function App() {
-  //1 Context
-  const n = 0;
-  const fn = () => 1;
-
   //1 Side effect/Async code with Redux 1: Code ở trong Component (dùng useEffect). KO DC BỎ Ở TRONG reducer (vì reducerFn phải là pure)
   //* Redux store thay đổi -> App do có useSelector() sẽ dc re-render -> UI sẽ luôn dc update tương ứng với state
   const dispatch = useDispatch();
@@ -50,7 +46,6 @@ function App() {
   const location = useLocation();
 
   return (
-    //* ~ component dc wrap bởi `NumberContext.Provider` sẽ dùng dc `value = useContext()`
     <>
       {["asc", "desc"].map((value) => (
         <label key={value}>
@@ -80,7 +75,6 @@ function App() {
       <Outlet /> //* Giống với props.children
       <br />
     </>
-    //! Context chỉ nên dc dùng cho ~ state ko thay đổi liên tục. Ngc lại thì dùng useState như bt
   );
 }
 
