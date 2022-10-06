@@ -1,20 +1,25 @@
-/* "this" references the object that is excecuting the current function. Nghĩa là nếu "this" ở trong một object, nó reference chính object đó.
-Nếu "this" ở trong một ANONYMOUS FUNCTION, nó sẽ dc add vào window object -> "this" trong function đó sẽ reference tới window.
-Còn nếu "this" ở trong một ARROW FUNCTION, nó sẽ reference tới object đang gọi function đó */
-class Person1 {
-  constructor(name) {
-    this.name = name;
-  }
+// 1. `this` references the OBJECT that is excecuting the current function
+const person = {
+  foo: ["a", "b", "c"],
 
-  printNameArrow() {
-    //! Anonymous callback function dc sử dụng ở đây là ARROW FUNCTION, nên this reference tới Person1 object.
-    setTimeout(() => console.log(`Arrow: ${this.name}`), 0); // Arrow: Khoa
-  }
+  test() {
+    // `this` of a METHOD will be the OBJECT that contains the method
+    console.log(this); // `person` obj
 
-  printNameFunction() {
-    //! Anonymous callback function dc sử dụng ở đây là FUNCTION bình thường, nên this bị redefined -> reference tới window object.
-    setTimeout(function () {
-      console.log(`Function: ${this.name}`); // Function: (blank)
-    }, 0);
-  }
-}
+    this.foo.map(function (item) {
+      // `this` of a regular fn will be the `window` object in the browser or `global` object in Node
+      console.log(this); // `window` obj
+    });
+
+    // the second arg of `map` - `thisArg` will be used as the `this` of the callback fn, in this case, `person` obj
+    this.foo.map(function (item) {
+      console.log(this); // `person` obj
+    }, this);
+
+    this.foo.map((item) => {
+      // `this` of a regular ARROW fn will be the OBJECT that contains the method
+      console.log(this); // `person` obj
+    });
+  },
+};
+person.test();
