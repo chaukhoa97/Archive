@@ -1,6 +1,8 @@
 // 1. `this` references the OBJECT that is excecuting the current function
-const person = {
-  foo: ["a", "b", "c"],
+class Person {
+  constructor(foo) {
+    this.foo = foo;
+  }
 
   test() {
     // `this` of a METHOD will be the OBJECT that contains the method
@@ -20,6 +22,9 @@ const person = {
       // `this` of a regular ARROW fn will be the OBJECT that contains the method
       console.log(this); // `person` obj
     });
-  },
-};
+  }
+}
+
+const person = new Person(["a", "b", "c"]);
+
 person.test();
