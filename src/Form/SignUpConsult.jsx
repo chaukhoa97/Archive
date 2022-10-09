@@ -1,6 +1,6 @@
 function SignUpForm() {
   const dispatch = useDispatch();
-  //! Form main 1: Khai báo những thứ cần dùng trong useForm() + hàm onSubmit khi submit form
+  //! Form main 1: Destructing needed stuff from `useForm()`
   const {
     handleSubmit,
     formState: { errors },
@@ -10,6 +10,7 @@ function SignUpForm() {
     resetField,
   } = useForm();
 
+  // Declare an `onSubmit` fn, which will be used when submitting the form as usual
   const onSubmit = (data) => {
     axios
       .post(
@@ -36,60 +37,41 @@ function SignUpForm() {
             );
             dispatch(syncAdmin());
           });
-      })
-      .catch((err) => {});
+      });
   };
   if (selectedNationality !== "Việt Nam") resetField("identity");
   return (
-    //! Form main 2: `handleSubmit` sẽ validate your inputs before invoking `onSubmit` (line 12)
+    //! Form main 2: `handleSubmit` at line 5 will validate your inputs before invoking `onSubmit` (line 13)
     <form onSubmit={handleSubmit(onSubmit)}>
+      {/* Controller: Dùng để control các external UI components: MUI, Ant Design... */}
       <Controller
-        //1 Form controller 1: UNIQUE `name`; `rules` giống với `register` (Cả 2 đọc ở line `Form main 3`)
+        //1 Form controller 1: UNIQUE `name` (ở đây là "email") để react-hook-form biết mà validate
         name="email"
+        //1 Form controller 2: `rules` options obj are rules from https://react-hook-form.com/api/useform/register
         rules={{
           required: true,
           pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
         }}
         defaultValue="Được nhập sẵn ở input, KHÔNG PHẢI PLACEHOLDER"
-        //1 Form controller 2: Từ 53 -> 56: KO CẦN CARE
+        // Don't touch `control={control}` line 57 & `{...field}` line 60
         control={control}
         render={({ field }) => (
           <Input
             {...field}
             //1 Form controller 3: `onChange` ở đây là property quan trọng nhất của obj `field`, dùng để customize values dc nhập vào trước khi gửi tới hook. Ở đây là chuyển value về int thay vì str. https://react-hook-form.com/api/usecontroller/controller
             onChange={(e) => field.onChange(parseInt(e.target.value))}
-            // Props riêng của ant-design
-            size="large"
-            prefix={
-              <FontAwesomeIcon className="me-3" icon="fa-solid fa-user" />
-            }
-            placeholder="Email"
           />
         )}
       />
-      {errors.email && (
-        <span className="account__error">Email nhập không đúng định dạng!</span>
-      )}
+      {errors.email && <span>Email nhập không đúng định dạng!</span>}
       <Controller
         name="password"
         control={control}
         rules={{ required: true, minLength: 6, maxLength: 20 }}
-        render={({ field }) => (
-          <Input
-            {...field}
-            type="password"
-            size="large"
-            prefix={
-              <FontAwesomeIcon className="me-3" icon="fa-solid fa-lock" />
-            }
-            placeholder="Password"
-          />
-        )}
+        render={({ field }) => <Input {...field} type="password" />}
       />
       {errors.password && (
-        <span className="account__error">
-          Mật khẩu phải có độ dài từ 6 tới 20 ký tự
-        </span>
+        <span>Mật khẩu phải có độ dài từ 6 tới 20 ký tự</span>
       )}
       <Controller
         name="confirmPassword"
@@ -99,22 +81,10 @@ function SignUpForm() {
           //* watch('password') -> Value hiện tại của input có name là "password"
           validate: (value) => value === watch("password"),
         }}
-        render={({ field }) => (
-          <Input
-            {...field}
-            type="password"
-            size="large"
-            prefix={
-              <FontAwesomeIcon className="me-3" icon="fa-solid fa-lock" />
-            }
-            placeholder="Confirm password"
-          />
-        )}
+        render={({ field }) => <Input {...field} type="password" />}
       />
       {errors.confirmPassword && (
-        <span className="account__error">
-          Mật khẩu xác nhận không trùng với mật khẩu ở trên
-        </span>
+        <span>Mật khẩu xác nhận không trùng với mật khẩu ở trên</span>
       )}
       <Controller
         name="gender"
@@ -129,31 +99,12 @@ function SignUpForm() {
           </Select>
         )}
       />
-      {errors.gender && (
-        <p className="error mb-0 ms-3">Hãy chọn giới tính của bạn</p>
-      )}
-      <Controller
-        name="price"
-        rules={{ required: true }}
-        control={control}
-        defaultValue={props.price}
-        render={({ field }) => (
-          <InputNumber
-            {...field}
-            style={{ width: "100%" }}
-            in={0}
-            type="number"
-            placeholder="Nhập giá"
-            size="large"
-          />
-        )}
-      />
-      <div className="acceptTerms">
+      {errors.gender && <p>Hãy chọn giới tính của bạn</p>}
+      <div>
         <input
           type="checkbox"
-          className="me-2"
           id="acceptTerms"
-          //! Form main 3: Đăng ký input này với UNIQUE `name`(ở đây là 'acceptTerms') vào `useForm()` hook, với ~ validate từ https://react-hook-form.com/api/useform/register
+          //! Form main 3: UNIQUE `name` (ở đây là "acceptTerms") similar with `Form controller 1`, `options obj` are the same rules in the `Form controller 2`
           {...register("acceptTerms", { required: true })}
         />
         <label htmlFor="acceptTerms">
@@ -162,18 +113,8 @@ function SignUpForm() {
         </label>
       </div>
       //! Form main 4: errors.`inputUniqueName`
-      {errors.acceptTerms && (
-        <span className="account__error">Bro chưa accept kìa</span>
-      )}
-      <Button
-        size="large"
-        //! Form main 5: Hoặc <button type="submit"> / <input type="submit">
-        htmlType="submit"
-        type="primary"
-        className="d-block mx-auto w-100 mt-2 rounded-pill"
-      >
-        Đăng ký tài khoản
-      </Button>
+      {errors.acceptTerms && <span>Bro chưa accept kìa</span>}
+      <button>Đăng ký tài khoản</button>
     </form>
   );
 }
