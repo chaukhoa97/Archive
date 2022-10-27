@@ -1,4 +1,4 @@
-#1. Interface & Inline fragments
+#1 Interface & Inline fragments
 interface Node {
   # "!" -> non null
   id: ID!
@@ -24,7 +24,7 @@ type Collection implements Node {
 scalar Episode
 
 #2 "Object Type": Object, Interface, Union, Enum, INPUT TYPE (below)
-#3 Input type: Giống với object bình thường, chỉ khác là dc dùng trong các `Operation` (ở đây ReviewInput dc dùng ở `createReview` line 41)
+#3 Input type: Giống với object bình thường, chỉ khác là dc dùng trong các `Operation` (ở đây ReviewInput dc dùng ở `createReview` ở dưới cùng)
 input ReviewInput {
   stars: Int!
   commentary: String
