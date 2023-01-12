@@ -1,18 +1,18 @@
-const { numberGenerate } = require("./helpers");
+const { numberGenerate } = require('./helpers')
 
 function main() {
-  let n = numberGenerate();
-  n++;
-  foo(n);
+  let n = numberGenerate()
+  n++
+  foo(n)
 }
 
 function foo(n) {
-  const n1 = n + 1;
-  const n2 = n1 + 2;
-  return n2;
+  const n1 = n + 1
+  const n2 = n1 + 2
+  return n2
 }
 
-main();
+main() // breakpoint go here
 
 //1 Breakpoint: Debugger temporarily pause execution there so you can decide what to do:
 
