@@ -1,4 +1,4 @@
-// Time-Space Complexity: O(n*log(n)) - O(n)
+// Time Complexity: O(n*log(n)); Space Complexity: O(n)
 // Ưu điểm: TC ổn định với mọi case
 // Khuyết điểm: Tốn nhiều SC
 function merge(array1, array2) {

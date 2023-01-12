@@ -1,4 +1,4 @@
-// Time-Space Complexity: O(n*log(n)) - O(log(n))
+// Time Complexity: O(n*log(n)); Space Complexity: O(log(n))
 // Ưu điểm: Thích hợp cho random data
 // Khuyết: With mostly sorted lists thì TC thành worst case: O(n^2)
 function swap(array, firstIndex, secondIndex) {

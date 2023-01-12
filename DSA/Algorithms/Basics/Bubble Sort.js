@@ -1,4 +1,4 @@
-// NOTE: Cùi nhất
+// Search cùi nhất
 // Bắt đầu từ phần tử thứ nhất. So từ từ từng cặp với nhau
 function bubbleSort(array) {
   for (let i = array.length - 1; i > 0; i--) {

@@ -1,4 +1,4 @@
-// NOTE: THE BEST BASIC SORT, thích hợp với các small lists and mostly sorted lists
+// THE BEST BASIC SORT, thích hợp với các small lists and mostly sorted lists
 // Bắt đầu từ phần tử thứ 2, so sánh với phần tử đứng trước nó.
 function insertionSort(array) {
   let temp;
