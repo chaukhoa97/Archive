@@ -226,16 +226,6 @@
 			]
 		},
 		{
-			"path": "src/AntDesign/Menu.jsx",
-			"bookmarks": [
-				{
-					"line": 8,
-					"column": 46,
-					"label": "Router: Active menu item"
-				}
-			]
-		},
-		{
 			"path": "TypeScript/basic.ts",
 			"bookmarks": [
 				{

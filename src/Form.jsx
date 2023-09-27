@@ -22,19 +22,19 @@ export default function SignUpForm() {
       {errors.acceptTerms && <span>Bro chưa accept kìa</span>}
       {/* //* Form Controller: Dùng để control các external UI components: MUI, Ant Design...: https://react-hook-form.com/docs/usecontroller/controller  */}
       <Controller
-        //* Form controller 1: UNIQUE `name` ("email") and `rules` are similar to `Form main 3`
+        //* Form Controller 1: UNIQUE `name` ("email") and `rules` are similar to `Form basic 2`
         name="confirmPassword"
         rules={{
           required: true,
           // watch('password') -> Theo dõi value của input có name là "password"
           validate: (value) => value === watch('password'),
         }}
-        //* Form controller 2: `control = {control}` is a must, Optional when using `FormProvider`
+        //* Form Controller 2: `control = {control}` is a must, Optional when using `FormProvider`
         control={control}
         render={({ field }) => (
           <Input
             {...field}
-            //* Form controller 3: Customize values dc nhập vào trước khi RHF xử lý.
+            //* Form Controller 3: Customize input value trước khi RHF xử lý.
             onChange={(e) => field.onChange(parseInt(e.target.value))}
           />
         )}
